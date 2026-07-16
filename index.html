@@ -28,7 +28,7 @@
   .hero-inner{flex:1;display:flex;flex-direction:column;justify-content:center;padding:60px 0 50px;max-width:880px;}
   .eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:30px;opacity:0;animation:rise .9s .1s forwards;}
   .eyebrow::before{content:"";width:38px;height:1px;background:var(--gold-soft);}
-  .hero-bg h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.8rem,7vw,5.8rem);line-height:1;letter-spacing:-.01em;margin-bottom:30px;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.4);}
+  .hero-bg h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.4rem,5.8vw,4.8rem);line-height:1.02;letter-spacing:-.01em;margin-bottom:28px;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.4);}
   .hero-bg h1 .it{font-style:italic;color:var(--gold-soft);}
   .hero-bg h1 span{display:block;opacity:0;animation:rise 1s forwards;}
   .hero-bg h1 span:nth-child(1){animation-delay:.2s} .hero-bg h1 span:nth-child(2){animation-delay:.32s} .hero-bg h1 span:nth-child(3){animation-delay:.44s}
@@ -49,21 +49,21 @@
   @media(max-width:780px){.hero-stats-grid{grid-template-columns:repeat(2,1fr);gap:22px;}}
 
   /* ========== Testimonial band ========== */
-  .testimonial-band{background:var(--bg-deep);color:#efe7da;padding:70px 0;text-align:center;position:relative;overflow:hidden;}
+  .testimonial-band{background:var(--bg-deep);color:#efe7da;padding:60px 0;text-align:center;position:relative;overflow:hidden;}
   .testimonial-band::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(201,161,74,.15),transparent 60%);pointer-events:none;}
-  .testimonial-band .mark{font-family:'Fraunces',serif;font-style:italic;font-size:5rem;color:var(--gold-soft);opacity:.4;line-height:.5;margin-bottom:20px;display:block;}
-  .testimonial-band q{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(1.6rem,3.5vw,2.4rem);line-height:1.3;display:block;max-width:24ch;margin:0 auto 22px;}
+  .testimonial-band .mark{font-family:'Fraunces',serif;font-style:italic;font-size:4rem;color:var(--gold-soft);opacity:.4;line-height:.5;margin-bottom:16px;display:block;}
+  .testimonial-band q{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(1.3rem,2.8vw,2rem);line-height:1.3;display:block;max-width:24ch;margin:0 auto 22px;}
   .testimonial-band q::before,.testimonial-band q::after{content:"";}
   .testimonial-band .who{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);}
 
   .gallery-more{max-width:980px;margin:60px auto 0;}
-  .gallery-more .carousel{position:relative;border-radius:18px;overflow:hidden;background:#1a1612;box-shadow:0 24px 70px rgba(43,33,26,.22);}
-  .gallery-more .carousel-slide{aspect-ratio:16/10;}
-  @media(max-width:600px){.gallery-more .carousel-slide{aspect-ratio:4/3;}}
+  .gallery-more .carousel{position:relative;border-radius:18px;overflow:hidden;background:#0f0d0b;box-shadow:0 24px 70px rgba(43,33,26,.22);}
+  .gallery-more .carousel-slide{aspect-ratio:16/10;background-size:contain !important;background-repeat:no-repeat;background-position:center;}
+  @media(max-width:600px){.gallery-more .carousel-slide{aspect-ratio:1/1;}}
 
   /* ========== Section base ========== */
-  .sec{padding:90px 0;}
-  .sec-h{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin-bottom:18px;}
+  .sec{padding:80px 0;}
+  .sec-h{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.15;margin-bottom:18px;}
   .sec-h .it{font-style:italic;color:var(--clay);}
   .sec-eyebrow{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--clay);margin-bottom:18px;display:inline-flex;align-items:center;gap:12px;}
   .sec-eyebrow::before{content:"";width:32px;height:1px;background:var(--clay);}
@@ -72,9 +72,9 @@
   /* ========== Story + Video (side by side) ========== */
   .story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center;}
   @media(max-width:880px){.story{grid-template-columns:1fr;}}
-  .story-text p{color:#4f4236;margin-bottom:14px;font-size:1.05rem;line-height:1.75;}
-  .story-text p.poetry{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.2rem;color:#3a2e24;}
-  .story-text .closing{font-family:'Fraunces',serif;font-size:1.3rem;font-style:italic;color:var(--clay);margin-top:30px;line-height:1.4;}
+  .story-text p{color:#4f4236;margin-bottom:14px;font-size:1rem;line-height:1.7;}
+  .story-text p.poetry{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.1rem;color:#3a2e24;}
+  .story-text .closing{font-family:'Fraunces',serif;font-size:1.2rem;font-style:italic;color:var(--clay);margin-top:26px;line-height:1.4;}
   .video-wrap{position:relative;aspect-ratio:9/16;max-height:640px;margin:0 auto;width:100%;max-width:380px;border-radius:18px;overflow:hidden;box-shadow:0 24px 70px rgba(43,33,26,.25);background:#0f0d0b;}
   .video-wrap iframe,.video-wrap video{width:100%;height:100%;border:0;display:block;}
   .video-placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#8a7d6e;padding:30px;}
@@ -88,7 +88,7 @@
   .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;grid-auto-rows:210px;}
   .gallery figure{overflow:hidden;border-radius:16px;position:relative;box-shadow:0 14px 40px rgba(43,33,26,.16);border:1px solid rgba(255,255,255,.5);transition:transform .6s ease,box-shadow .6s ease;background:linear-gradient(135deg,#e3d2bf,#c8835f);}
   .gallery figure::after{content:"";position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1px rgba(43,33,26,.06);pointer-events:none;}
-  .gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s ease;}
+  .gallery img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform 1.2s ease;}
   .gallery figure:hover{transform:translateY(-4px);box-shadow:0 22px 56px rgba(43,33,26,.22);}
   .gallery figure:hover img{transform:scale(1.05);}
   .gallery .tall{grid-row:span 2;} .gallery .wide{grid-column:span 2;}
@@ -124,9 +124,9 @@
 
   /* ========== Carousel (sanctuary) ========== */
   .sanctuary{background:var(--bg-soft);}
-  .carousel{position:relative;border-radius:18px;overflow:hidden;background:#1a1612;box-shadow:0 24px 70px rgba(43,33,26,.22);max-width:980px;margin:50px auto 0;}
+  .carousel{position:relative;border-radius:18px;overflow:hidden;background:#0f0d0b;box-shadow:0 24px 70px rgba(43,33,26,.22);max-width:980px;margin:50px auto 0;}
   .carousel-track{display:flex;transition:transform .65s cubic-bezier(.2,.7,.3,1);}
-  .carousel-slide{flex:0 0 100%;aspect-ratio:16/10;background-size:cover;background-position:center;background-color:#3a2e24;}
+  .carousel-slide{flex:0 0 100%;aspect-ratio:16/10;background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#0f0d0b;}
   .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(15,13,11,.5);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1.4rem;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(6px);transition:background .3s;}
   .carousel-btn:hover{background:rgba(15,13,11,.8);}
   .carousel-btn.prev{left:18px;} .carousel-btn.next{right:18px;}
@@ -193,6 +193,10 @@
   .fac-more{max-height:0;overflow:hidden;transition:max-height .5s ease;}
   .fac-link{display:inline-block;margin-top:14px;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);text-decoration:none;border-bottom:1px solid var(--clay);padding-bottom:2px;transition:opacity .3s;}
   .fac-link:hover{opacity:.7;}
+  .fac-social{display:flex;gap:10px;margin-top:14px;align-items:center;flex-wrap:wrap;}
+  .fac-ig{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:rgba(164,94,62,.1);color:var(--clay);text-decoration:none;transition:background .3s,transform .3s;}
+  .fac-ig:hover{background:var(--clay);color:#fff;transform:translateY(-2px);}
+  .fac-ig svg{width:16px;height:16px;}
 
   /* ========== Rooms / pricing ========== */
   .rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px;}
@@ -208,7 +212,8 @@
   .room-price span{font-size:1.1rem;color:var(--clay);align-self:flex-start;margin-top:6px;}
   .room-price small{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#8a7d6e;margin-left:10px;font-weight:400;font-family:'Jost',sans-serif;}
   .room-anchor{font-family:'Fraunces',serif;font-size:1.05rem;color:#a89681;text-decoration:line-through;text-decoration-color:rgba(164,94,62,.6);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
-  .room-anchor .save{font-family:'Jost',sans-serif;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);background:rgba(201,161,74,.14);padding:4px 10px;border-radius:20px;text-decoration:none;}
+  .room-anchor .save{font-family:'Jost',sans-serif;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);background:rgba(201,161,74,.14);padding:4px 10px;border-radius:20px;text-decoration:none;display:inline-block;}
+  .room-anchor .save,.room-anchor .save *{text-decoration:none !important;}
   .room-toggle{background:none;border:none;font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);padding:8px 0;cursor:pointer;text-align:left;display:flex;align-items:center;gap:8px;margin-bottom:8px;}
   .room-toggle .chev{transition:transform .3s;display:inline-block;}
   .room-toggle[aria-expanded="true"] .chev{transform:rotate(180deg);}
@@ -529,7 +534,7 @@
     <div class="fac-grid">
       <!-- Shannon -->
       <div class="fac-card">
-        <div class="fac-photo" style="background-image:url('fac-shannon.webp');"></div>
+        <div class="fac-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784193479/Shannon_headshot_idpfgu.jpg');"></div>
         <div class="fac-body">
           <div class="fac-role">Cohost of Portals</div>
           <h3 class="fac-name">Shannon Brown</h3>
@@ -539,7 +544,12 @@
             <button class="fac-toggle" aria-expanded="false">Read more <span class="chev">&darr;</span></button>
             <div class="fac-more">
               <p style="padding-top:10px;">A multi‑degree scholar with Fine Arts, Community Arts Education, and Psychology degrees. Trauma‑informed facilitator trained in 500hr Art‑Psychotherapy, Reiki, Somatic Integration, Shamanic Healing, Sound Therapy, and more.</p>
-              <a href="https://shannonbrownhealingarts.ca/" target="_blank" rel="noopener" class="fac-link">Shannon's website &rarr;</a>
+              <div class="fac-social">
+                <a href="https://shannonbrownhealingarts.ca/" target="_blank" rel="noopener" class="fac-link">Website &rarr;</a>
+                <a href="https://www.instagram.com/visionary_shannon/" target="_blank" rel="noopener" class="fac-ig" aria-label="Shannon on Instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -547,7 +557,7 @@
 
       <!-- Debbie -->
       <div class="fac-card">
-        <div class="fac-photo" style="background-image:url('fac-debbie.webp');"></div>
+        <div class="fac-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784193476/Debbie_Fang_mptnbd.jpg');"></div>
         <div class="fac-body">
           <div class="fac-role">Cohost of Portals</div>
           <h3 class="fac-name">Debbie Fang</h3>
@@ -557,6 +567,11 @@
             <button class="fac-toggle" aria-expanded="false">Read more <span class="chev">&darr;</span></button>
             <div class="fac-more">
               <p style="padding-top:10px;">Debbie brings her experience to co‑create exceptional experiences for guests at Portals, and shares music that brings people together — bridging the spiritual and the material realm.</p>
+              <div class="fac-social">
+                <a href="https://www.instagram.com/debbies.stufff/" target="_blank" rel="noopener" class="fac-ig" aria-label="Debbie on Instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -564,7 +579,7 @@
 
       <!-- Pamela -->
       <div class="fac-card">
-        <div class="fac-photo" style="background-image:url('fac-pamela.webp');"></div>
+        <div class="fac-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784193478/Pamela_Dharani_j1q4e0.png');"></div>
         <div class="fac-body">
           <div class="fac-role">Medicine Woman</div>
           <h3 class="fac-name">Pamela Dharani</h3>
@@ -580,6 +595,7 @@
         </div>
       </div>
     </div>
+    <p style="text-align:center;margin-top:36px;font-family:'Fraunces',serif;font-style:italic;color:#6a5b4d;font-size:1rem;">More sacred facilitators to be announced &mdash; join the waitlist to be the first to meet them.</p>
   </div>
 </section>
 
@@ -595,11 +611,13 @@
         <p>A snack &amp; tea bar is open at all times.</p>
       </div>
       <div class="info-card">
+        <div class="food-photo" style="aspect-ratio:4/3;border-radius:12px;overflow:hidden;margin-bottom:22px;background:linear-gradient(135deg,#e3d2bf,#c8835f);background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1000/v1784194172/DSC02740_dwl0bs.jpg');background-size:cover;background-position:center;"></div>
         <div class="icon">✨</div>
         <h3 class="serif">Preparation <span class="it">&amp; integration</span></h3>
-        <p style="font-family:'Fraunces',serif;font-style:italic;color:var(--clay);font-size:1.1rem;margin-bottom:14px;">This is what makes our retreat unique.</p>
-        <p><strong>Before you arrive:</strong> a one-hour group preparation call to answer any questions you have, so you feel prepared and safe &mdash; and can set your intentions properly. We don't just bring you into ceremony and explain things on the day. You arrive already held.</p>
-        <p style="margin-top:14px;"><strong>After you leave:</strong> integration sessions so you can bring what you've experienced back into your real life. Because the retreat is where you remember. Integration is where the changes actually land.</p>
+        <p style="font-family:'Fraunces',serif;font-style:italic;color:var(--clay);font-size:1.1rem;margin-bottom:14px;">Peace of mind, before and after.</p>
+        <p><strong>Before you arrive:</strong> a one-hour preparation call walks you through what to expect, how to prepare, what to pack, and how to set your intentions. You arrive already held.</p>
+        <p style="margin-top:14px;"><strong>After ceremony:</strong> we begin in complete silence, then guide you through somatic integration &mdash; so your work has space to land.</p>
+        <p style="margin-top:14px;"><strong>After the retreat:</strong> one post-retreat integration call, because the real work happens when you return home. This is where the changes take root.</p>
       </div>
     </div>
   </div>
