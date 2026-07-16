@@ -62,38 +62,38 @@
   @media(max-width:600px){.gallery-more .carousel-slide{aspect-ratio:4/3;}}
 
   /* ========== Testimonials carousel ========== */
-  .testimonials-carousel{position:relative;max-width:820px;margin:50px auto 0;}
+  .testimonials-carousel{position:relative;max-width:680px;margin:40px auto 0;}
   .testimonials-track{display:flex;transition:transform .65s cubic-bezier(.2,.7,.3,1);}
-  .testimonial-slide{flex:0 0 100%;padding:44px clamp(24px,4vw,54px);background:#fff;border-radius:18px;box-shadow:0 12px 40px rgba(43,33,26,.12);border:1px solid rgba(43,33,26,.06);}
-  .t-header{display:flex;align-items:center;gap:16px;margin-bottom:22px;}
-  .t-avatar{flex:none;width:64px;height:64px;border-radius:50%;background-color:#e3d2bf;background-size:cover;background-position:center;box-shadow:0 6px 20px rgba(43,33,26,.15);border:2px solid rgba(255,255,255,.9);}
-  .t-avatar.t-initial{background:linear-gradient(135deg,#c8835f,#a45e3e);display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:1.6rem;font-weight:400;}
+  .testimonial-slide{flex:0 0 100%;padding:32px clamp(20px,3vw,40px);background:#fff;border-radius:14px;box-shadow:0 10px 32px rgba(43,33,26,.1);border:1px solid rgba(43,33,26,.06);}
+  .t-header{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+  .t-avatar{flex:none;width:56px;height:56px;border-radius:50%;background-color:#e3d2bf;background-size:cover;background-position:center;box-shadow:0 5px 16px rgba(43,33,26,.15);border:2px solid rgba(255,255,255,.9);}
+  .t-avatar.t-initial{background:linear-gradient(135deg,#c8835f,#a45e3e);display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:1.4rem;font-weight:400;}
   .t-avatar.t-initial::before{content:attr(data-initial);}
   .t-who{flex:1;min-width:0;}
-  .t-name{font-family:'Fraunces',serif;font-weight:400;font-size:1.2rem;color:#2b211a;line-height:1.1;}
-  .t-role{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin-top:4px;line-height:1.4;}
-  .t-quote{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(1.25rem,2.4vw,1.7rem);line-height:1.35;color:#3a2e24;margin-bottom:20px;}
-  .t-body p{color:#4f4236;font-size:.98rem;line-height:1.7;margin-bottom:12px;}
+  .t-name{font-family:'Fraunces',serif;font-weight:400;font-size:1.1rem;color:#2b211a;line-height:1.1;}
+  .t-role{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-top:3px;line-height:1.4;}
+  .t-quote{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(1.1rem,1.9vw,1.35rem);line-height:1.4;color:#3a2e24;margin-bottom:16px;}
+  .t-body p{color:#4f4236;font-size:.94rem;line-height:1.65;margin-bottom:10px;}
   .t-body p:last-child{margin-bottom:0;}
-  .t-body.t-collapsed{max-height:100px;overflow:hidden;position:relative;mask-image:linear-gradient(180deg,#000 60%,transparent);-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);}
+  .t-body.t-collapsed{max-height:80px;overflow:hidden;position:relative;mask-image:linear-gradient(180deg,#000 55%,transparent);-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);}
   .t-body.t-collapsed.t-open{max-height:none;mask-image:none;-webkit-mask-image:none;}
-  .t-toggle{background:none;border:none;padding:14px 0 0;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);cursor:pointer;display:flex;align-items:center;gap:8px;text-align:left;margin-top:6px;}
+  .t-toggle{background:none;border:none;padding:12px 0 0;font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--clay);cursor:pointer;display:flex;align-items:center;gap:8px;text-align:left;margin-top:4px;}
   .t-toggle .chev{transition:transform .3s;display:inline-block;}
   .t-toggle[aria-expanded="true"] .chev{transform:rotate(180deg);}
-  .testimonials-carousel .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(15,13,11,.85);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:1.3rem;cursor:pointer;display:grid;place-items:center;transition:background .3s;z-index:2;}
+  .testimonials-carousel .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(15,13,11,.85);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:1.2rem;cursor:pointer;display:grid;place-items:center;transition:background .3s;z-index:2;}
   .testimonials-carousel .carousel-btn:hover{background:var(--bg-deep);}
-  .testimonials-carousel .carousel-btn.prev{left:-22px;}
-  .testimonials-carousel .carousel-btn.next{right:-22px;}
-  .testimonials-carousel .carousel-dots{position:relative;bottom:auto;left:0;right:0;display:flex;justify-content:center;gap:10px;margin-top:26px;}
-  .testimonials-carousel .carousel-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(43,33,26,.25);cursor:pointer;padding:0;transition:background .3s,width .3s;}
-  .testimonials-carousel .carousel-dots button.active{background:var(--clay);width:24px;border-radius:4px;}
+  .testimonials-carousel .carousel-btn.prev{left:-20px;}
+  .testimonials-carousel .carousel-btn.next{right:-20px;}
+  .testimonials-carousel .carousel-dots{position:relative;bottom:auto;left:0;right:0;display:flex;justify-content:center;gap:8px;margin-top:22px;flex-wrap:wrap;}
+  .testimonials-carousel .carousel-dots button{width:7px;height:7px;border-radius:50%;border:none;background:rgba(43,33,26,.25);cursor:pointer;padding:0;transition:background .3s,width .3s;}
+  .testimonials-carousel .carousel-dots button.active{background:var(--clay);width:22px;border-radius:4px;}
   @media(max-width:640px){
     .testimonials-carousel .carousel-btn.prev{left:6px;}
     .testimonials-carousel .carousel-btn.next{right:6px;}
-    .testimonials-carousel .carousel-btn{width:36px;height:36px;font-size:1.1rem;background:rgba(15,13,11,.7);}
+    .testimonials-carousel .carousel-btn{width:34px;height:34px;font-size:1rem;background:rgba(15,13,11,.7);}
     .t-header{gap:12px;}
-    .t-avatar{width:52px;height:52px;}
-    .t-avatar.t-initial{font-size:1.3rem;}
+    .t-avatar{width:50px;height:50px;}
+    .t-avatar.t-initial{font-size:1.2rem;}
   }
 
   /* ========== Section base ========== */
@@ -310,9 +310,9 @@
   .envelope::after{content:"";position:absolute;inset:0;border-radius:8px;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,248,225,.65) 48%,transparent 62%);background-size:250% 250%;background-position:120% 0;animation:shimmer 2.6s 2.4s ease-in-out infinite;mix-blend-mode:screen;}
 
   /* sticky CTA */
-  .sticky-cta{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);z-index:50;background:var(--bg-deep);color:#e9dcc6;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;padding:16px 32px;border-radius:40px;box-shadow:0 12px 40px rgba(15,13,11,.3);transition:transform .5s cubic-bezier(.2,.7,.3,1),background .3s;opacity:.97;}
+  .sticky-cta{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);z-index:50;background:rgba(15,13,11,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;padding:16px 32px;border-radius:40px;box-shadow:0 12px 40px rgba(15,13,11,.5),0 0 0 1px rgba(255,255,255,.08);transition:transform .5s cubic-bezier(.2,.7,.3,1),background .3s;}
   .sticky-cta.show{transform:translateX(-50%) translateY(0);}
-  .sticky-cta:hover{background:#1c1814;}
+  .sticky-cta:hover{background:#0f0d0b;color:var(--gold-soft);}
   @media(max-width:600px){.sticky-cta{font-size:.68rem;padding:14px 26px;letter-spacing:.18em;}}
 
   footer{padding:50px 0 90px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.55;}
@@ -406,7 +406,7 @@
     <section class="gallery">
     <figure class="tall wide"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784194179/DSC02707_mnaskh.jpg" alt="Sisterhood at Portals" loading="lazy"></figure>
     <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189605/P1377864_ywadcz.jpg" alt="Ceremony" loading="lazy"></figure>
-    <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189439/e9dd6339-9d1b-40d0-9f47-892f16305bab_vgw4by.jpg" alt="Reflection" loading="lazy"></figure>
+    <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189442/IMG_1103_oseo8d.jpg" alt="Portrait" loading="lazy"></figure>
     <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189561/IMG_1589_plsqhw.jpg" alt="Movement" loading="lazy"></figure>
     <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189564/IMG_1655_soh0nd.jpg" alt="Presence" loading="lazy"></figure>
     <figure class="wide"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189476/IMG_4126_ygg4jm.jpg" alt="Wisdom" loading="lazy"></figure>
@@ -672,7 +672,7 @@
         <!-- Jenny -->
         <div class="testimonial-slide">
           <div class="t-header">
-            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_200/v1784214516/jenny_headshot_qjd3gn.png');"></div>
+            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/c_thumb,g_face,z_0.7,w_240,h_240,f_auto,q_auto/v1784214516/jenny_headshot_qjd3gn.png');"></div>
             <div class="t-who">
               <div class="t-name">Jenny</div>
               <div class="t-role">Holistic Trainer &middot; Vancouver, Canada</div>
@@ -687,7 +687,7 @@
         <!-- Karen -->
         <div class="testimonial-slide">
           <div class="t-header">
-            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_200/v1784233753/P1377817_cfn7xa.jpg');"></div>
+            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/c_thumb,g_face,z_0.7,w_240,h_240,f_auto,q_auto/v1784233753/P1377817_cfn7xa.jpg');"></div>
             <div class="t-who">
               <div class="t-name">Karen</div>
               <div class="t-role">Mom of 4 &middot; Now traveling by van &middot; Colorado, USA</div>
@@ -706,7 +706,7 @@
         <!-- Kate -->
         <div class="testimonial-slide">
           <div class="t-header">
-            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_200/v1784214288/IMG_6844_jaf7pt.jpg');"></div>
+            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/c_thumb,g_face,z_0.7,w_240,h_240,f_auto,q_auto/v1784214288/IMG_6844_jaf7pt.jpg');"></div>
             <div class="t-who">
               <div class="t-name">Kate</div>
               <div class="t-role">Energy Healer &middot; Clinical Hypnotherapist &middot; New York, USA</div>
@@ -740,7 +740,7 @@
         <!-- Diana -->
         <div class="testimonial-slide">
           <div class="t-header">
-            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_200/v1784234096/WhatsApp_Image_2026-07-16_at_15.13.59_xad3wb.jpg');"></div>
+            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/c_thumb,g_face,z_0.7,w_240,h_240,f_auto,q_auto/v1784234096/WhatsApp_Image_2026-07-16_at_15.13.59_xad3wb.jpg');"></div>
             <div class="t-who">
               <div class="t-name">Diana</div>
               <div class="t-role">Toronto, Canada</div>
@@ -775,7 +775,7 @@
         <!-- Ciara -->
         <div class="testimonial-slide">
           <div class="t-header">
-            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_200/v1784128647/8a552e28-cd5e-4e42-8e79-b3cf63bbb82d_ozzqxw.jpg');"></div>
+            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/c_thumb,g_face,z_0.7,w_240,h_240,f_auto,q_auto/v1784128647/8a552e28-cd5e-4e42-8e79-b3cf63bbb82d_ozzqxw.jpg');"></div>
             <div class="t-who">
               <div class="t-name">Ciara</div>
               <div class="t-role">Founder of The Unity Studio &middot; Songwriter &middot; Toronto, Canada</div>
