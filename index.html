@@ -58,8 +58,43 @@
 
   .gallery-more{max-width:980px;margin:60px auto 0;}
   .gallery-more .carousel{position:relative;border-radius:18px;overflow:hidden;background:#0f0d0b;box-shadow:0 24px 70px rgba(43,33,26,.22);}
-  .gallery-more .carousel-slide{aspect-ratio:16/10;background-size:contain !important;background-repeat:no-repeat;background-position:center;}
-  @media(max-width:600px){.gallery-more .carousel-slide{aspect-ratio:1/1;}}
+  .gallery-more .carousel-slide{aspect-ratio:16/10;background-size:cover !important;background-position:center 30%;background-repeat:no-repeat;}
+  @media(max-width:600px){.gallery-more .carousel-slide{aspect-ratio:4/3;}}
+
+  /* ========== Testimonials carousel ========== */
+  .testimonials-carousel{position:relative;max-width:820px;margin:50px auto 0;}
+  .testimonials-track{display:flex;transition:transform .65s cubic-bezier(.2,.7,.3,1);}
+  .testimonial-slide{flex:0 0 100%;padding:44px clamp(24px,4vw,54px);background:#fff;border-radius:18px;box-shadow:0 12px 40px rgba(43,33,26,.12);border:1px solid rgba(43,33,26,.06);}
+  .t-header{display:flex;align-items:center;gap:16px;margin-bottom:22px;}
+  .t-avatar{flex:none;width:64px;height:64px;border-radius:50%;background-color:#e3d2bf;background-size:cover;background-position:center;box-shadow:0 6px 20px rgba(43,33,26,.15);border:2px solid rgba(255,255,255,.9);}
+  .t-avatar.t-initial{background:linear-gradient(135deg,#c8835f,#a45e3e);display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:1.6rem;font-weight:400;}
+  .t-avatar.t-initial::before{content:attr(data-initial);}
+  .t-who{flex:1;min-width:0;}
+  .t-name{font-family:'Fraunces',serif;font-weight:400;font-size:1.2rem;color:#2b211a;line-height:1.1;}
+  .t-role{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin-top:4px;line-height:1.4;}
+  .t-quote{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(1.25rem,2.4vw,1.7rem);line-height:1.35;color:#3a2e24;margin-bottom:20px;}
+  .t-body p{color:#4f4236;font-size:.98rem;line-height:1.7;margin-bottom:12px;}
+  .t-body p:last-child{margin-bottom:0;}
+  .t-body.t-collapsed{max-height:100px;overflow:hidden;position:relative;mask-image:linear-gradient(180deg,#000 60%,transparent);-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);}
+  .t-body.t-collapsed.t-open{max-height:none;mask-image:none;-webkit-mask-image:none;}
+  .t-toggle{background:none;border:none;padding:14px 0 0;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);cursor:pointer;display:flex;align-items:center;gap:8px;text-align:left;margin-top:6px;}
+  .t-toggle .chev{transition:transform .3s;display:inline-block;}
+  .t-toggle[aria-expanded="true"] .chev{transform:rotate(180deg);}
+  .testimonials-carousel .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(15,13,11,.85);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:1.3rem;cursor:pointer;display:grid;place-items:center;transition:background .3s;z-index:2;}
+  .testimonials-carousel .carousel-btn:hover{background:var(--bg-deep);}
+  .testimonials-carousel .carousel-btn.prev{left:-22px;}
+  .testimonials-carousel .carousel-btn.next{right:-22px;}
+  .testimonials-carousel .carousel-dots{position:relative;bottom:auto;left:0;right:0;display:flex;justify-content:center;gap:10px;margin-top:26px;}
+  .testimonials-carousel .carousel-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(43,33,26,.25);cursor:pointer;padding:0;transition:background .3s,width .3s;}
+  .testimonials-carousel .carousel-dots button.active{background:var(--clay);width:24px;border-radius:4px;}
+  @media(max-width:640px){
+    .testimonials-carousel .carousel-btn.prev{left:6px;}
+    .testimonials-carousel .carousel-btn.next{right:6px;}
+    .testimonials-carousel .carousel-btn{width:36px;height:36px;font-size:1.1rem;background:rgba(15,13,11,.7);}
+    .t-header{gap:12px;}
+    .t-avatar{width:52px;height:52px;}
+    .t-avatar.t-initial{font-size:1.3rem;}
+  }
 
   /* ========== Section base ========== */
   .sec{padding:80px 0;}
@@ -85,7 +120,7 @@
   /* ========== Gallery preview ========== */
   .gallery-quote{text-align:center;font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.4rem,2.6vw,1.9rem);color:#3a2e24;max-width:30ch;margin:0 auto 40px;line-height:1.4;}
   .gallery-quote .who{display:block;font-family:'Jost',sans-serif;font-style:normal;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);margin-top:14px;}
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;grid-auto-rows:210px;}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-flow:dense;gap:18px;grid-auto-rows:210px;}
   .gallery figure{overflow:hidden;border-radius:16px;position:relative;box-shadow:0 14px 40px rgba(43,33,26,.16);border:1px solid rgba(255,255,255,.5);transition:transform .6s ease,box-shadow .6s ease;background:linear-gradient(135deg,#e3d2bf,#c8835f);}
   .gallery figure::after{content:"";position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1px rgba(43,33,26,.06);pointer-events:none;}
   .gallery img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform 1.2s ease;}
@@ -126,7 +161,7 @@
   .sanctuary{background:var(--bg-soft);}
   .carousel{position:relative;border-radius:18px;overflow:hidden;background:#0f0d0b;box-shadow:0 24px 70px rgba(43,33,26,.22);max-width:980px;margin:50px auto 0;}
   .carousel-track{display:flex;transition:transform .65s cubic-bezier(.2,.7,.3,1);}
-  .carousel-slide{flex:0 0 100%;aspect-ratio:16/10;background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#0f0d0b;}
+  .carousel-slide{flex:0 0 100%;aspect-ratio:16/10;background-size:cover;background-position:center 30%;background-repeat:no-repeat;background-color:#0f0d0b;}
   .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(15,13,11,.5);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1.4rem;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(6px);transition:background .3s;}
   .carousel-btn:hover{background:rgba(15,13,11,.8);}
   .carousel-btn.prev{left:18px;} .carousel-btn.next{right:18px;}
@@ -211,9 +246,9 @@
   .room-price{font-family:'Fraunces',serif;font-weight:400;font-size:2.1rem;color:#2b211a;line-height:1;margin-bottom:6px;display:flex;align-items:baseline;gap:4px;}
   .room-price span{font-size:1.1rem;color:var(--clay);align-self:flex-start;margin-top:6px;}
   .room-price small{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#8a7d6e;margin-left:10px;font-weight:400;font-family:'Jost',sans-serif;}
-  .room-anchor{font-family:'Fraunces',serif;font-size:1.05rem;color:#a89681;text-decoration:line-through;text-decoration-color:rgba(164,94,62,.6);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .room-anchor{font-family:'Fraunces',serif;font-size:1.05rem;color:#a89681;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .room-anchor > span:first-child{text-decoration:line-through;text-decoration-color:rgba(164,94,62,.6);}
   .room-anchor .save{font-family:'Jost',sans-serif;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);background:rgba(201,161,74,.14);padding:4px 10px;border-radius:20px;text-decoration:none;display:inline-block;}
-  .room-anchor .save,.room-anchor .save *{text-decoration:none !important;}
   .room-toggle{background:none;border:none;font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);padding:8px 0;cursor:pointer;text-align:left;display:flex;align-items:center;gap:8px;margin-bottom:8px;}
   .room-toggle .chev{transition:transform .3s;display:inline-block;}
   .room-toggle[aria-expanded="true"] .chev{transform:rotate(180deg);}
@@ -372,10 +407,10 @@
     <figure class="tall wide"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784194179/DSC02707_mnaskh.jpg" alt="Sisterhood at Portals" loading="lazy"></figure>
     <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189605/P1377864_ywadcz.jpg" alt="Ceremony" loading="lazy"></figure>
     <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189439/e9dd6339-9d1b-40d0-9f47-892f16305bab_vgw4by.jpg" alt="Reflection" loading="lazy"></figure>
-    <figure class="tall"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1000/v1784189561/IMG_1589_plsqhw.jpg" alt="Movement" loading="lazy"></figure>
+    <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189561/IMG_1589_plsqhw.jpg" alt="Movement" loading="lazy"></figure>
     <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189564/IMG_1655_soh0nd.jpg" alt="Presence" loading="lazy"></figure>
-    <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189427/2e31d58d-4081-469e-9bdb-51d8836b2977_1_yn8ojx.jpg" alt="Circle" loading="lazy"></figure>
     <figure class="wide"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189476/IMG_4126_ygg4jm.jpg" alt="Wisdom" loading="lazy"></figure>
+    <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189427/2e31d58d-4081-469e-9bdb-51d8836b2977_1_yn8ojx.jpg" alt="Circle" loading="lazy"></figure>
     <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189616/20260101_125925_oauibc.jpg" alt="Together" loading="lazy"></figure>
   </section>
 
@@ -434,7 +469,7 @@
     <div class="familiar-grid">
       <div class="familiar-text">
         <span class="sec-eyebrow">Sound familiar?</span>
-        <h2 class="sec-h serif">Life is good.<br>And still, something is <span class="it">calling you forward.</span></h2>
+        <h2 class="sec-h serif">You've built a good life.<br>And something in you is <span class="it">ready for the next one.</span></h2>
         <p>You appreciate what you've built. And you sense there's a next chapter waiting &mdash; one that's more aligned, more alive, more you.</p>
         <p style="margin-top:10px;font-family:'Fraunces',serif;font-style:italic;color:var(--clay);font-size:1.05rem;">This retreat is for the woman ready to expand.</p>
       </div>
@@ -447,7 +482,7 @@
         <li>You crave a circle of women who see you, and a space where you don't have to hold it all together for a change.</li>
       </ul>
     </div>
-    <p style="margin-top:70px;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.2rem,2.4vw,1.7rem);color:#3a2e24;max-width:44ch;margin-left:auto;margin-right:auto;line-height:1.5;">Clarity doesn't come from consuming more how-tos. It comes from creating the space to just <em>be</em>.</p>
+    <p style="margin-top:70px;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.2rem,2.4vw,1.7rem);color:#3a2e24;max-width:44ch;margin-left:auto;margin-right:auto;line-height:1.5;">Clarity doesn't come from consuming more. It comes from making space to release what's blocking it.</p>
   </div>
 </section>
 
@@ -489,7 +524,6 @@
         <div style="aspect-ratio:3/4;border-radius:10px;background:linear-gradient(135deg,#3a2e24,#8a5a3e) center/cover no-repeat;background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784189602/P1377717_bel8jd.jpg');"></div>
         <div style="aspect-ratio:3/4;border-radius:10px;background:linear-gradient(135deg,#3a2e24,#8a5a3e) center/cover no-repeat;background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784189495/IMG_7810_caongq.jpg');"></div>
       </div>
-      <p style="text-align:center;margin-top:22px;font-family:'Fraunces',serif;font-style:italic;color:var(--gold-soft);opacity:.85;font-size:.98rem;">Past women, marking their chapter.</p>
     </div>
   </div>
 </section>
@@ -501,7 +535,6 @@
       <span class="sec-eyebrow">Our sanctuary</span>
       <h2 class="sec-h serif">A secluded paradise <span class="it">in the Mayan jungle.</span></h2>
       <p class="sec-sub" style="margin:0 auto 8px;">📍 Tulum, Mexico</p>
-      <p class="sec-sub serif" style="margin:0 auto 6px;font-style:italic;color:#5a4c40;">Held in the heart of the jungle, where the world's weight falls away and you remember who you are.</p>
       <p class="sec-sub" style="margin:0 auto;font-size:.95rem;color:#7a6a58;">In nature, with every comfort of a modern sanctuary.</p>
     </div>
     <div class="carousel" id="carousel">
@@ -515,6 +548,7 @@
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784183857/bathroom_2_dsu4ca.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784183853/massage_fgsxb8.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784194963/Room_8_-_04_wk24n0.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784194172/DSC02740_dwl0bs.jpg')"></div>
       </div>
       <button class="carousel-btn prev" id="carPrev" aria-label="Previous">&#8249;</button>
       <button class="carousel-btn next" id="carNext" aria-label="Next">&#8250;</button>
@@ -527,7 +561,7 @@
 <section class="sec facilitators">
   <div class="wrap">
     <div style="text-align:center;">
-      <span class="sec-eyebrow">Meet the facilitators</span>
+      <span class="sec-eyebrow">Meet the hosts &amp; facilitators</span>
       <h2 class="sec-h serif">The women <span class="it">holding the space.</span></h2>
       <p class="sec-sub" style="margin:0 auto;">You're in experienced hands. Every ceremony, every circle, every moment held with care and reverence.</p>
     </div>
@@ -538,7 +572,7 @@
         <div class="fac-body">
           <div class="fac-role">Cohost of Portals</div>
           <h3 class="fac-name">Shannon Brown</h3>
-          <p class="fac-title">Opera‑trained vocalist, sound healer, shamanic guide, and visionary artist</p>
+          <p class="fac-title">Sound healer, shamanic guide, and visionary artist</p>
           <div class="fac-bio">
             <p>25+ years of international impact through global retreats, sacred ceremonies, workshops and sound initiations that have transformed 5,000+ lives.</p>
             <button class="fac-toggle" aria-expanded="false">Read more <span class="chev">&darr;</span></button>
@@ -561,7 +595,7 @@
         <div class="fac-body">
           <div class="fac-role">Cohost of Portals</div>
           <h3 class="fac-name">Debbie Fang</h3>
-          <p class="fac-title">Musician, entrepreneur and operational architect of exceptional guest experiences</p>
+          <p class="fac-title">Musician, entrepreneur, and operator</p>
           <div class="fac-bio">
             <p>8+ years of experience growing and building the operational backbone of 4+ successful businesses.</p>
             <button class="fac-toggle" aria-expanded="false">Read more <span class="chev">&darr;</span></button>
@@ -583,9 +617,9 @@
         <div class="fac-body">
           <div class="fac-role">Medicine Woman</div>
           <h3 class="fac-name">Pamela Dharani</h3>
-          <p class="fac-title">Ayahuasca ceremonialist, Biomagnetism, breath work and yoga therapist</p>
+          <p class="fac-title">Ayahuasca ceremonialist</p>
           <div class="fac-bio">
-            <p>Pamela began her shamanic journey in 2006 with the Church of Santo Daime. She has used a unique blend of music and sacred medicines to facilitate the healing of thousands around the world.</p>
+            <p>Born in Mexico, Pamela began her shamanic journey in 2006 with the Church of Santo Daime. She has used a unique blend of music and sacred medicines to facilitate the healing of thousands around the world.</p>
             <button class="fac-toggle" aria-expanded="false">Read more <span class="chev">&darr;</span></button>
             <div class="fac-more">
               <p style="padding-top:10px;">Trained by the Red Path, vision quests, and Shipibo Masters in Peru. She has facilitated at the Sacred Valley Tribe Center for several years, using plant medicines to support veterans affected by PTSD and people recovering from addiction.</p>
@@ -595,7 +629,7 @@
         </div>
       </div>
     </div>
-    <p style="text-align:center;margin-top:36px;font-family:'Fraunces',serif;font-style:italic;color:#6a5b4d;font-size:1rem;">More sacred facilitators to be announced &mdash; join the waitlist to be the first to meet them.</p>
+    <p style="text-align:center;margin-top:36px;font-family:'Fraunces',serif;font-style:italic;color:#6a5b4d;font-size:1rem;">More facilitators to be announced &mdash; join the waitlist to be the first to meet them.</p>
   </div>
 </section>
 
@@ -615,20 +649,155 @@
         <div class="icon">✨</div>
         <h3 class="serif">Preparation <span class="it">&amp; integration</span></h3>
         <p style="font-family:'Fraunces',serif;font-style:italic;color:var(--clay);font-size:1.1rem;margin-bottom:14px;">Peace of mind, before and after.</p>
-        <p><strong>Before you arrive:</strong> a one-hour preparation call walks you through what to expect, how to prepare, what to pack, and how to set your intentions. You arrive already held.</p>
-        <p style="margin-top:14px;"><strong>After ceremony:</strong> we begin in complete silence, then guide you through somatic integration &mdash; so your work has space to land.</p>
+        <p><strong>Before you arrive:</strong> a one-hour preparation call walks you through what to expect, how to prepare, what to pack, and how to set your intentions.</p>
+        <p style="margin-top:14px;"><strong>After ceremony:</strong> we start the next morning in complete silence, then guide you through somatic integration &mdash; so your experience and work have space to land.</p>
         <p style="margin-top:14px;"><strong>After the retreat:</strong> one post-retreat integration call, because the real work happens when you return home. This is where the changes take root.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SECOND TESTIMONIAL ============ -->
-<section class="sec second-testimonial">
+<!-- ============ TESTIMONIALS CAROUSEL ============ -->
+<section class="sec testimonials-section" style="background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);">
   <div class="wrap">
-    <span class="sec-eyebrow" style="justify-content:center;display:inline-flex;">Hear from our participants</span>
-    <q class="serif">Give yourself the gift of reconnecting with yourself, going inward and allowing for healing in a supportive, beautiful, loving environment. Don't be afraid to try something new or a little out of your comfort zone.</q>
-    <p class="who">&mdash; Julie, previous retreat participant</p>
+    <div style="text-align:center;">
+      <span class="sec-eyebrow">Hear from our participants</span>
+      <h2 class="sec-h serif">In their <span class="it">own words.</span></h2>
+      <p class="sec-sub" style="margin:0 auto 10px;">Real women. Real journeys. Swipe to read their stories.</p>
+    </div>
+
+    <div class="testimonials-carousel" id="testimonialsCarousel">
+      <div class="testimonials-track" id="testimonialsTrack">
+
+        <!-- Jenny -->
+        <div class="testimonial-slide">
+          <div class="t-header">
+            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_200/v1784214516/jenny_headshot_qjd3gn.png');"></div>
+            <div class="t-who">
+              <div class="t-name">Jenny</div>
+              <div class="t-role">Holistic Trainer &middot; Vancouver, Canada</div>
+            </div>
+          </div>
+          <div class="t-quote serif">"Give yourself the gift of reconnecting with yourself, going inward and allowing for healing in a supportive, beautiful, loving environment."</div>
+          <div class="t-body">
+            <p>Don't be afraid to try something new or a little out of your comfort zone.</p>
+          </div>
+        </div>
+
+        <!-- Karen -->
+        <div class="testimonial-slide">
+          <div class="t-header">
+            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_200/v1784233753/P1377817_cfn7xa.jpg');"></div>
+            <div class="t-who">
+              <div class="t-name">Karen</div>
+              <div class="t-role">Mom of 4 &middot; Now traveling by van &middot; Colorado, USA</div>
+            </div>
+          </div>
+          <div class="t-quote serif">"It moved me into a state of acceptance."</div>
+          <div class="t-body t-collapsed">
+            <p>I joined Portals Retreat to have a deeper spiritual connection &mdash; to move through blocked energies and release them.</p>
+            <p>The retreat helped me release anger and pain I was holding on to from my relationship with my mother. It moved me into a state of acceptance.</p>
+            <p>What made this so special was the amazing connection with the facilitators &mdash; their kind, warm and loving energy along with a safe environment. The Ayahuasca facilitators, their songs, chants, live music all night long, singing, dedication and commitment made this such a beautiful experience.</p>
+            <p>I also loved all the variations of activities and art projects we did.</p>
+          </div>
+          <button class="t-toggle" aria-expanded="false">Read Karen's story <span class="chev">&darr;</span></button>
+        </div>
+
+        <!-- Kate -->
+        <div class="testimonial-slide">
+          <div class="t-header">
+            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_200/v1784214288/IMG_6844_jaf7pt.jpg');"></div>
+            <div class="t-who">
+              <div class="t-name">Kate</div>
+              <div class="t-role">Energy Healer &middot; Clinical Hypnotherapist &middot; New York, USA</div>
+            </div>
+          </div>
+          <div class="t-quote serif">"It was the reset that I needed."</div>
+          <div class="t-body">
+            <p>I've been searching for a retreat that felt right with my soul. The leaders, the offerings, location, amenities &mdash; this retreat had all I could ever want. My soul was craving this.</p>
+            <p>I feel re-inspired. I feel my soul expanded.</p>
+          </div>
+        </div>
+
+        <!-- Heather -->
+        <div class="testimonial-slide">
+          <div class="t-header">
+            <div class="t-avatar t-initial" data-initial="H"></div>
+            <div class="t-who">
+              <div class="t-name">Heather</div>
+              <div class="t-role">Art Teacher &middot; Kingston, Canada</div>
+            </div>
+          </div>
+          <div class="t-quote serif">"Portals Retreat is a place to be within yourself, yet not alone."</div>
+          <div class="t-body t-collapsed">
+            <p>The retreat was a "treat" for me. An act of love.</p>
+            <p>Shannon and Debbie are very good at holding space for you while you are on your own personal journey. Fun, gentle, with so much love. Through sound and music, yummy food and well thought out experiences planned for you to really reset and make a shift in your life.</p>
+            <p>If you are looking for a place to really reset and do some deep soulful work, this is a space to be real and open, in a safe supported circle of sisters.</p>
+          </div>
+          <button class="t-toggle" aria-expanded="false">Read Heather's story <span class="chev">&darr;</span></button>
+        </div>
+
+        <!-- Diana -->
+        <div class="testimonial-slide">
+          <div class="t-header">
+            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_200/v1784234096/WhatsApp_Image_2026-07-16_at_15.13.59_xad3wb.jpg');"></div>
+            <div class="t-who">
+              <div class="t-name">Diana</div>
+              <div class="t-role">Toronto, Canada</div>
+            </div>
+          </div>
+          <div class="t-quote serif">"Lots of tender moments and I felt so safe and held. Thank you!"</div>
+          <div class="t-body">
+            <p>I wanted a special way to ring in the New Year. Ayahuasca revealed truths about me that needed to be shown.</p>
+            <p>The Ayahuasca experience was the highlight for me, but it all came together because of the trust, safety and music.</p>
+          </div>
+        </div>
+
+        <!-- Hagit -->
+        <div class="testimonial-slide">
+          <div class="t-header">
+            <div class="t-avatar t-initial" data-initial="H"></div>
+            <div class="t-who">
+              <div class="t-name">Hagit</div>
+              <div class="t-role">New York, USA</div>
+            </div>
+          </div>
+          <div class="t-quote serif">"The group of women was so beautiful, safe, loving, and compassionate."</div>
+          <div class="t-body t-collapsed">
+            <p>I've been interested in trying Ayahuasca for many years. I was searching for a healing retreat with women that included a variety of healing modalities. This retreat ticked all the boxes.</p>
+            <p>It provided a very safe and loving container for making huge shifts. Every activity was carefully and perfectly designed for deep introspection, all while being supported by incredibly strong, wise, and loving sisters.</p>
+            <p>I loved connecting with women from around the world and participating in memorable activities like visiting the cenote and watching the sunrise on the beach. The setting was stunning, the meals were healthy and gorgeous, and Shannon shares her gifts in a truly magical way.</p>
+            <p>The Portals Retreat was more than I ever imagined. I am forever changed and deeply grateful for this amazing journey of self-love and self-discovery.</p>
+          </div>
+          <button class="t-toggle" aria-expanded="false">Read Hagit's story <span class="chev">&darr;</span></button>
+        </div>
+
+        <!-- Ciara -->
+        <div class="testimonial-slide">
+          <div class="t-header">
+            <div class="t-avatar" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_200/v1784128647/8a552e28-cd5e-4e42-8e79-b3cf63bbb82d_ozzqxw.jpg');"></div>
+            <div class="t-who">
+              <div class="t-name">Ciara</div>
+              <div class="t-role">Founder of The Unity Studio &middot; Songwriter &middot; Toronto, Canada</div>
+            </div>
+          </div>
+          <div class="t-quote serif">"This retreat is an absolute must for any woman who is truly ready to know herself and step into her power."</div>
+          <div class="t-body t-collapsed">
+            <p>I joined the retreat knowing deeply that this would connect me more to my work, my transformation, and to Shannon &mdash; and all are true.</p>
+            <p>Being held in a space with the women is incredibly potent. Supporting each other to transform is priceless. The guides, the shamans, and the facilitators hold and create a safe, sacred space for transformation. It was truly magical, a once-in-a-lifetime opportunity.</p>
+            <p>In my case, I've experienced the passing of my child from a terminal illness two years ago, which led to the demise of my marriage and career as my partner and I were in a music duo together. This precious week came at the perfect time for me and has supported me in moving forward in my highest purpose now.</p>
+            <p>Shannon holds a sacred space for women, and her tender approach is gentle yet encouraging. The shamans and healers we worked with are high-level and authentic. I can't think of a better place to meet Temazcal and the divine medicine of Ayahuasca for the first time.</p>
+            <p>I'm so grateful I did this for myself. I'll never be the same. Thank you so much.</p>
+          </div>
+          <button class="t-toggle" aria-expanded="false">Read Ciara's story <span class="chev">&darr;</span></button>
+        </div>
+
+      </div>
+
+      <button class="carousel-btn prev" id="tPrev" aria-label="Previous">&#8249;</button>
+      <button class="carousel-btn next" id="tNext" aria-label="Next">&#8250;</button>
+      <div class="carousel-dots" id="tDots"></div>
+    </div>
   </div>
 </section>
 
@@ -636,19 +805,19 @@
 <section class="sec" style="padding-top:0;">
   <div class="wrap">
     <div style="text-align:center;">
-      <span class="sec-eyebrow">All-inclusive</span>
+      <span class="sec-eyebrow">Everything included</span>
       <h2 class="sec-h serif">What's <span class="it">included</span></h2>
-      <p class="sec-sub" style="margin:0 auto;">Everything is taken care of, so you can fully arrive.</p>
+      <p class="sec-sub" style="margin:0 auto;">You are taken care of the moment you land at the retreat center.</p>
     </div>
     <div class="included">
       <div class="included-grid">
         <div class="included-item"><span class="check"></span><div>Healthy conscious meals</div></div>
-        <div class="included-item"><span class="check"></span><div>6 nights accommodation</div></div>
+        <div class="included-item"><span class="check"></span><div>7 days &amp; 6 nights accommodation</div></div>
         <div class="included-item"><span class="check"></span><div>All retreat ceremonies, activities &amp; workshops</div></div>
         <div class="included-item"><span class="check"></span><div>Pool &amp; communal rooftop</div></div>
         <div class="included-item"><span class="check"></span><div>Retreat workbook</div></div>
         <div class="included-item"><span class="check"></span><div>One pre-retreat group preparation call</div></div>
-        <div class="included-item"><span class="check"></span><div>Post-retreat group integration calls</div></div>
+        <div class="included-item"><span class="check"></span><div>One post-retreat group integration call</div></div>
         <div class="included-item"><span class="check"></span><div>A personal photoshoot to mark your chapter</div></div>
       </div>
     </div>
@@ -662,7 +831,7 @@
     <div style="text-align:center;">
       <span class="sec-eyebrow">Choose your space</span>
       <h2 class="sec-h serif">Where you'll <span class="it">rest.</span></h2>
-      <p class="sec-sub" style="margin:0 auto 6px;">Three room options &mdash; each held in nature, with every comfort. Pricing is per person for the full seven days.</p>
+      <p class="sec-sub" style="margin:0 auto 6px;">Three room options. Pricing is per person for the full retreat.</p>
       <div style="display:inline-flex;align-items:center;gap:12px;margin-top:14px;padding:12px 24px;background:linear-gradient(135deg,rgba(201,161,74,.18),rgba(201,161,74,.05));border:1px solid rgba(201,161,74,.35);border-radius:100px;">
         <span style="font-size:1.1rem;">✨</span>
         <span style="font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);">Waitlist women receive a $300 early-bird gift on any room</span>
@@ -869,6 +1038,43 @@
       const open = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!open));
       details.style.maxHeight = open ? '0' : details.scrollHeight + 'px';
+    });
+  });
+
+  // ---- FACILITATOR TOGGLES ----
+  document.querySelectorAll('.fac-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const more = btn.parentElement.querySelector('.fac-more');
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      more.style.maxHeight = open ? '0' : more.scrollHeight + 'px';
+      btn.querySelector('span:not(.chev)') && (btn.firstChild.textContent = open ? 'Read more ' : 'Read less ');
+    });
+  });
+
+  // ---- TESTIMONIALS CAROUSEL ----
+  (function(){
+    const track=document.getElementById('testimonialsTrack');
+    if(!track) return;
+    const slides=track.children; const dots=document.getElementById('tDots'); let idx=0;
+    for(let i=0;i<slides.length;i++){const b=document.createElement('button');b.addEventListener('click',()=>go(i));dots.appendChild(b);}
+    function go(i){idx=(i+slides.length)%slides.length;track.style.transform='translateX(-'+(idx*100)+'%)';[...dots.children].forEach((d,n)=>d.classList.toggle('active',n===idx));}
+    document.getElementById('tPrev').addEventListener('click',()=>go(idx-1));
+    document.getElementById('tNext').addEventListener('click',()=>go(idx+1));
+    let sx=0;track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
+    track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40) go(idx+(dx<0?1:-1));});
+    go(0);
+  })();
+
+  // ---- TESTIMONIAL "READ MORE" TOGGLES ----
+  document.querySelectorAll('.t-toggle').forEach(btn => {
+    const originalText = btn.firstChild.textContent.trim();
+    btn.addEventListener('click', () => {
+      const body = btn.parentElement.querySelector('.t-body');
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      body.classList.toggle('t-open');
+      btn.firstChild.textContent = (open ? originalText : 'Show less') + ' ';
     });
   });
 
