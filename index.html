@@ -66,6 +66,8 @@
   .lightbox{position:fixed;inset:0;background:rgba(15,13,11,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:300;display:none;place-items:center;padding:20px;cursor:zoom-out;}
   .lightbox.show{display:grid;}
   .lightbox img{max-width:100%;max-height:90vh;object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6);animation:lb-in .4s cubic-bezier(.2,.8,.3,1);}
+  .lightbox::after{content:"";position:absolute;width:44px;height:44px;border:3px solid rgba(255,255,255,.2);border-top-color:rgba(255,255,255,.8);border-radius:50%;animation:lb-spin .8s linear infinite;z-index:-1;}
+  @keyframes lb-spin{to{transform:rotate(360deg);}}
   .lightbox-close{position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:1.4rem;cursor:pointer;display:grid;place-items:center;}
   .lightbox-close:hover{background:rgba(255,255,255,.2);}
   @keyframes lb-in{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:scale(1);}}
@@ -271,13 +273,9 @@
   .room-anchor{font-family:'Fraunces',serif;font-size:1.05rem;color:#a89681;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
   .room-anchor > span:first-child{text-decoration:line-through;text-decoration-color:rgba(164,94,62,.6);}
   .room-anchor .save{font-family:'Jost',sans-serif;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);background:rgba(201,161,74,.14);padding:4px 10px;border-radius:20px;text-decoration:none;display:inline-block;}
-  .room-toggle{background:none;border:none;font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);padding:8px 0;cursor:pointer;text-align:left;display:flex;align-items:center;gap:8px;margin-bottom:8px;}
-  .room-toggle .chev{transition:transform .3s;display:inline-block;}
-  .room-toggle[aria-expanded="true"] .chev{transform:rotate(180deg);}
-  .room-details{max-height:0;overflow:hidden;transition:max-height .5s ease;}
-  .room-details ul{list-style:none;padding:8px 0 18px;display:grid;gap:9px;}
-  .room-details li{color:#4f4236;font-size:.95rem;padding-left:20px;position:relative;}
-  .room-details li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:rgba(201,161,74,.35);}
+  .room-list{list-style:none;padding:14px 0 20px;display:grid;gap:9px;margin:0;}
+  .room-list li{color:#4f4236;font-size:.95rem;padding-left:20px;position:relative;}
+  .room-list li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:rgba(201,161,74,.35);}
   .room-cta{margin-top:auto;font-family:'Jost',sans-serif;font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;color:#fff;background:var(--bg-deep);border:none;border-radius:2px;padding:16px 26px;cursor:pointer;transition:background .3s,transform .3s;}
   .room-cta:hover{background:var(--clay);transform:translateY(-2px);}
 
@@ -441,16 +439,12 @@
   <div class="gallery-more">
     <div class="carousel" id="galleryCarousel">
       <div class="carousel-track" id="galleryTrack">
-        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784128657/IMG_1184_ztx3e1.jpg')"></div>
-        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784128663/IMG_1432_jdrktn.jpg')"></div>
-        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784128673/IMG_1144_yudjlk.jpg')"></div>
-        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784188404/DSC02599_eu5hih.jpg')"></div>
-        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784128672/IMG_1772_b0nkrz.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189610/20260101_125210_bql6ku.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189522/IMG_1110_kmhsxk.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189519/image00035_ihqiox.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784194174/DSC02904_ocxzsr.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784188436/DSC02872_tx4c5o.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784128673/IMG_1144_yudjlk.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189481/IMG_4238_d4je5x.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189442/IMG_1103_oseo8d.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784188414/DSC02621_teqeb2.jpg')"></div>
@@ -460,6 +454,7 @@
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189648/P1377735_pdgqyc.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189643/Irynas_drawing_of_gabys_teaching_usmxbf.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189613/20260102_150148_tnklmv.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784188404/DSC02599_eu5hih.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189632/IMG_1073_wkxdj2.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189588/IMG_5260_yxxy4c.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189585/IMG_5233_wm8hz0.jpg')"></div>
@@ -469,6 +464,7 @@
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189572/IMG_5013_nkvfh1.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189559/IMG_1444_sjxcdp.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189556/IMG_1440_plivyd.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784128672/IMG_1772_b0nkrz.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189545/image00002_puwu2g.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189540/image00033_odsctj.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189516/6A2E1F2C-BF6C-4327-807D-2D2E6039EC74_oklbjj.jpg')"></div>
@@ -482,7 +478,6 @@
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189458/7b82e65b-6b31-49ba-a050-853e9333ad18_rnjwlg.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189455/7031de9b-339c-45f7-a2b1-90c31162b6ab_vy056p.jpg')"></div>
         <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189453/2e292809-e0cf-4028-82d0-192d270bfadf_stdbiz.jpg')"></div>
-      </div>
       <button class="carousel-btn prev" id="galleryPrev" aria-label="Previous">&#8249;</button>
       <button class="carousel-btn next" id="galleryNext" aria-label="Next">&#8250;</button>
       <div class="carousel-dots" id="galleryDots"></div>
@@ -549,10 +544,10 @@
         </div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
-        <div class="chapter-photo" data-full="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1600/v1784189502/IMG_8309_r9dcig.jpg" style="aspect-ratio:3/4;border-radius:10px;background:linear-gradient(135deg,#3a2e24,#8a5a3e) center/cover no-repeat;background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784189502/IMG_8309_r9dcig.jpg');cursor:zoom-in;transition:transform .4s ease;"></div>
-        <div class="chapter-photo" data-full="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1600/v1784189500/IMG_8041_recqw2.jpg" style="aspect-ratio:3/4;border-radius:10px;background:linear-gradient(135deg,#3a2e24,#8a5a3e) center/cover no-repeat;background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784189500/IMG_8041_recqw2.jpg');cursor:zoom-in;transition:transform .4s ease;"></div>
-        <div class="chapter-photo" data-full="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1600/v1784189602/P1377717_bel8jd.jpg" style="aspect-ratio:3/4;border-radius:10px;background:linear-gradient(135deg,#3a2e24,#8a5a3e) center/cover no-repeat;background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784189602/P1377717_bel8jd.jpg');cursor:zoom-in;transition:transform .4s ease;"></div>
-        <div class="chapter-photo" data-full="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1600/v1784189495/IMG_7810_caongq.jpg" style="aspect-ratio:3/4;border-radius:10px;background:linear-gradient(135deg,#3a2e24,#8a5a3e) center/cover no-repeat;background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784189495/IMG_7810_caongq.jpg');cursor:zoom-in;transition:transform .4s ease;"></div>
+        <div class="chapter-photo" data-full="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1200/v1784189502/IMG_8309_r9dcig.jpg" style="aspect-ratio:3/4;border-radius:10px;background:linear-gradient(135deg,#3a2e24,#8a5a3e) center/cover no-repeat;background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784189502/IMG_8309_r9dcig.jpg');cursor:zoom-in;transition:transform .4s ease;"></div>
+        <div class="chapter-photo" data-full="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1200/v1784189500/IMG_8041_recqw2.jpg" style="aspect-ratio:3/4;border-radius:10px;background:linear-gradient(135deg,#3a2e24,#8a5a3e) center/cover no-repeat;background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784189500/IMG_8041_recqw2.jpg');cursor:zoom-in;transition:transform .4s ease;"></div>
+        <div class="chapter-photo" data-full="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1200/v1784189602/P1377717_bel8jd.jpg" style="aspect-ratio:3/4;border-radius:10px;background:linear-gradient(135deg,#3a2e24,#8a5a3e) center/cover no-repeat;background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784189602/P1377717_bel8jd.jpg');cursor:zoom-in;transition:transform .4s ease;"></div>
+        <div class="chapter-photo" data-full="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1200/v1784189495/IMG_7810_caongq.jpg" style="aspect-ratio:3/4;border-radius:10px;background:linear-gradient(135deg,#3a2e24,#8a5a3e) center/cover no-repeat;background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784189495/IMG_7810_caongq.jpg');cursor:zoom-in;transition:transform .4s ease;"></div>
       </div>
     </div>
   </div>
@@ -884,22 +879,17 @@
       <button class="carousel-btn next" id="tNext" aria-label="Next">&#8250;</button>
     </div>
     <div class="carousel-dots" id="tDots" style="display:flex;gap:5px;margin-top:24px;max-width:400px;margin-left:auto;margin-right:auto;"></div>
-    <div class="t-progress-label" id="tLabel">1 / 10 &middot; Swipe or tap to read more</div>
+    <div class="t-progress-label" id="tLabel">Swipe or tap to read more</div>
   </div>
 </section>
 
 <!-- ============ PRICING / ROOMS ============ -->
 <section class="sec rooms" style="background:var(--bg-soft);">
   <div class="wrap">
-    <div style="text-align:center;">
+    <div style="text-align:center;max-width:600px;margin:0 auto;">
       <span class="sec-eyebrow">Choose your space</span>
       <h2 class="sec-h serif">Where you'll <span class="it">rest.</span></h2>
-      <p class="sec-sub" style="margin:0 auto 4px;font-size:1.15rem;color:#3a2e24;">Prices range from <strong>$2,300 to $3,250</strong> per person.</p>
-      <p class="sec-sub" style="margin:0 auto 18px;">Join the waitlist to receive your <strong style="color:var(--clay);">$300 OFF early-bird discount</strong> and the full retreat brochure the moment we announce the dates.</p>
-      <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:8px;padding:12px 22px;background:linear-gradient(135deg,rgba(201,161,74,.18),rgba(201,161,74,.05));border:1px solid rgba(201,161,74,.35);border-radius:100px;">
-        <span style="font-size:1.05rem;">✨</span>
-        <span style="font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);">$300 off for waitlist women</span>
-      </div>
+      <p class="sec-sub" style="margin:0 auto 16px;">Pricing ranges from <strong style="color:#3a2e24;">$2,300 to $3,250</strong> depending on the room you select. Join the waitlist to receive your <strong style="color:var(--clay);">$300 OFF early-bird discount</strong> and the full retreat brochure the moment we announce the dates.</p>
     </div>
     <div class="rooms-grid">
       <div class="room-card">
@@ -907,15 +897,12 @@
         <div class="room-body">
           <div class="room-eyebrow">Private</div>
           <h3 class="serif">The Serenity Suite</h3>
-          <button class="room-toggle" aria-expanded="false">View details <span class="chev">&darr;</span></button>
-          <div class="room-details">
-            <ul>
-              <li>Your own private room</li>
-              <li>Your own private bathroom</li>
-              <li>Complete solitude when you need it</li>
-              <li>Full retreat program included</li>
-            </ul>
-          </div>
+          <ul class="room-list">
+            <li>Your own private room</li>
+            <li>Your own private bathroom</li>
+            <li>Complete solitude when you need it</li>
+            <li>Full retreat program included</li>
+          </ul>
           <button class="room-cta" data-open-form>Join the waitlist</button>
         </div>
       </div>
@@ -925,15 +912,12 @@
         <div class="room-body">
           <div class="room-eyebrow">Shared &middot; 2 women</div>
           <h3 class="serif">The Hearts Haven</h3>
-          <button class="room-toggle" aria-expanded="false">View details <span class="chev">&darr;</span></button>
-          <div class="room-details">
-            <ul>
-              <li>Shared with one other woman</li>
-              <li>Your own bed</li>
-              <li>Shared bathroom</li>
-              <li>Full retreat program included</li>
-            </ul>
-          </div>
+          <ul class="room-list">
+            <li>Shared with one other woman</li>
+            <li>Your own bed</li>
+            <li>Shared bathroom</li>
+            <li>Full retreat program included</li>
+          </ul>
           <button class="room-cta" data-open-form>Join the waitlist</button>
         </div>
       </div>
@@ -943,15 +927,12 @@
         <div class="room-body">
           <div class="room-eyebrow">Shared &middot; 3 women</div>
           <h3 class="serif">The Trinity</h3>
-          <button class="room-toggle" aria-expanded="false">View details <span class="chev">&darr;</span></button>
-          <div class="room-details">
-            <ul>
-              <li>Shared with two other women</li>
-              <li>Your own bed</li>
-              <li>Shared bathroom</li>
-              <li>Full retreat program included</li>
-            </ul>
-          </div>
+          <ul class="room-list">
+            <li>Shared with two other women</li>
+            <li>Your own bed</li>
+            <li>Shared bathroom</li>
+            <li>Full retreat program included</li>
+          </ul>
           <button class="room-cta" data-open-form>Join the waitlist</button>
         </div>
       </div>
@@ -1143,16 +1124,6 @@
   modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('show')) closeModal(); });
 
-  // ---- ROOM TOGGLES ----
-  document.querySelectorAll('.room-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const details = btn.parentElement.querySelector('.room-details');
-      const open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!open));
-      details.style.maxHeight = open ? '0' : details.scrollHeight + 'px';
-    });
-  });
-
   // ---- FACILITATOR TOGGLES ----
   document.querySelectorAll('.fac-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1206,7 +1177,7 @@
         d.classList.toggle('active',n===idx);
         d.classList.toggle('seen',n<idx);
       });
-      if(label) label.textContent = (idx+1)+' / '+total+(idx<total-1 ? ' \u00b7 Swipe or tap to read more' : ' \u00b7 You\u2019ve read them all');
+      if(label) label.textContent = (idx<total-1 ? 'Swipe or tap to read more' : 'You\u2019ve read them all');
     }
     document.getElementById('tPrev').addEventListener('click',()=>go(idx-1));
     document.getElementById('tNext').addEventListener('click',()=>go(idx+1));
@@ -1263,6 +1234,19 @@
     });
   });
 
+  // ---- LOCATION (best-effort, non-blocking) ----
+  let visitorLocation = "";
+  (async function(){
+    try {
+      const res = await fetch("https://ipapi.co/json/");
+      if (res.ok) {
+        const j = await res.json();
+        const parts = [j.city, j.region, j.country_name].filter(Boolean);
+        visitorLocation = parts.join(", ");
+      }
+    } catch (e) { /* location is optional, ignore failures */ }
+  })();
+
   // ---- FORMS ----
   async function handleSubmit(form, wrap, successEl, btn){
     btn.disabled = true; btn.textContent = 'Sending…';
@@ -1271,6 +1255,7 @@
       email: form.email.value.trim(),
       phone: form.phone.value.trim(),
       drawing: form.drawing.value.trim(),
+      location: visitorLocation,
       timestamp: new Date().toISOString()
     };
     try {
