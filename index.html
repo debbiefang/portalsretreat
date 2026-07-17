@@ -74,7 +74,7 @@
 
   /* ========== Testimonials carousel ========== */
   .testimonials-carousel{position:relative;max-width:680px;margin:40px auto 0;overflow:hidden;border-radius:14px;}
-  .testimonials-track{display:flex;transition:transform .65s cubic-bezier(.2,.7,.3,1);}
+  .testimonials-track{display:flex;transition:transform .65s cubic-bezier(.2,.7,.3,1);touch-action:pan-y;}
   .testimonial-slide{flex:0 0 100%;width:100%;min-width:100%;max-width:100%;box-sizing:border-box;overflow-wrap:break-word;padding:32px clamp(20px,3vw,40px);background:#fff;border-radius:14px;box-shadow:0 10px 32px rgba(43,33,26,.1);border:1px solid rgba(43,33,26,.06);}
   .t-header{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
   .t-avatar{flex:none;width:56px;height:56px;border-radius:50%;background-color:#e3d2bf;background-size:cover;background-position:center;box-shadow:0 5px 16px rgba(43,33,26,.15);border:2px solid rgba(255,255,255,.9);}
@@ -184,7 +184,7 @@
   /* ========== Carousel (sanctuary) ========== */
   .sanctuary{background:var(--bg-soft);}
   .carousel{position:relative;border-radius:18px;overflow:hidden;background:#0f0d0b;box-shadow:0 24px 70px rgba(43,33,26,.22);max-width:980px;margin:50px auto 0;}
-  .carousel-track{display:flex;transition:transform .65s cubic-bezier(.2,.7,.3,1);}
+  .carousel-track{display:flex;transition:transform .65s cubic-bezier(.2,.7,.3,1);touch-action:pan-y;}
   .carousel-slide{flex:0 0 100%;aspect-ratio:16/10;background-size:cover;background-position:center 30%;background-repeat:no-repeat;background-color:#0f0d0b;}
   .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(15,13,11,.5);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1.4rem;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(6px);transition:background .3s;}
   .carousel-btn:hover{background:rgba(15,13,11,.8);}
@@ -1181,8 +1181,14 @@
     }
     document.getElementById('tPrev').addEventListener('click',()=>go(idx-1));
     document.getElementById('tNext').addEventListener('click',()=>go(idx+1));
-    let sx=0;track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
-    track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40) go(idx+(dx<0?1:-1));});
+    let sx=0, sy=0, swiping=false;
+    track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;swiping=true;},{passive:true});
+    track.addEventListener('touchend',e=>{
+      if(!swiping) return; swiping=false;
+      const dx=e.changedTouches[0].clientX-sx;
+      const dy=e.changedTouches[0].clientY-sy;
+      if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)) go(idx+(dx<0?1:-1));
+    },{passive:true});
     go(0);
   })();
 
@@ -1207,8 +1213,14 @@
     function go(i){idx=(i+slides.length)%slides.length;track.style.transform='translateX(-'+(idx*100)+'%)';[...dots.children].forEach((d,n)=>d.classList.toggle('active',n===idx));}
     document.getElementById('galleryPrev').addEventListener('click',()=>go(idx-1));
     document.getElementById('galleryNext').addEventListener('click',()=>go(idx+1));
-    let sx=0;track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
-    track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40) go(idx+(dx<0?1:-1));});
+    let sx=0, sy=0, swiping=false;
+    track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;swiping=true;},{passive:true});
+    track.addEventListener('touchend',e=>{
+      if(!swiping) return; swiping=false;
+      const dx=e.changedTouches[0].clientX-sx;
+      const dy=e.changedTouches[0].clientY-sy;
+      if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)) go(idx+(dx<0?1:-1));
+    },{passive:true});
     go(0);
   })();
 
@@ -1219,8 +1231,14 @@
     function go(i){idx=(i+slides.length)%slides.length;track.style.transform='translateX(-'+(idx*100)+'%)';[...dots.children].forEach((d,n)=>d.classList.toggle('active',n===idx));}
     document.getElementById('carPrev').addEventListener('click',()=>go(idx-1));
     document.getElementById('carNext').addEventListener('click',()=>go(idx+1));
-    let sx=0;track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
-    track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40) go(idx+(dx<0?1:-1));});
+    let sx=0, sy=0, swiping=false;
+    track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;swiping=true;},{passive:true});
+    track.addEventListener('touchend',e=>{
+      if(!swiping) return; swiping=false;
+      const dx=e.changedTouches[0].clientX-sx;
+      const dy=e.changedTouches[0].clientY-sy;
+      if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)) go(idx+(dx<0?1:-1));
+    },{passive:true});
     setInterval(()=>go(idx+1),6500); go(0);
   })();
 
