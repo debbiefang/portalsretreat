@@ -56,15 +56,10 @@
   .testimonial-band q::before,.testimonial-band q::after{content:"";}
   .testimonial-band .who{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);}
 
-  .gallery-strip-wrap{max-width:1180px;margin:60px auto 0;}
-  .gallery-strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 4px 18px;scrollbar-width:thin;scrollbar-color:rgba(164,94,62,.4) transparent;}
-  .gallery-strip::-webkit-scrollbar{height:8px;}
-  .gallery-strip::-webkit-scrollbar-track{background:rgba(43,33,26,.06);border-radius:10px;}
-  .gallery-strip::-webkit-scrollbar-thumb{background:rgba(164,94,62,.35);border-radius:10px;}
-  .gallery-strip::-webkit-scrollbar-thumb:hover{background:rgba(164,94,62,.55);}
-  .gallery-strip-item{flex:0 0 auto;width:clamp(240px,30vw,340px);aspect-ratio:4/5;border-radius:14px;background-size:cover;background-position:center;scroll-snap-align:start;box-shadow:0 12px 30px rgba(43,33,26,.14);border:1px solid rgba(255,255,255,.5);transition:transform .4s ease;}
-  .gallery-strip-item:hover{transform:translateY(-4px);}
-  @media(max-width:600px){.gallery-strip-item{width:78vw;aspect-ratio:4/5;}}
+  .gallery-more{max-width:980px;margin:60px auto 0;}
+  .gallery-more .carousel{position:relative;border-radius:18px;overflow:hidden;background:#0f0d0b;box-shadow:0 24px 70px rgba(43,33,26,.22);}
+  .gallery-more .carousel-slide{aspect-ratio:3/2;background-size:contain !important;background-position:center;background-repeat:no-repeat;background-color:#0f0d0b;}
+  @media(max-width:600px){.gallery-more .carousel-slide{aspect-ratio:1/1;}}
 
   /* ========== Lightbox ========== */
   .chapter-photo:hover{transform:translateY(-4px);}
@@ -441,49 +436,53 @@
     <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784269128/DSC03098_wah1ui.jpg" alt="Circle of women" loading="lazy"></figure>
   </section>
 
-    <div class="gallery-strip-wrap">
-    <div class="gallery-strip" id="galleryStrip">
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189610/20260101_125210_bql6ku.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189522/IMG_1110_kmhsxk.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189519/image00035_ihqiox.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784194174/DSC02904_ocxzsr.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784188436/DSC02872_tx4c5o.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784128673/IMG_1144_yudjlk.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189481/IMG_4238_d4je5x.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189442/IMG_1103_oseo8d.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784188414/DSC02621_teqeb2.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784188349/DSC02892_munk0u.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189534/IMG_5436_rkkmy1.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189657/P1377726_kkwlip.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189648/P1377735_pdgqyc.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189643/Irynas_drawing_of_gabys_teaching_usmxbf.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189613/20260102_150148_tnklmv.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784188404/DSC02599_eu5hih.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189632/IMG_1073_wkxdj2.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189588/IMG_5260_yxxy4c.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189585/IMG_5233_wm8hz0.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189580/IMG_5166_wfpo82.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189575/IMG_5037_gqq2q8.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189570/IMG_5008_vyvqru.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189572/IMG_5013_nkvfh1.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189559/IMG_1444_sjxcdp.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189556/IMG_1440_plivyd.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784128672/IMG_1772_b0nkrz.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189545/image00002_puwu2g.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189540/image00033_odsctj.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189516/6A2E1F2C-BF6C-4327-807D-2D2E6039EC74_oklbjj.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189460/8a552e28-cd5e-4e42-8e79-b3cf63bbb82d_prrije.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189492/IMG_5139_wphuwz.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189487/IMG_4518_knymsy.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189484/IMG_4502_b1hvkh.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189489/IMG_5114_deme0g.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189474/IMG_4025_j0zanz.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189471/IMG_4116_te1nzq.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189458/7b82e65b-6b31-49ba-a050-853e9333ad18_rnjwlg.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189455/7031de9b-339c-45f7-a2b1-90c31162b6ab_vy056p.jpg')"></div>
-      <div class="gallery-strip-item" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189453/2e292809-e0cf-4028-82d0-192d270bfadf_stdbiz.jpg')"></div>
+    <div class="gallery-more">
+    <div class="carousel" id="galleryCarousel">
+      <div class="carousel-track" id="galleryTrack">
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189610/20260101_125210_bql6ku.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189522/IMG_1110_kmhsxk.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189519/image00035_ihqiox.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784194174/DSC02904_ocxzsr.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784188436/DSC02872_tx4c5o.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784128673/IMG_1144_yudjlk.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189481/IMG_4238_d4je5x.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189442/IMG_1103_oseo8d.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784188414/DSC02621_teqeb2.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784188349/DSC02892_munk0u.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189534/IMG_5436_rkkmy1.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189657/P1377726_kkwlip.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189648/P1377735_pdgqyc.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189643/Irynas_drawing_of_gabys_teaching_usmxbf.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189613/20260102_150148_tnklmv.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784188404/DSC02599_eu5hih.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189632/IMG_1073_wkxdj2.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189588/IMG_5260_yxxy4c.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189585/IMG_5233_wm8hz0.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189580/IMG_5166_wfpo82.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189575/IMG_5037_gqq2q8.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189570/IMG_5008_vyvqru.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189572/IMG_5013_nkvfh1.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189559/IMG_1444_sjxcdp.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189556/IMG_1440_plivyd.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784128672/IMG_1772_b0nkrz.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189545/image00002_puwu2g.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189540/image00033_odsctj.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189516/6A2E1F2C-BF6C-4327-807D-2D2E6039EC74_oklbjj.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189460/8a552e28-cd5e-4e42-8e79-b3cf63bbb82d_prrije.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189492/IMG_5139_wphuwz.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189487/IMG_4518_knymsy.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189484/IMG_4502_b1hvkh.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189489/IMG_5114_deme0g.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189474/IMG_4025_j0zanz.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189471/IMG_4116_te1nzq.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189458/7b82e65b-6b31-49ba-a050-853e9333ad18_rnjwlg.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189455/7031de9b-339c-45f7-a2b1-90c31162b6ab_vy056p.jpg')"></div>
+        <div class="carousel-slide" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189453/2e292809-e0cf-4028-82d0-192d270bfadf_stdbiz.jpg')"></div>
+      </div>
+      <button class="carousel-btn prev" id="galleryPrev" aria-label="Previous">&#8249;</button>
+      <button class="carousel-btn next" id="galleryNext" aria-label="Next">&#8250;</button>
     </div>
-    <p style="text-align:center;margin-top:20px;font-family:'Fraunces',serif;font-style:italic;color:#6a5b4d;">More moments from past journeys. Scroll to explore &rarr;</p>
+    <p style="text-align:center;margin-top:20px;font-family:'Fraunces',serif;font-style:italic;color:#6a5b4d;">More moments from past journeys.</p>
   </div>
   </div>
 </section>
@@ -1204,6 +1203,25 @@
       btn.firstChild.textContent = (open ? originalText : 'Show less') + ' ';
     });
   });
+
+  // ---- GALLERY CAROUSEL ----
+  (function(){
+    const track=document.getElementById('galleryTrack');
+    if(!track) return;
+    const slides=track.children; const total=slides.length; let idx=0;
+    function go(i){idx=(i+total)%total;track.style.transform='translateX(-'+(idx*100)+'%)';}
+    document.getElementById('galleryPrev').addEventListener('click',()=>go(idx-1));
+    document.getElementById('galleryNext').addEventListener('click',()=>go(idx+1));
+    let sx=0, sy=0, swiping=false;
+    track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;swiping=true;},{passive:true});
+    track.addEventListener('touchend',e=>{
+      if(!swiping) return; swiping=false;
+      const dx=e.changedTouches[0].clientX-sx;
+      const dy=e.changedTouches[0].clientY-sy;
+      if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)) go(idx+(dx<0?1:-1));
+    },{passive:true});
+    go(0);
+  })();
 
   // ---- CAROUSEL ----
   (function(){
