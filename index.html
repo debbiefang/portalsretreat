@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Portals — 7-Day Women's Ayahuasca Retreat in Tulum</title>
-<meta name="description" content="A 7-day women's ayahuasca retreat in Tulum, Mexico. A sacred journey home to your soul through ceremony, sound, rest, art, and sisterhood." />
+<meta name="description" content="A 7-day women's Ayahuasca retreat in Tulum, Mexico. A sacred journey home to your soul through ceremony, sound, rest, art, and sisterhood." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -95,9 +95,11 @@
   .testimonials-carousel .carousel-btn:hover{background:var(--bg-deep);}
   .testimonials-carousel .carousel-btn.prev{left:8px;}
   .testimonials-carousel .carousel-btn.next{right:8px;}
-  .testimonials-carousel .carousel-dots{position:relative;bottom:auto;left:0;right:0;display:flex;justify-content:center;gap:8px;margin-top:22px;flex-wrap:wrap;}
-  .testimonials-carousel .carousel-dots button{width:7px;height:7px;border-radius:50%;border:none;background:rgba(43,33,26,.25);cursor:pointer;padding:0;transition:background .3s,width .3s;}
-  .testimonials-carousel .carousel-dots button.active{background:var(--clay);width:22px;border-radius:4px;}
+  .testimonials-carousel .carousel-dots{position:relative;bottom:auto;left:0;right:0;display:flex;justify-content:center;gap:5px;margin-top:24px;flex-wrap:nowrap;max-width:400px;margin-left:auto;margin-right:auto;}
+  .testimonials-carousel .carousel-dots button{flex:1;height:4px;border-radius:2px;border:none;background:rgba(43,33,26,.15);cursor:pointer;padding:0;transition:background .4s;}
+  .testimonials-carousel .carousel-dots button.active{background:var(--clay);}
+  .testimonials-carousel .carousel-dots button.seen{background:rgba(164,94,62,.4);}
+  .t-progress-label{text-align:center;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#8a7d6e;margin-top:12px;}
   @media(max-width:640px){
     .testimonials-carousel .carousel-btn.prev{left:6px;}
     .testimonials-carousel .carousel-btn.next{right:6px;}
@@ -881,31 +883,8 @@
       <button class="carousel-btn prev" id="tPrev" aria-label="Previous">&#8249;</button>
       <button class="carousel-btn next" id="tNext" aria-label="Next">&#8250;</button>
     </div>
-    <div class="carousel-dots" id="tDots" style="justify-content:center;display:flex;gap:8px;margin-top:22px;flex-wrap:wrap;"></div>
-  </div>
-</section>
-
-<!-- ============ WHAT'S INCLUDED ============ -->
-<section class="sec" style="padding-top:0;">
-  <div class="wrap">
-    <div style="text-align:center;">
-      <span class="sec-eyebrow">Everything included</span>
-      <h2 class="sec-h serif">What's <span class="it">included</span></h2>
-      <p class="sec-sub" style="margin:0 auto;">You are taken care of the moment you land at the retreat center.</p>
-    </div>
-    <div class="included">
-      <div class="included-grid">
-        <div class="included-item"><span class="check"></span><div>Healthy conscious meals</div></div>
-        <div class="included-item"><span class="check"></span><div>7 days &amp; 6 nights accommodation</div></div>
-        <div class="included-item"><span class="check"></span><div>All retreat ceremonies, activities &amp; workshops</div></div>
-        <div class="included-item"><span class="check"></span><div>Pool &amp; communal rooftop</div></div>
-        <div class="included-item"><span class="check"></span><div>Retreat workbook</div></div>
-        <div class="included-item"><span class="check"></span><div>One pre-retreat group preparation call</div></div>
-        <div class="included-item"><span class="check"></span><div>One post-retreat group integration call</div></div>
-        <div class="included-item"><span class="check"></span><div>A personal photoshoot to mark your chapter</div></div>
-      </div>
-    </div>
-    <p class="third-quote serif">"The transformational healing at Portals Retreat allowed me to move into this new phase of my life."<span class="who">&mdash; Debbie L.</span></p>
+    <div class="carousel-dots" id="tDots" style="display:flex;gap:5px;margin-top:24px;max-width:400px;margin-left:auto;margin-right:auto;"></div>
+    <div class="t-progress-label" id="tLabel">1 / 10 &middot; Swipe or tap to read more</div>
   </div>
 </section>
 
@@ -914,11 +893,12 @@
   <div class="wrap">
     <div style="text-align:center;">
       <span class="sec-eyebrow">Choose your space</span>
-      <h2 class="sec-h serif">Three rooms. <span class="it">One journey.</span></h2>
-      <p class="sec-sub" style="margin:0 auto 6px;">Three room options to fit how you want to be held. All rooms include the full retreat program.</p>
-      <div style="display:inline-flex;align-items:center;gap:10px;margin-top:14px;padding:12px 22px;background:linear-gradient(135deg,rgba(201,161,74,.18),rgba(201,161,74,.05));border:1px solid rgba(201,161,74,.35);border-radius:100px;">
+      <h2 class="sec-h serif">Where you'll <span class="it">rest.</span></h2>
+      <p class="sec-sub" style="margin:0 auto 4px;font-size:1.15rem;color:#3a2e24;">Prices range from <strong>$2,300 to $3,250</strong> per person.</p>
+      <p class="sec-sub" style="margin:0 auto 18px;">Join the waitlist to receive your <strong style="color:var(--clay);">$300 OFF early-bird discount</strong> and the full retreat brochure the moment we announce the dates.</p>
+      <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:8px;padding:12px 22px;background:linear-gradient(135deg,rgba(201,161,74,.18),rgba(201,161,74,.05));border:1px solid rgba(201,161,74,.35);border-radius:100px;">
         <span style="font-size:1.05rem;">✨</span>
-        <span style="font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);">Waitlist women receive an early-bird gift</span>
+        <span style="font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);">$300 off for waitlist women</span>
       </div>
     </div>
     <div class="rooms-grid">
@@ -976,7 +956,30 @@
         </div>
       </div>
     </div>
-    <p style="text-align:center;margin-top:34px;color:#5a4c40;font-size:.98rem;max-width:52ch;margin-left:auto;margin-right:auto;">Join the waitlist to receive your <strong style="color:#2b211a;">early-bird gift</strong> and the full retreat brochure the moment we announce the dates.</p>
+  </div>
+</section>
+
+<!-- ============ WHAT'S INCLUDED ============ -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div style="text-align:center;">
+      <span class="sec-eyebrow">What your investment includes</span>
+      <h2 class="sec-h serif">Everything is <span class="it">taken care of.</span></h2>
+      <p class="sec-sub" style="margin:0 auto;">From the moment you land at the retreat center, every detail is held, so you can simply arrive.</p>
+    </div>
+    <div class="included">
+      <div class="included-grid">
+        <div class="included-item"><span class="check"></span><div>Healthy conscious meals</div></div>
+        <div class="included-item"><span class="check"></span><div>7 days &amp; 6 nights accommodation</div></div>
+        <div class="included-item"><span class="check"></span><div>All retreat ceremonies, activities &amp; workshops</div></div>
+        <div class="included-item"><span class="check"></span><div>Pool &amp; communal rooftop</div></div>
+        <div class="included-item"><span class="check"></span><div>Retreat workbook</div></div>
+        <div class="included-item"><span class="check"></span><div>One pre-retreat group preparation call</div></div>
+        <div class="included-item"><span class="check"></span><div>One post-retreat group integration call</div></div>
+        <div class="included-item"><span class="check"></span><div>A personal photoshoot to mark your chapter</div></div>
+      </div>
+    </div>
+    <p class="third-quote serif">"The transformational healing at Portals Retreat allowed me to move into this new phase of my life."<span class="who">&mdash; Debbie L.</span></p>
   </div>
 </section>
 
@@ -988,12 +991,11 @@
       <h2 class="sec-h serif">Questions, <span class="it">answered.</span></h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q">What if I've never done anything like this before?<span class="plus"></span></button><div class="faq-a"><p>You don't need prior experience. Our retreat is designed for beginners and guided by expert facilitators who create a safe, supportive space for everyone, whether it's your first time with plant medicine or your fiftieth.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Is ayahuasca safe?<span class="plus"></span></button><div class="faq-a"><p>Yes, when held in a controlled, ceremonial setting like ours with experienced facilitators. We also provide preparation guidelines and screenings to ensure it's right for you.</p></div></div>
-      <div class="faq-item"><button class="faq-q">I've tried therapy, meditation, and self-help, how is this different?<span class="plus"></span></button><div class="faq-a"><p>Those methods often focus on the mind. True healing also needs to happen on emotional, physical, and spiritual levels. Ayahuasca and our immersive practices go deeper, addressing root causes rather than only symptoms.</p></div></div>
-      <div class="faq-item"><button class="faq-q">What if I'm scared or unsure about the process?<span class="plus"></span></button><div class="faq-a"><p>Feeling nervous is normal. Transformation can feel uncomfortable, but we're here to support you every step of the way. You'll never be pressured, and everything is done with your comfort and safety in mind.</p></div></div>
-      <div class="faq-item"><button class="faq-q">What happens after the retreat? Will I lose what I find here?<span class="plus"></span></button><div class="faq-a"><p>The retreat includes integration calls and tools to help you maintain the clarity and growth you experience. You'll leave with practices to stay aligned long after the retreat ends.</p></div></div>
-      <div class="faq-item"><button class="faq-q">What if I don't feel comfortable in a group setting?<span class="plus"></span></button><div class="faq-a"><p>Our circles are intentionally small, only 10 women, to create an intimate, judgment-free space where you'll feel supported and seen.</p></div></div>
+      <div class="faq-item"><button class="faq-q">What if I've never done anything like this before?<span class="plus"></span></button><div class="faq-a"><p>Many of the women who join us have never tried the medicine before, and for some, this was their first time traveling too. We go through a safety assessment to make sure you're okay to work with the medicine, and as soon as you book, we send you a preparation guide with everything you need for your journey. You'll be guided by expert facilitators who create a safe, supportive space for everyone, whether it's your first time with plant medicine or your fiftieth.</p></div></div>
+      <div class="faq-item"><button class="faq-q">What is the safety assessment for?<span class="plus"></span></button><div class="faq-a"><p>The safety assessment is how we make sure you're fit to do the work with the medicine. We review any medication contraindications together. Some conditions aren't recommended, including antidepressants (such as SSRIs or MAOIs) or antipsychotic medications, psychiatric conditions or family histories of certain mental health disorders, surgery within the past three months, heart conditions, uncontrolled high blood pressure, uncontrolled diabetes, epilepsy, active addiction, or pregnancy. If any of these apply to you, participation may still be possible, so the best thing to do is message us and we'll talk it through.</p></div></div>
+      <div class="faq-item"><button class="faq-q">What if I'm scared or unsure about the process?<span class="plus"></span></button><div class="faq-a"><p>Feeling nervous is normal, that's what we're here for. When you book, you'll receive a preparation checklist and a guide on how to work with the medicine, so you have peace of mind knowing you're supported. You'll also have access to us for any questions along the way. Got more questions? Email Debbie at debbieverse@gmail.com.</p></div></div>
+      <div class="faq-item"><button class="faq-q">What happens after the retreat?<span class="plus"></span></button><div class="faq-a"><p>We hold a group integration call once we've all returned to our lives. We also have a WhatsApp group for the women who join each year, so everyone can stay in touch. Many have gone on to meet up with each other in different cities again.</p></div></div>
+      <div class="faq-item"><button class="faq-q">What if I don't feel comfortable in a group setting?<span class="plus"></span></button><div class="faq-a"><p>Our circles are intentionally small, so you have personalized care and deeper bonds with one another. You are never pressured into anything you don't feel like participating in. We have exercises and agreements in place so everyone feels supported and seen.</p></div></div>
       <div class="faq-item"><button class="faq-q">Are there payment plans?<span class="plus"></span></button><div class="faq-a"><p>Yes. We offer flexible payment options to make this transformational experience accessible. Waitlist women hear about pricing first.</p></div></div>
       <div class="faq-item"><button class="faq-q">How do I know this is the right time?<span class="plus"></span></button><div class="faq-a"><p>The truth is, there's never a "perfect" time to prioritize yourself. But if you've read this far, something inside you is already telling you it's time to make a change. Trust that voice.</p></div></div>
     </div>
@@ -1027,13 +1029,12 @@
 </section>
 
 <!-- ============ FORM ============ -->
-<div class="wrap">
+<div class="wrap" style="padding-top:80px;">
   <section class="panel" id="join">
     <div class="panel-grid">
       <div>
         <h2 class="serif">Step through<br>the <span class="it">Portal.</span></h2>
-        <p class="sub">Join the waitlist to receive an <strong style="color:#e9d3b3;font-weight:500;">early-bird gift</strong> on any room, our thank-you for stepping toward this before it opens to the public.</p>
-        <p class="reassure">Our ayahuasca ceremonies are held in a safe, sacred space by experienced facilitators. Whether it's your first time with plant medicine or your fiftieth, you'll be guided with care.</p>
+        <p class="sub">Join the waitlist to receive your <strong style="color:#e9d3b3;font-weight:500;">$300 OFF early-bird discount</strong> and the full retreat brochure the moment we announce the dates.</p>
       </div>
       <div>
         <form id="waitlist-form">
@@ -1076,7 +1077,7 @@
     <div class="modal-inner">
       <div id="modalFormWrap">
         <h2 id="modalTitle" class="serif">Step through<br>the <span class="it">Portal.</span></h2>
-        <p class="sub">Join the waitlist to receive an <strong style="color:#e9d3b3;font-weight:500;">early-bird gift</strong> on any room, our thank-you for stepping toward this before it opens to the public.</p>
+        <p class="sub">Join the waitlist to receive your <strong style="color:#e9d3b3;font-weight:500;">$300 OFF early-bird discount</strong> and the full retreat brochure the moment we announce the dates.</p>
         <form id="modal-waitlist-form">
           <div class="field"><label for="mFirstName">Your name</label><input id="mFirstName" name="firstName" type="text" placeholder="First name" required /></div>
           <div class="field"><label for="mEmail">Email</label><input id="mEmail" name="email" type="email" placeholder="you@email.com" required /></div>
@@ -1195,9 +1196,18 @@
   (function(){
     const track=document.getElementById('testimonialsTrack');
     if(!track) return;
-    const slides=track.children; const dots=document.getElementById('tDots'); let idx=0;
-    for(let i=0;i<slides.length;i++){const b=document.createElement('button');b.addEventListener('click',()=>go(i));dots.appendChild(b);}
-    function go(i){idx=(i+slides.length)%slides.length;track.style.transform='translateX(-'+(idx*100)+'%)';[...dots.children].forEach((d,n)=>d.classList.toggle('active',n===idx));}
+    const slides=track.children; const dots=document.getElementById('tDots'); const label=document.getElementById('tLabel'); let idx=0;
+    const total=slides.length;
+    for(let i=0;i<total;i++){const b=document.createElement('button');b.setAttribute('aria-label','Story '+(i+1));b.addEventListener('click',()=>go(i));dots.appendChild(b);}
+    function go(i){
+      idx=(i+total)%total;
+      track.style.transform='translateX(-'+(idx*100)+'%)';
+      [...dots.children].forEach((d,n)=>{
+        d.classList.toggle('active',n===idx);
+        d.classList.toggle('seen',n<idx);
+      });
+      if(label) label.textContent = (idx+1)+' / '+total+(idx<total-1 ? ' \u00b7 Swipe or tap to read more' : ' \u00b7 You\u2019ve read them all');
+    }
     document.getElementById('tPrev').addEventListener('click',()=>go(idx-1));
     document.getElementById('tNext').addEventListener('click',()=>go(idx+1));
     let sx=0;track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
