@@ -71,7 +71,7 @@
   @keyframes lb-in{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:scale(1);}}
 
   /* ========== Testimonials carousel ========== */
-  .testimonials-carousel{position:relative;max-width:680px;margin:40px auto 0;}
+  .testimonials-carousel{position:relative;max-width:680px;margin:40px auto 0;overflow:hidden;border-radius:14px;}
   .testimonials-track{display:flex;transition:transform .65s cubic-bezier(.2,.7,.3,1);}
   .testimonial-slide{flex:0 0 100%;padding:32px clamp(20px,3vw,40px);background:#fff;border-radius:14px;box-shadow:0 10px 32px rgba(43,33,26,.1);border:1px solid rgba(43,33,26,.06);}
   .t-header{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
@@ -93,8 +93,8 @@
   .t-toggle[aria-expanded="true"] .chev{transform:rotate(180deg);}
   .testimonials-carousel .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(15,13,11,.85);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:1.2rem;cursor:pointer;display:grid;place-items:center;transition:background .3s;z-index:2;}
   .testimonials-carousel .carousel-btn:hover{background:var(--bg-deep);}
-  .testimonials-carousel .carousel-btn.prev{left:-20px;}
-  .testimonials-carousel .carousel-btn.next{right:-20px;}
+  .testimonials-carousel .carousel-btn.prev{left:8px;}
+  .testimonials-carousel .carousel-btn.next{right:8px;}
   .testimonials-carousel .carousel-dots{position:relative;bottom:auto;left:0;right:0;display:flex;justify-content:center;gap:8px;margin-top:22px;flex-wrap:wrap;}
   .testimonials-carousel .carousel-dots button{width:7px;height:7px;border-radius:50%;border:none;background:rgba(43,33,26,.25);cursor:pointer;padding:0;transition:background .3s,width .3s;}
   .testimonials-carousel .carousel-dots button.active{background:var(--clay);width:22px;border-radius:4px;}
@@ -108,16 +108,13 @@
   }
 
   /* ========== Closing poem ========== */
-  .poem-section{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);padding:100px 0;}
-  .poem-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center;max-width:1080px;margin:0 auto;}
-  @media(max-width:880px){.poem-grid{grid-template-columns:1fr;gap:40px;}}
-  .poem-photo{aspect-ratio:1/1;max-width:520px;width:100%;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(43,33,26,.22);background:linear-gradient(135deg,#e3d2bf,#c8835f);background-size:cover;background-position:center;}
-  .poem-text{padding:0;}
-  .poem-text .p-line{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.15rem,1.9vw,1.4rem);line-height:1.7;color:#3a2e24;margin:0;}
-  .poem-text .p-line.opening{font-style:italic;color:var(--clay);margin-bottom:8px;}
+  .poem-section{position:relative;padding:120px 0;overflow:hidden;background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_2000/v1784269128/DSC03098_wah1ui.jpg');background-size:cover;background-position:center;color:#fff;}
+  .poem-section::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,11,.72) 0%,rgba(15,13,11,.62) 45%,rgba(15,13,11,.82) 100%);pointer-events:none;}
+  .poem-text{position:relative;z-index:2;max-width:640px;margin:0 auto;padding:0 clamp(20px,4vw,40px);text-align:center;}
+  .poem-text .p-line{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.15rem,1.9vw,1.4rem);line-height:1.7;color:#fff;margin:0;text-shadow:0 2px 20px rgba(0,0,0,.6);}
+  .poem-text .p-line.opening{font-style:italic;color:var(--gold-soft);margin-bottom:8px;}
   .poem-text .p-break{height:20px;}
-  .poem-text .p-signature{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin-top:32px;}
-  @media(max-width:880px){.poem-photo{order:1;max-width:400px;}.poem-text{order:2;}}
+  .poem-text .p-signature{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);margin-top:32px;text-shadow:0 2px 15px rgba(0,0,0,.5);}
 
   /* ========== Section base ========== */
   .sec{padding:80px 0;}
@@ -379,7 +376,7 @@
   <div class="hero-stats">
     <div class="wrap">
       <div class="hero-stats-grid">
-        <div><div class="lbl">Seven Days</div><div class="sub">Connection &middot; Clarity</div></div>
+        <div><div class="lbl">7-Day Women's Retreat</div><div class="sub">Connection &middot; Clarity</div></div>
         <div><div class="lbl">Intimate Group</div><div class="sub">Deep bonds &middot; personal care</div></div>
         <div><div class="lbl">Sound &middot; Medicine &middot; Movement</div><div class="sub">Body &middot; Mind &middot; Spirit</div></div>
         <div><div class="lbl">Experienced Guides</div><div class="sub">400+ ceremonies facilitated</div></div>
@@ -429,7 +426,7 @@
     <section class="gallery">
     <figure class="tall wide"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784194179/DSC02707_mnaskh.jpg" alt="Sisterhood at Portals" loading="lazy"></figure>
     <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189605/P1377864_ywadcz.jpg" alt="Ceremony" loading="lazy"></figure>
-    <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189442/IMG_1103_oseo8d.jpg" alt="Portrait" loading="lazy"></figure>
+    <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189439/e9dd6339-9d1b-40d0-9f47-892f16305bab_vgw4by.jpg" alt="Reflection" loading="lazy"></figure>
     <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189561/IMG_1589_plsqhw.jpg" alt="Movement" loading="lazy"></figure>
     <figure><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189564/IMG_1655_soh0nd.jpg" alt="Presence" loading="lazy"></figure>
     <figure class="wide"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1400/v1784189476/IMG_4126_ygg4jm.jpg" alt="Wisdom" loading="lazy"></figure>
@@ -791,8 +788,8 @@
 
       <button class="carousel-btn prev" id="tPrev" aria-label="Previous">&#8249;</button>
       <button class="carousel-btn next" id="tNext" aria-label="Next">&#8250;</button>
-      <div class="carousel-dots" id="tDots"></div>
     </div>
+    <div class="carousel-dots" id="tDots" style="justify-content:center;display:flex;gap:8px;margin-top:22px;flex-wrap:wrap;"></div>
   </div>
 </section>
 
@@ -825,7 +822,7 @@
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,11,.78) 0%,rgba(15,13,11,.72) 50%,rgba(15,13,11,.85) 100%);pointer-events:none;"></div>
   <div class="wrap" style="max-width:720px;text-align:center;position:relative;z-index:2;">
     <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.15rem,2vw,1.5rem);line-height:1.65;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5);">We're in a moment where nearly everything is mediated by a screen.<br>
-    Where connection is filtered by AI.<br>
+    Where true connection is rarer than it's ever been.<br>
     Where "self-work" happens alone, late at night, scrolling.</p>
     <p style="margin-top:24px;font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.15rem,2vw,1.5rem);line-height:1.65;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5);">This is the opposite.</p>
     <p style="margin-top:18px;font-family:'Jost',sans-serif;font-size:1.02rem;line-height:1.75;color:rgba(255,255,255,.92);max-width:52ch;margin-left:auto;margin-right:auto;text-shadow:0 2px 15px rgba(0,0,0,.5);">Seven days in a room with real women. In your body. Away from your phone. Held by hands, not tabs.</p>
@@ -837,74 +834,25 @@
 <!-- ============ PRICING / ROOMS ============ -->
 <section class="sec rooms" style="background:var(--bg-soft);">
   <div class="wrap">
-    <div style="text-align:center;">
-      <span class="sec-eyebrow">Choose your space</span>
-      <h2 class="sec-h serif">Where you'll <span class="it">rest.</span></h2>
-      <p class="sec-sub" style="margin:0 auto 6px;">Three room options. Pricing is per person for the full retreat.</p>
-      <div style="display:inline-flex;align-items:center;gap:12px;margin-top:14px;padding:12px 24px;background:linear-gradient(135deg,rgba(201,161,74,.18),rgba(201,161,74,.05));border:1px solid rgba(201,161,74,.35);border-radius:100px;">
-        <span style="font-size:1.1rem;">✨</span>
-        <span style="font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);">Waitlist women receive a $300 early-bird gift on any room</span>
-      </div>
-    </div>
-    <div class="rooms-grid">
-      <div class="room-card">
-        <div class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784183858/serenity_2_acymvk.jpg');"></div>
-        <div class="room-body">
-          <div class="room-eyebrow">Private</div>
-          <h3 class="serif">The Serenity Suite</h3>
-          <div class="room-price"><span>$</span>3,250<small>per person</small></div>
-          <div class="room-anchor"><span>$3,550</span><span class="save">Save $300</span></div>
-          <button class="room-toggle" aria-expanded="false">View details <span class="chev">&darr;</span></button>
-          <div class="room-details">
-            <ul>
-              <li>Your own private room</li>
-              <li>Your own private bathroom</li>
-              <li>Complete solitude when you need it</li>
-              <li>Full retreat program included</li>
-            </ul>
-          </div>
-          <button class="room-cta" data-open-form>Join the waitlist</button>
-        </div>
-      </div>
+    <div style="text-align:center;max-width:640px;margin:0 auto;">
+      <span class="sec-eyebrow">Your investment</span>
+      <h2 class="sec-h serif">Three room options.<br><span class="it">One journey.</span></h2>
 
-      <div class="room-card featured">
-        <div class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784183852/hearts_haven_1_yizusb.jpg');"></div>
-        <div class="room-body">
-          <div class="room-eyebrow">Shared &middot; 2 women</div>
-          <h3 class="serif">The Hearts Haven</h3>
-          <div class="room-price"><span>$</span>2,750<small>per person</small></div>
-          <div class="room-anchor"><span>$3,050</span><span class="save">Save $300</span></div>
-          <button class="room-toggle" aria-expanded="false">View details <span class="chev">&darr;</span></button>
-          <div class="room-details">
-            <ul>
-              <li>Shared with one other woman</li>
-              <li>Your own bed</li>
-              <li>Shared bathroom</li>
-              <li>Full retreat program included</li>
-            </ul>
-          </div>
-          <button class="room-cta" data-open-form>Join the waitlist</button>
-        </div>
-      </div>
+      <div style="margin:40px auto 30px;padding:44px clamp(28px,4vw,54px);background:#fff;border-radius:18px;box-shadow:0 12px 40px rgba(43,33,26,.12);border:1px solid rgba(43,33,26,.06);">
+        <div style="font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;">Pricing range</div>
+        <div style="font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2rem,4.5vw,3.2rem);color:#2b211a;line-height:1;margin-bottom:8px;">$2,300 <span style="color:var(--clay);font-style:italic;">to</span> $3,250</div>
+        <div style="font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:#8a7d6e;margin-bottom:26px;">Per person &middot; All-inclusive for 7 days</div>
 
-      <div class="room-card">
-        <div class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784183854/trinity_2_bdkf1f.jpg');"></div>
-        <div class="room-body">
-          <div class="room-eyebrow">Shared &middot; 3 women</div>
-          <h3 class="serif">The Trinity</h3>
-          <div class="room-price"><span>$</span>2,550<small>per person</small></div>
-          <div class="room-anchor"><span>$2,850</span><span class="save">Save $300</span></div>
-          <button class="room-toggle" aria-expanded="false">View details <span class="chev">&darr;</span></button>
-          <div class="room-details">
-            <ul>
-              <li>Shared with two other women</li>
-              <li>Your own bed</li>
-              <li>Shared bathroom</li>
-              <li>Full retreat program included</li>
-            </ul>
-          </div>
-          <button class="room-cta" data-open-form>Join the waitlist</button>
+        <p style="color:#4f4236;font-size:1rem;line-height:1.7;max-width:44ch;margin:0 auto 28px;">Three room options to fit how you want to be held. Private, shared with one, or shared with two. All rooms include the full retreat program.</p>
+
+        <div style="display:inline-flex;align-items:center;gap:10px;padding:12px 22px;background:linear-gradient(135deg,rgba(201,161,74,.18),rgba(201,161,74,.05));border:1px solid rgba(201,161,74,.35);border-radius:100px;margin-bottom:28px;">
+          <span style="font-size:1.05rem;">✨</span>
+          <span style="font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);">Waitlist women receive a $300 early-bird gift</span>
         </div>
+
+        <p style="color:#5a4c40;font-size:.98rem;line-height:1.6;max-width:44ch;margin:0 auto 30px;">Join the waitlist to receive your <strong style="color:#2b211a;">$300 early-bird gift</strong> and the full retreat brochure the moment we announce the dates.</p>
+
+        <button class="room-cta" data-open-form style="width:100%;max-width:340px;">Join the waitlist</button>
       </div>
     </div>
   </div>
@@ -932,10 +880,7 @@
 
 <!-- ============ CLOSING POEM ============ -->
 <section class="poem-section">
-  <div class="wrap">
-    <div class="poem-grid">
-      <div class="poem-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1000/v1784193479/Shannon_headshot_idpfgu.jpg');"></div>
-      <div class="poem-text">
+  <div class="poem-text">
         <p class="p-line opening">Stepping into the mystery&hellip;</p>
         <p class="p-line">Is not always easy</p>
         <p class="p-line">Or accepted</p>
@@ -957,8 +902,6 @@
         <p class="p-line">Remember who you truly are</p>
         <p class="p-signature">&mdash; Visionary Shannon</p>
       </div>
-    </div>
-  </div>
 </section>
 
 <!-- ============ FORM ============ -->
@@ -1041,6 +984,12 @@
 </div>
 
 <a href="#" class="sticky-cta" id="stickyCta" data-open-form>Join the waitlist</a>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img src="" id="lightboxImg" alt="">
+</div>
 
 <script>
   const ENDPOINT = "https://script.google.com/macros/s/AKfycbyD1RWshVLkok12fWSJz1gqFWNJex7NdFlcHIBSBUq9mq__bZri3SIpoMHaCNpiFJk/exec";
@@ -1212,11 +1161,6 @@
     handleSubmit(modalForm, document.getElementById('modalFormWrap'), document.getElementById('modalSuccess'), modalForm.querySelector('button.submit'));
   });
 </script>
-<!-- ============ LIGHTBOX ============ -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
-  <img src="" id="lightboxImg" alt="">
-</div>
 
 </body>
 </html>
