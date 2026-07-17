@@ -98,6 +98,18 @@
     .t-avatar.t-initial{font-size:1.2rem;}
   }
 
+  /* ========== Closing poem ========== */
+  .poem-section{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);padding:100px 0;}
+  .poem-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center;max-width:1080px;margin:0 auto;}
+  @media(max-width:880px){.poem-grid{grid-template-columns:1fr;gap:40px;}}
+  .poem-photo{aspect-ratio:1/1;max-width:520px;width:100%;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(43,33,26,.22);background:linear-gradient(135deg,#e3d2bf,#c8835f);background-size:cover;background-position:center;}
+  .poem-text{padding:0;}
+  .poem-text .p-line{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.15rem,1.9vw,1.4rem);line-height:1.7;color:#3a2e24;margin:0;}
+  .poem-text .p-line.opening{font-style:italic;color:var(--clay);margin-bottom:8px;}
+  .poem-text .p-break{height:20px;}
+  .poem-text .p-signature{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin-top:32px;}
+  @media(max-width:880px){.poem-photo{order:1;max-width:400px;}.poem-text{order:2;}}
+
   /* ========== Section base ========== */
   .sec{padding:80px 0;}
   .sec-h{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.15;margin-bottom:18px;}
@@ -723,6 +735,22 @@
           <button class="t-toggle" aria-expanded="false">Read Jasmin's story <span class="chev">&darr;</span></button>
         </div>
 
+        <!-- Tanya -->
+        <div class="testimonial-slide">
+          <div class="t-header">
+            <div class="t-avatar t-initial" data-initial="T"></div>
+            <div class="t-who">
+              <div class="t-name">Tanya</div>
+              <div class="t-role">Ready for what's next in her career</div>
+            </div>
+          </div>
+          <div class="t-quote serif">"I am ready for the next step in my career."</div>
+          <div class="t-body">
+            <p>I feel <mark>cleansed mentally and physically</mark>. I learned valuable things from all of these women that I will always carry with me.</p>
+            <p>I learned valuable things about myself and <mark>feel like I am ready for the next step in my career</mark>. I also have better tools for taking care of myself physically and mentally.</p>
+          </div>
+        </div>
+
         <!-- Karen -->
         <div class="testimonial-slide">
           <div class="t-header">
@@ -868,6 +896,19 @@
   </div>
 </section>
 
+<!-- ============ THE REFRAME (permission slip before pricing) ============ -->
+<section class="sec reframe-block" style="padding:70px 0 20px;">
+  <div class="wrap" style="max-width:720px;text-align:center;">
+    <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.15rem,2vw,1.5rem);line-height:1.65;color:#3a2e24;">We're in a moment where nearly everything is mediated by a screen.<br>
+    Where connection is filtered by AI.<br>
+    Where "self-work" happens alone, late at night, scrolling.</p>
+    <p style="margin-top:24px;font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.15rem,2vw,1.5rem);line-height:1.65;color:#3a2e24;">This is the opposite.</p>
+    <p style="margin-top:18px;font-family:'Jost',sans-serif;font-size:1.02rem;line-height:1.75;color:#4f4236;max-width:52ch;margin-left:auto;margin-right:auto;">Seven days in a room with real women. In your body. Away from your phone. Held by hands, not tabs.</p>
+    <p style="margin-top:24px;font-family:'Fraunces',serif;font-style:italic;color:var(--clay);font-size:clamp(1.05rem,1.7vw,1.25rem);">You don't need permission to invest in this.<br>
+    But if you do &mdash; consider this it.</p>
+  </div>
+</section>
+
 <!-- ============ PRICING / ROOMS ============ -->
 <section class="sec rooms" style="background:var(--bg-soft);">
   <div class="wrap">
@@ -960,6 +1001,37 @@
       <div class="faq-item"><button class="faq-q">What if I don't feel comfortable in a group setting?<span class="plus"></span></button><div class="faq-a"><p>Our circles are intentionally small &mdash; only 10 women &mdash; to create an intimate, judgment-free space where you'll feel supported and seen.</p></div></div>
       <div class="faq-item"><button class="faq-q">Are there payment plans?<span class="plus"></span></button><div class="faq-a"><p>Yes. We offer flexible payment options to make this transformational experience accessible. Waitlist women hear about pricing first.</p></div></div>
       <div class="faq-item"><button class="faq-q">How do I know this is the right time?<span class="plus"></span></button><div class="faq-a"><p>The truth is, there's never a "perfect" time to prioritize yourself. But if you've read this far, something inside you is already telling you it's time to make a change. Trust that voice.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING POEM ============ -->
+<section class="poem-section">
+  <div class="wrap">
+    <div class="poem-grid">
+      <div class="poem-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1000/v1784193479/Shannon_headshot_idpfgu.jpg');"></div>
+      <div class="poem-text">
+        <p class="p-line opening">Stepping into the mystery&hellip;</p>
+        <p class="p-line">Is not always easy</p>
+        <p class="p-line">Or accepted</p>
+        <p class="p-line">Or even better understood</p>
+        <div class="p-break"></div>
+        <p class="p-line">But the call of the soul</p>
+        <p class="p-line">Of a deep knowing</p>
+        <p class="p-line">The reminder of a tender flame</p>
+        <p class="p-line">Inside of your heart</p>
+        <div class="p-break"></div>
+        <p class="p-line">Can ignite</p>
+        <p class="p-line">With one breath</p>
+        <p class="p-line">Bringing you home</p>
+        <p class="p-line">To your life's true purpose</p>
+        <p class="p-line">Whole and free</p>
+        <div class="p-break"></div>
+        <p class="p-line">Step through the portal</p>
+        <p class="p-line">Take that leap</p>
+        <p class="p-line">Remember who you truly are</p>
+        <p class="p-signature">&mdash; Visionary Shannon</p>
+      </div>
     </div>
   </div>
 </section>
