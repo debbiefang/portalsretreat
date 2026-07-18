@@ -321,6 +321,11 @@
   .field label{display:block;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:#9c8f7e;margin-bottom:9px;}
   .field label .opt{color:#6f6557;letter-spacing:.12em;}
   .field input,.field textarea{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(239,231,218,.28);color:#efe7da;font-family:'Jost',sans-serif;font-size:1.05rem;padding:8px 0;outline:none;transition:border-color .3s;resize:none;}
+  .select-wrap{position:relative;}
+  .select-wrap::after{content:"";position:absolute;right:2px;top:50%;width:8px;height:8px;border-right:1.5px solid #9c8f7e;border-bottom:1.5px solid #9c8f7e;transform:translateY(-70%) rotate(45deg);pointer-events:none;}
+  .field select{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(239,231,218,.28);color:#efe7da;font-family:'Jost',sans-serif;font-size:1.05rem;padding:8px 24px 8px 0;outline:none;transition:border-color .3s;-webkit-appearance:none;appearance:none;cursor:pointer;border-radius:0;}
+  .field select:focus{border-color:var(--clay-soft);}
+  .field select option{background:#1a1612;color:#efe7da;}
   .field textarea{min-height:64px;line-height:1.5;}
   .field input::placeholder,.field textarea::placeholder{color:#6f6557}
   .field input:focus,.field textarea:focus{border-color:var(--clay-soft);}
@@ -1047,8 +1052,19 @@
         <form id="waitlist-form">
           <div class="field"><label for="firstName">Your name</label><input id="firstName" name="firstName" type="text" placeholder="First name" required /></div>
           <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required /></div>
-          <div class="field"><label for="drawing">What's drawing you in? <span class="opt">(optional)</span></label><textarea id="drawing" name="drawing" placeholder="Share whatever feels true&hellip;"></textarea></div>
-          <input type="hidden" id="roomInterest" name="roomInterest" value="" />
+          <div class="field"><label for="phone">Phone <span class="opt">(optional)</span></label><input id="phone" name="phone" type="tel" placeholder="So we can reach you faster when dates open" /></div>
+          <div class="field"><label for="drawing">What draws you to the retreat? <span class="opt">(optional)</span></label><textarea id="drawing" name="drawing" placeholder="Share whatever feels true&hellip;"></textarea></div>
+          <div class="field"><label for="questions">Do you have any questions? <span class="opt">(optional)</span></label><textarea id="questions" name="questions" placeholder="Ask us anything&hellip;"></textarea></div>
+          <div class="field"><label for="roomInterest">Your preferred room choice <span class="opt">(optional)</span></label>
+            <div class="select-wrap">
+              <select id="roomInterest" name="roomInterest">
+                <option value="">No preference yet</option>
+                <option value="The Serenity Suite — Private">The Serenity Suite &mdash; Private</option>
+                <option value="The Hearts Haven — Shared with 1 woman">The Hearts Haven &mdash; Shared with 1 woman</option>
+                <option value="The Trinity — Shared with 2 women">The Trinity &mdash; Shared with 2 women</option>
+              </select>
+            </div>
+          </div>
           <button class="submit" type="submit">Join the waitlist</button>
           <p style="margin-top:14px;font-size:.78rem;color:#8a7d6e;line-height:1.5;">🔒 We'll only ever reach out about the retreat. We will never sell or share your information, and never spam you.</p>
         </form>
@@ -1090,8 +1106,19 @@
         <form id="modal-waitlist-form">
           <div class="field"><label for="mFirstName">Your name</label><input id="mFirstName" name="firstName" type="text" placeholder="First name" required /></div>
           <div class="field"><label for="mEmail">Email</label><input id="mEmail" name="email" type="email" placeholder="you@email.com" required /></div>
-          <div class="field"><label for="mDrawing">What's drawing you in? <span class="opt">(optional)</span></label><textarea id="mDrawing" name="drawing" placeholder="Share whatever feels true&hellip;"></textarea></div>
-          <input type="hidden" id="mRoomInterest" name="roomInterest" value="" />
+          <div class="field"><label for="mPhone">Phone <span class="opt">(optional)</span></label><input id="mPhone" name="phone" type="tel" placeholder="So we can reach you faster when dates open" /></div>
+          <div class="field"><label for="mDrawing">What draws you to the retreat? <span class="opt">(optional)</span></label><textarea id="mDrawing" name="drawing" placeholder="Share whatever feels true&hellip;"></textarea></div>
+          <div class="field"><label for="mQuestions">Do you have any questions? <span class="opt">(optional)</span></label><textarea id="mQuestions" name="questions" placeholder="Ask us anything&hellip;"></textarea></div>
+          <div class="field"><label for="mRoomInterest">Your preferred room choice <span class="opt">(optional)</span></label>
+            <div class="select-wrap">
+              <select id="mRoomInterest" name="roomInterest">
+                <option value="">No preference yet</option>
+                <option value="The Serenity Suite — Private">The Serenity Suite &mdash; Private</option>
+                <option value="The Hearts Haven — Shared with 1 woman">The Hearts Haven &mdash; Shared with 1 woman</option>
+                <option value="The Trinity — Shared with 2 women">The Trinity &mdash; Shared with 2 women</option>
+              </select>
+            </div>
+          </div>
           <button class="submit" type="submit">Join the waitlist</button>
           <p style="margin-top:14px;font-size:.78rem;color:#8a7d6e;line-height:1.5;">🔒 We'll only ever reach out about the retreat. We will never sell or share your information, and never spam you.</p>
         </form>
@@ -1136,10 +1163,17 @@
 
   // ---- MODAL ----
   const modal = document.getElementById('modalOverlay');
+  const ROOM_VALUES = {
+    'The Serenity Suite': 'The Serenity Suite — Private',
+    'The Hearts Haven': 'The Hearts Haven — Shared with 1 woman',
+    'The Trinity': 'The Trinity — Shared with 2 women'
+  };
   function openModal(room){
-    if (room) {
-      document.getElementById('mRoomInterest').value = room;
-      document.getElementById('roomInterest').value = room;
+    if (room && ROOM_VALUES[room]) {
+      const mSel = document.getElementById('mRoomInterest');
+      const sel  = document.getElementById('roomInterest');
+      if (mSel) mSel.value = ROOM_VALUES[room];
+      if (sel)  sel.value  = ROOM_VALUES[room];
     }
     modal.classList.add('show');
     modal.setAttribute('aria-hidden','false');
@@ -1301,8 +1335,9 @@
     const data = {
       firstName: form.firstName.value.trim(),
       email: form.email.value.trim(),
-      phone: "",
-      drawing: form.drawing.value.trim(),
+      phone: form.phone ? form.phone.value.trim() : "",
+      drawing: form.drawing ? form.drawing.value.trim() : "",
+      questions: form.questions ? form.questions.value.trim() : "",
       roomInterest: form.roomInterest ? form.roomInterest.value : "",
       location: visitorLocation,
       timestamp: new Date().toISOString()
