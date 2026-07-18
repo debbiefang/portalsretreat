@@ -32,15 +32,17 @@
   .hero-bg h1 .it{font-style:italic;color:var(--gold-soft);}
   .hero-bg h1 span{display:block;opacity:0;animation:rise 1s forwards;}
   .hero-bg h1 span:nth-child(1){animation-delay:.2s} .hero-bg h1 span:nth-child(2){animation-delay:.32s} .hero-bg h1 span:nth-child(3){animation-delay:.44s}
-  .lede{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.15rem,1.8vw,1.4rem);max-width:46ch;color:rgba(255,255,255,.95);opacity:0;animation:rise 1s .58s forwards;text-shadow:0 2px 20px rgba(0,0,0,.6),0 1px 8px rgba(0,0,0,.5);margin-bottom:16px;}
+  .lede{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.2rem,2vw,1.55rem);max-width:30ch;color:rgba(255,255,255,.9);opacity:0;animation:rise 1s .58s forwards;text-shadow:0 2px 20px rgba(0,0,0,.6),0 1px 8px rgba(0,0,0,.5);margin-bottom:16px;line-height:1.45;}
+  .lede .type{font-style:normal;font-weight:400;color:var(--gold-soft);}
   .lede2{font-size:1.02rem;max-width:50ch;color:rgba(255,255,255,.82);opacity:0;animation:rise 1s .68s forwards;text-shadow:0 2px 20px rgba(0,0,0,.4);}
   .hero-meta{display:flex;gap:30px;flex-wrap:wrap;margin-top:36px;opacity:0;animation:rise 1s .8s forwards;}
   .hero-meta span{font-size:.95rem;color:rgba(255,255,255,.9);display:inline-flex;align-items:center;gap:8px;}
-  .hero-cta{margin-top:36px;display:flex;gap:18px;flex-wrap:wrap;opacity:0;animation:rise 1s .9s forwards;}
+  .hero-scarcity{margin-top:18px;font-family:'Fraunces',serif;font-style:italic;font-size:1.05rem;color:var(--gold-soft);opacity:0;animation:rise 1s .85s forwards;text-shadow:0 2px 18px rgba(0,0,0,.5);}
+  .hero-cta{margin-top:32px;display:flex;gap:26px;flex-wrap:wrap;align-items:center;opacity:0;animation:rise 1s .9s forwards;}
   .btn-primary{font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bg-deep);background:#fff;border:none;border-radius:2px;padding:18px 38px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:12px;transition:transform .3s,background .3s,gap .3s;}
   .btn-primary:hover{background:var(--gold-soft);transform:translateY(-2px);gap:18px;}
-  .btn-ghost{font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:2px;padding:18px 32px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:12px;transition:background .3s,gap .3s;}
-  .btn-ghost:hover{background:rgba(255,255,255,.1);gap:18px;}
+  .link-scroll{font-family:'Jost',sans-serif;font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none;display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:4px;transition:color .3s,gap .3s,border-color .3s;}
+  .link-scroll:hover{color:#fff;gap:16px;border-color:rgba(255,255,255,.7);}
   .hero-stats{position:relative;z-index:3;border-top:1px solid rgba(255,255,255,.15);padding:28px 0 40px;margin-top:auto;}
   .hero-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
   .hero-stats-grid > div{color:#fff;}
@@ -136,9 +138,6 @@
   .story-text .closing{font-family:'Fraunces',serif;font-size:1.2rem;font-style:italic;color:var(--clay);margin-top:26px;line-height:1.4;}
   .video-wrap{position:relative;aspect-ratio:9/16;max-height:640px;margin:0 auto;width:100%;max-width:380px;border-radius:18px;overflow:hidden;box-shadow:0 24px 70px rgba(43,33,26,.25);background:#0f0d0b;}
   .video-wrap iframe,.video-wrap video{width:100%;height:100%;border:0;display:block;}
-  .video-placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#8a7d6e;padding:30px;}
-  .video-placeholder .play{width:72px;height:72px;border-radius:50%;border:1px solid rgba(255,255,255,.3);margin:0 auto 16px;display:grid;place-items:center;color:#e9dcc6;font-size:1.4rem;background:rgba(255,255,255,.05);}
-  .video-placeholder small{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;}
   @media(max-width:880px){.story-text{order:2;}.video-wrap{order:1;max-width:320px;}}
 
   /* ========== Gallery preview ========== */
@@ -204,11 +203,6 @@
   .info-card p{color:#4f4236;font-size:1rem;}
   .info-card p + p{margin-top:12px;}
 
-  /* ========== Hear from participants (second testimonial) ========== */
-  .second-testimonial{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);text-align:center;}
-  .second-testimonial q{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.4;display:block;max-width:40ch;margin:0 auto 22px;color:#3a2e24;}
-  .second-testimonial .who{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);}
-
   /* ========== What's included ========== */
   .included{margin-top:50px;padding:clamp(36px,5vw,60px);background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:18px;}
   .included-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 36px;}
@@ -233,6 +227,9 @@
   .faq-a{max-height:0;overflow:hidden;transition:max-height .5s ease,padding .4s ease;color:#4f4236;}
   .faq-item.open .faq-a{padding:0 0 22px 0;}
   .faq-a p{font-size:1rem;line-height:1.7;}
+  .faq-help{max-width:780px;margin:40px auto 0;text-align:center;padding:30px 24px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.45);}
+  .faq-help h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.25rem;margin-bottom:8px;color:#2b211a;}
+  .faq-help p{color:#5a4c40;font-size:1rem;max-width:46ch;margin:0 auto;}
 
   /* ========== Facilitators ========== */
   .facilitators{background:var(--bg);}
@@ -258,7 +255,26 @@
   .fac-ig svg{width:16px;height:16px;}
 
   /* ========== Rooms / pricing ========== */
-  .rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px;}
+  .pricing-split{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(36px,5vw,72px);align-items:center;}
+  @media(max-width:880px){.pricing-split{grid-template-columns:1fr;gap:36px;}}
+  .pricing-left .sec-h{margin-bottom:22px;}
+  .price-amount{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.5rem,2.6vw,1.95rem);color:#2b211a;line-height:1.3;margin-bottom:22px;}
+  .price-amount strong{font-weight:400;color:var(--clay);white-space:nowrap;}
+  .price-was{color:#6a5b4d;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--clay);white-space:nowrap;}
+  .price-sub-note{font-size:.88rem;letter-spacing:.02em;color:#8a7d6e;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:22px;}
+  .price-offer{color:#5a4c40;font-size:1rem;line-height:1.65;max-width:38ch;margin-bottom:26px;}
+  .price-offer strong{color:var(--clay);font-weight:500;}
+  .price-cta{font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--bg-deep);border:none;border-radius:2px;padding:18px 32px;cursor:pointer;display:inline-flex;align-items:center;gap:12px;text-align:left;line-height:1.5;max-width:100%;transition:background .3s,transform .3s,gap .3s;}
+  .price-cta:hover{background:var(--clay);transform:translateY(-2px);gap:18px;}
+  .price-plans{margin-top:14px;font-size:.85rem;letter-spacing:.02em;color:#8a7d6e;}
+  .included-heading{font-family:'Fraunces',serif;font-weight:400;font-size:1.25rem;color:#2b211a;margin-bottom:14px;}
+  .included-tight{margin:0;padding:clamp(28px,3.5vw,40px);background:rgba(255,255,255,.6);}
+  .included-tight .included-grid{grid-template-columns:1fr;gap:0;}
+  .included-tight .included-item:nth-last-child(2){border-bottom:1px solid rgba(43,33,26,.08);}
+  .included-tight .included-item:last-child{border-bottom:none;}
+  .included-tight .included-item div{font-size:.98rem;}
+  .rooms-label{text-align:center;margin-top:72px;font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(1.3rem,2.4vw,1.7rem);color:#3a2e24;}
+  .rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px;}
   @media(max-width:880px){.rooms-grid{grid-template-columns:1fr;gap:22px;max-width:440px;margin-left:auto;margin-right:auto;}}
   .room-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(43,33,26,.12);display:flex;flex-direction:column;transition:transform .4s ease,box-shadow .4s ease;border:1px solid rgba(43,33,26,.08);}
   .room-card:hover{transform:translateY(-4px);box-shadow:0 22px 56px rgba(43,33,26,.18);}
@@ -267,12 +283,9 @@
   .room-body{padding:26px 24px 24px;display:flex;flex-direction:column;flex:1;}
   .room-eyebrow{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--clay);margin-bottom:6px;}
   .room-card h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.5rem;line-height:1.15;margin-bottom:14px;color:#2b211a;}
-  .room-price{font-family:'Fraunces',serif;font-weight:400;font-size:2.1rem;color:#2b211a;line-height:1;margin-bottom:6px;display:flex;align-items:baseline;gap:4px;}
-  .room-price span{font-size:1.1rem;color:var(--clay);align-self:flex-start;margin-top:6px;}
-  .room-price small{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#8a7d6e;margin-left:10px;font-weight:400;font-family:'Jost',sans-serif;}
-  .room-anchor{font-family:'Fraunces',serif;font-size:1.05rem;color:#a89681;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
-  .room-anchor > span:first-child{text-decoration:line-through;text-decoration-color:rgba(164,94,62,.6);}
-  .room-anchor .save{font-family:'Jost',sans-serif;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);background:rgba(201,161,74,.14);padding:4px 10px;border-radius:20px;text-decoration:none;display:inline-block;}
+  .room-price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .room-price .was{font-family:'Fraunces',serif;font-size:1.1rem;color:#6a5b4d;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--clay);}
+  .room-price strong{font-family:'Fraunces',serif;font-weight:400;font-size:1.6rem;color:var(--clay);line-height:1;}
   .room-list{list-style:none;padding:14px 0 20px;display:grid;gap:9px;margin:0;}
   .room-list li{color:#4f4236;font-size:.95rem;padding-left:20px;position:relative;}
   .room-list li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:rgba(201,161,74,.35);}
@@ -298,6 +311,9 @@
   .panel h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.05;margin-bottom:18px;}
   .panel h2 .it{font-style:italic;color:var(--clay-soft);}
   .panel p.sub{color:#bcae9d;font-size:.98rem;max-width:36ch;}
+  .offer-line{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.15rem,2vw,1.4rem);color:#e9d3b3;line-height:1.35;margin-bottom:14px;}
+  .offer-line strong{font-weight:400;color:var(--gold-soft);}
+  .panel .scarcity{margin-top:20px;font-family:'Fraunces',serif;font-style:italic;color:var(--gold-soft);font-size:1rem;}
   .reassure{margin-top:26px;padding-top:22px;border-top:1px solid rgba(239,231,218,.14);color:#a99c8b;font-size:.9rem;max-width:36ch;}
   .panel .note{margin-top:22px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#7d7263;}
 
@@ -319,6 +335,8 @@
   .success.show{display:block;animation:rise .7s forwards;}
   .success .mark{font-family:'Fraunces',serif;font-style:italic;font-size:2.6rem;color:var(--clay-soft);margin:10px 0 14px;opacity:0;animation:rise .8s 1s forwards;}
   .success p{color:#cabfb0;max-width:34ch;margin:0 auto;opacity:0;animation:rise .8s 1.25s forwards;}
+  .success .call-link{display:inline-block;margin-top:22px;font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);text-decoration:none;border-bottom:1px solid rgba(232,207,142,.5);padding-bottom:4px;opacity:0;animation:rise .8s 1.5s forwards;}
+  .success .call-link:hover{color:#fff;border-color:#fff;}
   .envelope{position:relative;width:200px;height:140px;margin:6px auto 0;opacity:0;transform:translateY(20px) scale(.92);animation:env-in .9s .15s cubic-bezier(.2,.8,.3,1) forwards;}
   .env-glow{position:absolute;left:50%;top:55%;width:220px;height:220px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(212,175,90,.5),rgba(212,175,90,0) 65%);opacity:0;animation:glow-pulse 3s 1s ease-in-out infinite;}
   .letter{position:relative;width:100%;height:100%;overflow:visible;}
@@ -356,20 +374,20 @@
       <div class="nav-meta">Tulum &middot; M&eacute;xico</div>
     </nav>
     <div class="hero-inner">
-      <span class="eyebrow">7-Day Women's Medicine Retreat</span>
+      <span class="eyebrow">Women Only &middot; Ceremony &middot; Sound &middot; Art &middot; Movement</span>
       <h1 class="serif">
         <span>Activate your</span>
         <span><em class="it">power</em> within.</span>
         <span>Reconnect with your essence.</span>
       </h1>
-      <p class="lede">A journey home to your soul through ceremony, sound, rest, art, and sisterhood.</p>
+      <p class="lede"><span class="type">A 7-Day Women's Ayahuasca Retreat</span> to release the old and bring in the new.</p>
       <div class="hero-meta">
         <span>📅 Jan 15 &ndash; 21, 2027</span>
         <span>📍 Tulum, Mexico</span>
       </div>
       <div class="hero-cta">
         <a class="btn-primary" href="#" data-open-form>Join the waitlist <span>&rarr;</span></a>
-        <a class="btn-ghost" href="#story">Discover the program <span>&darr;</span></a>
+        <a class="link-scroll" href="#story">Take a look inside <span>&darr;</span></a>
       </div>
     </div>
   </div>
@@ -378,7 +396,7 @@
       <div class="hero-stats-grid">
         <div><div class="lbl">7-Day Women's Retreat</div><div class="sub">Connection &middot; Clarity</div></div>
         <div><div class="lbl">Intimate Group</div><div class="sub">Deep bonds &middot; personal care</div></div>
-        <div><div class="lbl">Sound &middot; Medicine &middot; Movement</div><div class="sub">Body &middot; Mind &middot; Spirit</div></div>
+        <div><div class="lbl">Sound &middot; Ceremony &middot; Movement</div><div class="sub">Body &middot; Mind &middot; Spirit</div></div>
         <div><div class="lbl">Experienced Guides</div><div class="sub">400+ ceremonies facilitated</div></div>
       </div>
     </div>
@@ -407,7 +425,7 @@
         <p class="poetry">Free to explore who you are, and who you are becoming.</p>
         <p>Your body nourished. Your mind quieted. Knowing you are fully taken care of.</p>
         <p>This is Portals.</p>
-        <p>A seven-day retreat curated for women ready to activate their power within.</p>
+        <p>A seven-day women's Ayahuasca retreat, held with reverence and care, for women ready to activate their power within.</p>
         <p>Come as you are. Feel the world's weight fall away.</p>
         <p>Leave with renewed energy, wisdom, and trust in what's next.</p>
         <p class="closing">Step through the Portal<br>and hear your soul's true calling.</p>
@@ -518,8 +536,8 @@
     <h2 class="sec-h serif">What you'll <span class="it" style="color:var(--gold-soft)">experience.</span></h2>
     <p class="sec-sub">Below is what is planned, but come for a surprise.</p>
     <div class="exp-grid">
-      <div class="exp-card"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784188430/DSC02725_m62e0h.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><div class="label"><div class="title serif">Soundbath for Healing &amp; Cleansing</div></div></div>
       <div class="exp-card"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189559/IMG_1444_sjxcdp.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><div class="label"><div class="title serif">Ayahuasca Ceremony</div></div></div>
+      <div class="exp-card"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784188430/DSC02725_m62e0h.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><div class="label"><div class="title serif">Soundbath for Healing &amp; Cleansing</div></div></div>
       <div class="exp-card"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784194176/DSC02923_s2uo6a.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><div class="label"><div class="title serif">Somatic Integration</div></div></div>
       <div class="exp-card"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189640/IMG_5290_as9gsh.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><div class="label"><div class="title serif">Temazcal &amp; Flower Bath</div></div></div>
       <div class="exp-card"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189688/DSC02704_rkla6l.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><div class="label"><div class="title serif">Gentle Yoga</div></div></div>
@@ -886,11 +904,31 @@
 <!-- ============ PRICING / ROOMS ============ -->
 <section class="sec rooms" style="background:var(--bg-soft);">
   <div class="wrap">
-    <div style="text-align:center;max-width:600px;margin:0 auto;">
-      <span class="sec-eyebrow">Choose your space</span>
-      <h2 class="sec-h serif">Where you'll <span class="it">rest.</span></h2>
-      <p class="sec-sub" style="margin:0 auto 16px;">Pricing ranges from <strong style="color:#3a2e24;">$2,300 to $3,250</strong> depending on the room you select. Join the waitlist to receive your <strong style="color:var(--clay);">$300 OFF early-bird discount</strong> and the full retreat brochure the moment we announce the dates.</p>
+    <div class="pricing-split">
+      <div class="pricing-left">
+        <span class="sec-eyebrow">Your investment</span>
+        <h2 class="sec-h serif">Pricing<span class="it">.</span></h2>
+        <p class="price-amount serif">Starting from <span class="price-was">2,650 USD</span> <strong>2,350 USD</strong></p>
+        <p class="price-offer">Join the waitlist to receive your <strong>$300 OFF early-bird discount</strong> and the full brochure the moment we announce the dates.</p>
+        <button class="price-cta" data-open-form>Receive your $300 OFF Early-Bird Discount <span>&rarr;</span></button>
+      </div>
+      <div class="pricing-right">
+        <p class="included-heading serif">What's Included</p>
+        <div class="included included-tight">
+          <div class="included-grid">
+            <div class="included-item"><span class="check"></span><div>Healthy conscious meals</div></div>
+            <div class="included-item"><span class="check"></span><div>7 days &amp; 6 nights accommodation</div></div>
+            <div class="included-item"><span class="check"></span><div>All retreat ceremonies, activities &amp; workshops</div></div>
+            <div class="included-item"><span class="check"></span><div>Pool &amp; communal rooftop</div></div>
+            <div class="included-item"><span class="check"></span><div>Retreat workbook</div></div>
+            <div class="included-item"><span class="check"></span><div>One pre-retreat group preparation call</div></div>
+            <div class="included-item"><span class="check"></span><div>One post-retreat group integration call</div></div>
+            <div class="included-item"><span class="check"></span><div>A personal photoshoot to mark your chapter</div></div>
+          </div>
+        </div>
+      </div>
     </div>
+    <p class="rooms-label serif">Choose your room</p>
     <div class="rooms-grid">
       <div class="room-card">
         <div class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784183858/serenity_2_acymvk.jpg');"></div>
@@ -901,9 +939,9 @@
             <li>Your own private room</li>
             <li>Your own private bathroom</li>
             <li>Complete solitude when you need it</li>
-            <li>Full retreat program included</li>
+            <li>Full retreat program &amp; meals included</li>
           </ul>
-          <button class="room-cta" data-open-form>Join the waitlist</button>
+          <button class="room-cta" data-open-form data-room="The Serenity Suite">Join the waitlist</button>
         </div>
       </div>
 
@@ -913,12 +951,12 @@
           <div class="room-eyebrow">Shared &middot; 2 women</div>
           <h3 class="serif">The Hearts Haven</h3>
           <ul class="room-list">
-            <li>Shared with one other woman</li>
+            <li>Shared with 1 other woman</li>
             <li>Your own bed</li>
             <li>Shared bathroom</li>
-            <li>Full retreat program included</li>
+            <li>Full retreat program &amp; meals included</li>
           </ul>
-          <button class="room-cta" data-open-form>Join the waitlist</button>
+          <button class="room-cta" data-open-form data-room="The Hearts Haven">Join the waitlist</button>
         </div>
       </div>
 
@@ -928,39 +966,22 @@
           <div class="room-eyebrow">Shared &middot; 3 women</div>
           <h3 class="serif">The Trinity</h3>
           <ul class="room-list">
-            <li>Shared with two other women</li>
+            <li>Shared with 2 other women</li>
             <li>Your own bed</li>
             <li>Shared bathroom</li>
-            <li>Full retreat program included</li>
+            <li>Full retreat program &amp; meals included</li>
           </ul>
-          <button class="room-cta" data-open-form>Join the waitlist</button>
+          <button class="room-cta" data-open-form data-room="The Trinity">Join the waitlist</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ WHAT'S INCLUDED ============ -->
-<section class="sec" style="padding-top:0;">
+<!-- ============ CLOSING QUOTE ============ -->
+<section class="sec" style="padding-top:70px;padding-bottom:70px;">
   <div class="wrap">
-    <div style="text-align:center;">
-      <span class="sec-eyebrow">What your investment includes</span>
-      <h2 class="sec-h serif">Everything is <span class="it">taken care of.</span></h2>
-      <p class="sec-sub" style="margin:0 auto;">From the moment you land at the retreat center, every detail is held, so you can simply arrive.</p>
-    </div>
-    <div class="included">
-      <div class="included-grid">
-        <div class="included-item"><span class="check"></span><div>Healthy conscious meals</div></div>
-        <div class="included-item"><span class="check"></span><div>7 days &amp; 6 nights accommodation</div></div>
-        <div class="included-item"><span class="check"></span><div>All retreat ceremonies, activities &amp; workshops</div></div>
-        <div class="included-item"><span class="check"></span><div>Pool &amp; communal rooftop</div></div>
-        <div class="included-item"><span class="check"></span><div>Retreat workbook</div></div>
-        <div class="included-item"><span class="check"></span><div>One pre-retreat group preparation call</div></div>
-        <div class="included-item"><span class="check"></span><div>One post-retreat group integration call</div></div>
-        <div class="included-item"><span class="check"></span><div>A personal photoshoot to mark your chapter</div></div>
-      </div>
-    </div>
-    <p class="third-quote serif">"The transformational healing at Portals Retreat allowed me to move into this new phase of my life."<span class="who">&mdash; Debbie L.</span></p>
+    <p class="third-quote serif" style="margin-top:0;">"The transformational healing at Portals Retreat allowed me to move into this new phase of my life."<span class="who">&mdash; Debbie L.</span></p>
   </div>
 </section>
 
@@ -972,13 +993,17 @@
       <h2 class="sec-h serif">Questions, <span class="it">answered.</span></h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q">What if I've never done anything like this before?<span class="plus"></span></button><div class="faq-a"><p>Many of the women who join us have never tried the medicine before, and for some, this was their first time traveling too. We go through a safety assessment to make sure you're okay to work with the medicine, and as soon as you book, we send you a preparation guide with everything you need for your journey. You'll be guided by expert facilitators who create a safe, supportive space for everyone, whether it's your first time with plant medicine or your fiftieth.</p></div></div>
+      <div class="faq-item"><button class="faq-q">I've never done anything like this before, is it for me?<span class="plus"></span></button><div class="faq-a"><p>Yes! Many of the women who joined us have never sat with Ayahuasca before. We will go through a safety assessment initially to ensure you have no contraindications. If you are unsure, email Debbie at debbieverse@gmail.com with your questions. You will also receive a preparation guide with everything you need for your journey. Our facilitator has also guided over 400+ ceremonies so whether it's your 1st time or 15th time, you are in safe &amp; experienced hands.</p></div></div>
       <div class="faq-item"><button class="faq-q">What is the safety assessment for?<span class="plus"></span></button><div class="faq-a"><p>The safety assessment is how we make sure you're fit to do the work with the medicine. We review any medication contraindications together. Some conditions aren't recommended, including antidepressants (such as SSRIs or MAOIs) or antipsychotic medications, psychiatric conditions or family histories of certain mental health disorders, surgery within the past three months, heart conditions, uncontrolled high blood pressure, uncontrolled diabetes, epilepsy, active addiction, or pregnancy. If any of these apply to you, participation may still be possible, so the best thing to do is message us and we'll talk it through.</p></div></div>
       <div class="faq-item"><button class="faq-q">What if I'm scared or unsure about the process?<span class="plus"></span></button><div class="faq-a"><p>Feeling nervous is normal, that's what we're here for. When you book, you'll receive a preparation checklist and a guide on how to work with the medicine, so you have peace of mind knowing you're supported. You'll also have access to us for any questions along the way. Got more questions? Email Debbie at debbieverse@gmail.com.</p></div></div>
-      <div class="faq-item"><button class="faq-q">What happens after the retreat?<span class="plus"></span></button><div class="faq-a"><p>We hold a group integration call once we've all returned to our lives. We also have a WhatsApp group for the women who join each year, so everyone can stay in touch. Many have gone on to meet up with each other in different cities again.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Do the women still stay in touch after the retreat?<span class="plus"></span></button><div class="faq-a"><p>Yes! We have a Whatsapp group for the women who join each year. Many have become close friends, stayed in touch, and met up with each other in different cities again.</p></div></div>
       <div class="faq-item"><button class="faq-q">What if I don't feel comfortable in a group setting?<span class="plus"></span></button><div class="faq-a"><p>Our circles are intentionally small, so you have personalized care and deeper bonds with one another. You are never pressured into anything you don't feel like participating in. We have exercises and agreements in place so everyone feels supported and seen.</p></div></div>
       <div class="faq-item"><button class="faq-q">Are there payment plans?<span class="plus"></span></button><div class="faq-a"><p>Yes. We offer flexible payment options to make this transformational experience accessible. Waitlist women hear about pricing first.</p></div></div>
       <div class="faq-item"><button class="faq-q">How do I know this is the right time?<span class="plus"></span></button><div class="faq-a"><p>The truth is, there's never a "perfect" time to prioritize yourself. But if you've read this far, something inside you is already telling you it's time to make a change. Trust that voice.</p></div></div>
+    </div>
+    <div class="faq-help">
+      <h3 class="serif">Still have questions?</h3>
+      <p>We'd love to hear them. Join the waitlist and we'll send you a link to book a call with Shannon &amp; Debbie directly.</p>
     </div>
   </div>
 </section>
@@ -1015,14 +1040,15 @@
     <div class="panel-grid">
       <div>
         <h2 class="serif">Step through<br>the <span class="it">Portal.</span></h2>
-        <p class="sub">Join the waitlist to receive your <strong style="color:#e9d3b3;font-weight:500;">$300 OFF early-bird discount</strong> and the full retreat brochure the moment we announce the dates.</p>
+        <p class="offer-line">Receive <strong>$300 off</strong> early-bird pricing and the full retreat brochure the moment we announce the dates.</p>
+        <p class="sub">Waitlist women hear first, and choose their room first.</p>
       </div>
       <div>
         <form id="waitlist-form">
           <div class="field"><label for="firstName">Your name</label><input id="firstName" name="firstName" type="text" placeholder="First name" required /></div>
           <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required /></div>
-          <div class="field"><label for="phone">Phone <span class="opt">(optional)</span></label><input id="phone" name="phone" type="tel" placeholder="So we can reach you faster when dates open" /></div>
           <div class="field"><label for="drawing">What's drawing you in? <span class="opt">(optional)</span></label><textarea id="drawing" name="drawing" placeholder="Share whatever feels true&hellip;"></textarea></div>
+          <input type="hidden" id="roomInterest" name="roomInterest" value="" />
           <button class="submit" type="submit">Join the waitlist</button>
           <p style="margin-top:14px;font-size:.78rem;color:#8a7d6e;line-height:1.5;">🔒 We'll only ever reach out about the retreat. We will never sell or share your information, and never spam you.</p>
         </form>
@@ -1040,6 +1066,7 @@
           </div>
           <div class="mark serif">Welcome</div>
           <p>You're on the list. Thank you for trusting the timing, we'll be in touch when the portal opens.</p>
+          <a class="call-link" href="https://calendar.app.google/GvrmdmjLFfdiv9Ai6" target="_blank" rel="noopener">Questions already coming up? Talk with Shannon &amp; Debbie &rarr;</a>
         </div>
       </div>
     </div>
@@ -1058,12 +1085,13 @@
     <div class="modal-inner">
       <div id="modalFormWrap">
         <h2 id="modalTitle" class="serif">Step through<br>the <span class="it">Portal.</span></h2>
-        <p class="sub">Join the waitlist to receive your <strong style="color:#e9d3b3;font-weight:500;">$300 OFF early-bird discount</strong> and the full retreat brochure the moment we announce the dates.</p>
+        <p class="offer-line">Receive <strong>$300 off</strong> early-bird pricing and the full retreat brochure the moment we announce the dates.</p>
+        <p class="sub">Waitlist women hear first, and choose their room first.</p>
         <form id="modal-waitlist-form">
           <div class="field"><label for="mFirstName">Your name</label><input id="mFirstName" name="firstName" type="text" placeholder="First name" required /></div>
           <div class="field"><label for="mEmail">Email</label><input id="mEmail" name="email" type="email" placeholder="you@email.com" required /></div>
-          <div class="field"><label for="mPhone">Phone <span class="opt">(optional)</span></label><input id="mPhone" name="phone" type="tel" placeholder="So we can reach you faster when dates open" /></div>
           <div class="field"><label for="mDrawing">What's drawing you in? <span class="opt">(optional)</span></label><textarea id="mDrawing" name="drawing" placeholder="Share whatever feels true&hellip;"></textarea></div>
+          <input type="hidden" id="mRoomInterest" name="roomInterest" value="" />
           <button class="submit" type="submit">Join the waitlist</button>
           <p style="margin-top:14px;font-size:.78rem;color:#8a7d6e;line-height:1.5;">🔒 We'll only ever reach out about the retreat. We will never sell or share your information, and never spam you.</p>
         </form>
@@ -1082,6 +1110,7 @@
         </div>
         <div class="mark serif">Welcome</div>
         <p>You're on the list. Thank you for trusting the timing, we'll be in touch when the portal opens.</p>
+        <a class="call-link" href="https://calendar.app.google/GvrmdmjLFfdiv9Ai6" target="_blank" rel="noopener">Questions already coming up? Talk with Shannon &amp; Debbie &rarr;</a>
       </div>
     </div>
   </div>
@@ -1107,7 +1136,11 @@
 
   // ---- MODAL ----
   const modal = document.getElementById('modalOverlay');
-  function openModal(){
+  function openModal(room){
+    if (room) {
+      document.getElementById('mRoomInterest').value = room;
+      document.getElementById('roomInterest').value = room;
+    }
     modal.classList.add('show');
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
@@ -1118,7 +1151,7 @@
     document.body.style.overflow='';
   }
   document.querySelectorAll('[data-open-form]').forEach(btn => {
-    btn.addEventListener('click', e => { e.preventDefault(); openModal(); });
+    btn.addEventListener('click', e => { e.preventDefault(); openModal(btn.getAttribute('data-room')); });
   });
   document.getElementById('modalClose').addEventListener('click', closeModal);
   modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
@@ -1160,8 +1193,6 @@
     lbClose.addEventListener('click', closeLb);
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('show')) closeLb(); });
   })();
-
-  // ---- LIGHTBOX end ----
 
   // ---- TESTIMONIALS CAROUSEL ----
   (function(){
@@ -1270,8 +1301,9 @@
     const data = {
       firstName: form.firstName.value.trim(),
       email: form.email.value.trim(),
-      phone: form.phone.value.trim(),
+      phone: "",
       drawing: form.drawing.value.trim(),
+      roomInterest: form.roomInterest ? form.roomInterest.value : "",
       location: visitorLocation,
       timestamp: new Date().toISOString()
     };
