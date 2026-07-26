@@ -17,8 +17,12 @@
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.04;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
   .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2;}
 
+  /* focus visibility (WCAG AA) */
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--clay);outline-offset:3px;border-radius:3px;}
+  .hero-bg a:focus-visible,.experiences a:focus-visible,.carousel-btn:focus-visible,.modal a:focus-visible,.modal button:focus-visible,.modal input:focus-visible,.modal textarea:focus-visible,.modal select:focus-visible,.panel input:focus-visible,.panel textarea:focus-visible,.panel select:focus-visible,.sticky-cta:focus-visible{outline-color:var(--gold-soft);}
+
   /* ========== HERO ========== */
-  .hero-bg{position:relative;min-height:100vh;display:flex;flex-direction:column;color:#fff;overflow:hidden;}
+  .hero-bg{position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;color:#fff;overflow:hidden;}
   .hero-bg::before{content:"";position:absolute;inset:0;background-image:url("https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_2000/v1784183863/Tulili_Dinning_Area_-_02_a26pvy.jpg");background-size:cover;background-position:center;background-color:#2b211a;z-index:0;}
   .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,11,.75) 0%,rgba(15,13,11,.55) 30%,rgba(15,13,11,.65) 70%,rgba(15,13,11,.9) 100%);z-index:1;}
   .hero-bg .wrap{position:relative;z-index:2;display:flex;flex-direction:column;flex:1;}
@@ -37,6 +41,7 @@
   .lede2{font-size:1.02rem;max-width:50ch;color:rgba(255,255,255,.82);opacity:0;animation:rise 1s .68s forwards;text-shadow:0 2px 20px rgba(0,0,0,.4);}
   .hero-meta{display:flex;gap:30px;flex-wrap:wrap;margin-top:36px;opacity:0;animation:rise 1s .8s forwards;}
   .hero-meta span{font-size:.95rem;color:rgba(255,255,255,.9);display:inline-flex;align-items:center;gap:8px;}
+  .hero-meta span svg{width:1.05em;height:1.05em;flex:none;color:var(--gold-soft);}
   .hero-scarcity{margin-top:18px;font-family:'Fraunces',serif;font-style:italic;font-size:1.05rem;color:var(--gold-soft);opacity:0;animation:rise 1s .85s forwards;text-shadow:0 2px 18px rgba(0,0,0,.5);}
   .hero-cta{margin-top:32px;display:flex;gap:26px;flex-wrap:wrap;align-items:center;opacity:0;animation:rise 1s .9s forwards;}
   .btn-primary{font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bg-deep);background:#fff;border:none;border-radius:2px;padding:18px 38px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:12px;transition:transform .3s,background .3s,gap .3s;}
@@ -70,7 +75,7 @@
   .lightbox img{max-width:100%;max-height:90vh;object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6);animation:lb-in .4s cubic-bezier(.2,.8,.3,1);}
   .lightbox::after{content:"";position:absolute;width:44px;height:44px;border:3px solid rgba(255,255,255,.2);border-top-color:rgba(255,255,255,.8);border-radius:50%;animation:lb-spin .8s linear infinite;z-index:-1;}
   @keyframes lb-spin{to{transform:rotate(360deg);}}
-  .lightbox-close{position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:1.4rem;cursor:pointer;display:grid;place-items:center;}
+  .lightbox-close{position:absolute;top:20px;right:20px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:1.4rem;cursor:pointer;display:grid;place-items:center;}
   .lightbox-close:hover{background:rgba(255,255,255,.2);}
   @keyframes lb-in{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:scale(1);}}
 
@@ -100,7 +105,7 @@
   .testimonials-carousel .carousel-btn.prev{left:8px;}
   .testimonials-carousel .carousel-btn.next{right:8px;}
   .testimonials-carousel .carousel-dots{position:relative;bottom:auto;left:0;right:0;display:flex;justify-content:center;gap:5px;margin-top:24px;flex-wrap:nowrap;max-width:400px;margin-left:auto;margin-right:auto;}
-  .testimonials-carousel .carousel-dots button{flex:1;height:4px;border-radius:2px;border:none;background:rgba(43,33,26,.15);cursor:pointer;padding:0;transition:background .4s;}
+  .testimonials-carousel .carousel-dots button{flex:1;height:4px;border-radius:2px;border:none;background:rgba(43,33,26,.15);cursor:pointer;padding:0;transition:background .4s;position:relative;}
   .testimonials-carousel .carousel-dots button.active{background:var(--clay);}
   .testimonials-carousel .carousel-dots button.seen{background:rgba(164,94,62,.4);}
   .t-progress-label{text-align:center;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#8a7d6e;margin-top:12px;}
@@ -129,12 +134,16 @@
   .sec-eyebrow{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--clay);margin-bottom:18px;display:inline-flex;align-items:center;gap:12px;}
   .sec-eyebrow::before{content:"";width:32px;height:1px;background:var(--clay);}
   .sec-sub{color:#6a5b4d;max-width:48ch;font-size:1.04rem;}
+  .sec-sub svg{width:1em;height:1em;vertical-align:-2px;margin-right:4px;color:var(--clay);}
 
   /* ========== Story + Video (side by side) ========== */
   .story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center;}
   @media(max-width:880px){.story{grid-template-columns:1fr;}}
   .story-text p{color:#4f4236;margin-bottom:14px;font-size:1rem;line-height:1.7;}
   .story-text p.poetry{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.1rem;color:#3a2e24;}
+  .story-verse{border-left:2px solid rgba(164,94,62,.32);padding-left:24px;margin:6px 0 30px;}
+  .story-verse .poetry{margin-bottom:9px;font-size:1.14rem;line-height:1.5;}
+  .story-verse .poetry:last-child{margin-bottom:0;}
   .story-text .closing{font-family:'Fraunces',serif;font-size:1.2rem;font-style:italic;color:var(--clay);margin-top:26px;line-height:1.4;}
   .video-wrap{position:relative;aspect-ratio:9/16;max-height:640px;margin:0 auto;width:100%;max-width:380px;border-radius:18px;overflow:hidden;box-shadow:0 24px 70px rgba(43,33,26,.25);background:#0f0d0b;}
   .video-wrap iframe,.video-wrap video{width:100%;height:100%;border:0;display:block;}
@@ -156,6 +165,7 @@
   .familiar{background:var(--bg-soft);}
   .familiar-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center;}
   @media(max-width:880px){.familiar-grid{grid-template-columns:1fr;}}
+  .familiar-lead{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.2rem,2vw,1.5rem);color:var(--clay);margin-bottom:22px;line-height:1.3;}
   .familiar ul{list-style:none;display:grid;gap:18px;}
   .familiar li{display:flex;gap:16px;align-items:flex-start;font-size:1.04rem;color:#4f4236;}
   .familiar li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;background:rgba(201,161,74,.18);color:var(--gold);display:grid;place-items:center;font-size:.7rem;margin-top:4px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c9a14a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;}
@@ -189,15 +199,17 @@
   .carousel-btn:hover{background:rgba(15,13,11,.8);}
   .carousel-btn.prev{left:18px;} .carousel-btn.next{right:18px;}
   .carousel-dots{position:absolute;bottom:18px;left:0;right:0;display:flex;justify-content:center;gap:10px;}
-  .carousel-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.4);cursor:pointer;padding:0;transition:background .3s,width .3s;}
+  .carousel-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.4);cursor:pointer;padding:0;transition:background .3s,width .3s;position:relative;}
   .carousel-dots button.active{background:var(--gold-soft);width:24px;border-radius:4px;}
-  @media(max-width:600px){.carousel-slide{aspect-ratio:4/3;}.carousel-btn{width:40px;height:40px;font-size:1.1rem;}}
+  .carousel-dots button::after{content:"";position:absolute;inset:-16px;}
+  @media(max-width:600px){.carousel-slide{aspect-ratio:4/3;}.carousel-btn{width:44px;height:44px;font-size:1.1rem;}}
 
   /* ========== Two-up info (Food / Prep & Integration) ========== */
   .two-up{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,60px);}
   @media(max-width:780px){.two-up{grid-template-columns:1fr;}}
   .info-card{background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:16px;padding:clamp(28px,4vw,42px);}
-  .info-card .icon{width:40px;height:40px;border-radius:50%;background:rgba(201,161,74,.18);color:var(--gold);display:grid;place-items:center;font-size:1.2rem;margin-bottom:18px;}
+  .info-card .icon{width:40px;height:40px;border-radius:50%;background:rgba(201,161,74,.18);color:var(--gold);display:grid;place-items:center;margin-bottom:18px;}
+  .info-card .icon svg{width:20px;height:20px;color:var(--gold);}
   .info-card h3{font-family:'Fraunces',serif;font-weight:300;font-size:1.6rem;margin-bottom:12px;}
   .info-card h3 .it{font-style:italic;color:var(--clay);}
   .info-card p{color:#4f4236;font-size:1rem;}
@@ -298,7 +310,7 @@
   .modal{background:var(--bg-deep);color:#efe7da;border-radius:18px;max-width:520px;width:100%;padding:clamp(30px,4vw,50px);position:relative;transform:translateY(30px) scale(.95);transition:transform .5s cubic-bezier(.2,.8,.3,1);box-shadow:0 40px 80px rgba(0,0,0,.5);max-height:calc(100vh - 40px);overflow-y:auto;}
   .modal-overlay.show .modal{transform:translateY(0) scale(1);}
   .modal::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 85% 0%,rgba(196,131,95,.22),transparent 55%);border-radius:18px;}
-  .modal-close{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#efe7da;font-size:1.2rem;cursor:pointer;display:grid;place-items:center;z-index:2;transition:background .3s;}
+  .modal-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#efe7da;font-size:1.2rem;cursor:pointer;display:grid;place-items:center;z-index:2;transition:background .3s;}
   .modal-close:hover{background:rgba(255,255,255,.15);}
   .modal-inner{position:relative;z-index:1;}
   .modal-inner h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.1;margin-bottom:14px;}
@@ -334,6 +346,8 @@
   button.submit{margin-top:6px;align-self:flex-start;font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--bg-deep);background:#e9dcc6;border:none;border-radius:2px;padding:18px 40px;cursor:pointer;transition:transform .3s,background .3s;}
   button.submit:hover{background:#fff;transform:translateY(-2px);}
   button.submit:disabled{opacity:.5;cursor:wait;}
+  .privacy-note{display:flex;align-items:flex-start;gap:6px;}
+  .privacy-note .lock-ico{width:.95em;height:.95em;flex:none;margin-top:2px;color:#8a7d6e;}
 
   /* Success */
   .success{display:none;text-align:center;}
@@ -387,11 +401,11 @@
       </h1>
       <p class="lede"><span class="type">A 7-Day Women's Ayahuasca Retreat</span> to release the old and bring in the new.</p>
       <div class="hero-meta">
-        <span>📅 Jan 15 &ndash; 21, 2027</span>
-        <span>📍 Tulum, Mexico</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Jan 15 &ndash; 21, 2027</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Tulum, Mexico</span>
       </div>
       <div class="hero-cta">
-        <a class="btn-primary" href="#" data-open-form>Join the waitlist <span>&rarr;</span></a>
+        <a class="btn-primary" href="#join" data-open-form>Join the waitlist <span>&rarr;</span></a>
         <a class="link-scroll" href="#story">Take a look inside <span>&darr;</span></a>
       </div>
     </div>
@@ -424,10 +438,12 @@
       <div class="story-text">
         <span class="sec-eyebrow">The journey</span>
         <h2 class="sec-h serif">Imagine stepping <span class="it">through a portal</span>&hellip;</h2>
-        <p class="poetry">Where your senses are activated.</p>
-        <p class="poetry">Where you feel deeply connected to your surroundings, humans and nature.</p>
-        <p class="poetry">Where you feel safe to soften in your deep feminine.</p>
-        <p class="poetry">Free to explore who you are, and who you are becoming.</p>
+        <div class="story-verse">
+          <p class="poetry">Where your senses are activated.</p>
+          <p class="poetry">Where you feel deeply connected to your surroundings, humans and nature.</p>
+          <p class="poetry">Where you feel safe to soften in your deep feminine.</p>
+          <p class="poetry">Free to explore who you are, and who you are becoming.</p>
+        </div>
         <p>Your body nourished. Your mind quieted. Knowing you are fully taken care of.</p>
         <p>This is Portals.</p>
         <p>A seven-day women's Ayahuasca retreat, held with reverence and care, for women ready to activate their power within.</p>
@@ -521,6 +537,8 @@
         <p style="margin-top:10px;">You've always put everyone else first. This time, it's your turn.</p>
         <p style="margin-top:10px;font-family:'Fraunces',serif;font-style:italic;color:var(--clay);font-size:1.05rem;">This retreat is for the woman ready to expand.</p>
       </div>
+      <div>
+      <p class="familiar-lead serif">This is for you if&hellip;</p>
       <ul>
         <li>You sense you've outgrown a chapter, and you're ready for what's next, even if you don't fully see it yet.</li>
         <li>You feel a quiet stuckness, not unhappy, but not fully alive either. Like something is missing you can't quite name.</li>
@@ -529,8 +547,9 @@
         <li>You want space to actually sit with yourself, away from the constant noise, notifications, and pull to be productive.</li>
         <li>You crave a circle of women who see you, and a space where you don't have to hold it all together for a change.</li>
       </ul>
+      </div>
     </div>
-    <p style="margin-top:70px;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.2rem,2.4vw,1.7rem);color:#3a2e24;max-width:44ch;margin-left:auto;margin-right:auto;line-height:1.5;">Clarity doesn't come from consuming more.<br>It comes from making space to release what's blocking it.</p>
+    <p style="margin-top:70px;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.2rem,2.4vw,1.7rem);color:#3a2e24;max-width:46ch;margin-left:auto;margin-right:auto;line-height:1.5;">Clarity doesn&rsquo;t come from seeking more &ldquo;how to&rsquo;s&rdquo;<br>It comes from creating space for what&rsquo;s already within us to emerge.</p>
   </div>
 </section>
 
@@ -541,7 +560,7 @@
     <h2 class="sec-h serif">What you'll <span class="it" style="color:var(--gold-soft)">experience.</span></h2>
     <p class="sec-sub">Below is what is planned, but come for a surprise.</p>
     <div class="exp-grid">
-      <div class="exp-card"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189559/IMG_1444_sjxcdp.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><div class="label"><div class="title serif">Ayahuasca Ceremony</div></div></div>
+      <div class="exp-card"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189559/IMG_1444_sjxcdp.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><div class="label"><div class="title serif">1 Ayahuasca Ceremony</div></div></div>
       <div class="exp-card"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784188430/DSC02725_m62e0h.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><div class="label"><div class="title serif">Soundbath for Healing &amp; Cleansing</div></div></div>
       <div class="exp-card"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784194176/DSC02923_s2uo6a.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><div class="label"><div class="title serif">Somatic Integration</div></div></div>
       <div class="exp-card"><img src="https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_800/v1784189640/IMG_5290_as9gsh.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><div class="label"><div class="title serif">Temazcal &amp; Flower Bath</div></div></div>
@@ -559,7 +578,7 @@
     <!-- Bonus gift + past chapters gallery -->
     <div style="margin-top:70px;padding:44px clamp(24px,4vw,50px);background:linear-gradient(135deg,rgba(201,161,74,.18),rgba(201,161,74,.08));border:1px solid rgba(232,207,142,.35);border-radius:16px;">
       <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-bottom:34px;">
-        <div style="flex:none;width:56px;height:56px;border-radius:50%;background:rgba(232,207,142,.2);display:grid;place-items:center;font-size:1.6rem;">✨</div>
+        <div style="flex:none;width:56px;height:56px;border-radius:50%;background:rgba(232,207,142,.2);display:grid;place-items:center;color:var(--gold-soft);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg></div>
         <div style="flex:1;min-width:260px;">
           <div style="font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:8px;">A gift from us</div>
           <div style="font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.3rem,2.2vw,1.65rem);color:#fff;line-height:1.3;">A personal photoshoot to mark your next chapter.</div>
@@ -582,7 +601,7 @@
     <div style="text-align:center;">
       <span class="sec-eyebrow">Our sanctuary</span>
       <h2 class="sec-h serif">A secluded paradise <span class="it">in the Mayan jungle.</span></h2>
-      <p class="sec-sub" style="margin:0 auto 8px;">📍 Tulum, Mexico</p>
+      <p class="sec-sub" style="margin:0 auto 8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Tulum, Mexico</p>
       <p class="sec-sub" style="margin:0 auto;font-size:.95rem;color:#7a6a58;">In nature, with every comfort of a modern sanctuary.</p>
     </div>
     <div class="carousel" id="carousel">
@@ -625,7 +644,7 @@
             <p>25+ years of international impact through global retreats, sacred ceremonies, workshops and sound initiations that have transformed 5,000+ lives.</p>
             <button class="fac-toggle" aria-expanded="false">Read more <span class="chev">&darr;</span></button>
             <div class="fac-more">
-              <p style="padding-top:10px;">A multi‑degree scholar with Fine Arts, Community Arts Education, and Psychology degrees. Trauma‑informed facilitator trained in 500hr Art‑Psychotherapy, Reiki, Somatic Integration, Shamanic Healing, Sound Therapy, and more.</p>
+              <p style="padding-top:10px;">A multi&#8209;degree scholar with Fine Arts, Community Arts Education, and Psychology degrees. Trauma&#8209;informed facilitator trained in 500hr Art&#8209;Psychotherapy, Reiki, Somatic Integration, Shamanic Healing, Sound Therapy, and more.</p>
               <div class="fac-social">
                 <a href="https://shannonbrownhealingarts.ca/" target="_blank" rel="noopener" class="fac-link">Website &rarr;</a>
                 <a href="https://www.instagram.com/visionary_shannon/" target="_blank" rel="noopener" class="fac-ig" aria-label="Shannon on Instagram">
@@ -648,7 +667,7 @@
             <p>8+ years of experience growing and building the operational backbone of 4+ successful businesses.</p>
             <button class="fac-toggle" aria-expanded="false">Read more <span class="chev">&darr;</span></button>
             <div class="fac-more">
-              <p style="padding-top:10px;">Debbie brings her experience to co‑create exceptional experiences for guests at Portals, and shares music that brings people together — bridging the spiritual and the material realm.</p>
+              <p style="padding-top:10px;">Debbie brings her experience to co&#8209;create exceptional experiences for guests at Portals, and shares music that brings people together — bridging the spiritual and the material realm.</p>
               <div class="fac-social">
                 <a href="https://www.instagram.com/debbies.stufff/" target="_blank" rel="noopener" class="fac-ig" aria-label="Debbie on Instagram">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -687,14 +706,14 @@
     <div class="two-up">
       <div class="info-card">
         <div class="food-photo" style="aspect-ratio:4/3;border-radius:12px;overflow:hidden;margin-bottom:22px;background:linear-gradient(135deg,#e3d2bf,#c8835f);background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1000/v1784184217/IMG_4948_gxd4xu.jpg');background-size:cover;background-position:center;"></div>
-        <div class="icon">🌿</div>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
         <h3 class="serif">Nourishing <span class="it">food</span></h3>
         <p>Healthy, nourishing meals are prepared intentionally throughout the entire retreat, so your body is well taken care of. Vegan, gluten-free &amp; dairy-free options available.</p>
         <p>A snack &amp; tea bar is open at all times.</p>
       </div>
       <div class="info-card">
         <div class="food-photo" style="aspect-ratio:4/3;border-radius:12px;overflow:hidden;margin-bottom:22px;background:linear-gradient(135deg,#e3d2bf,#c8835f);background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1000/v1784194172/DSC02740_dwl0bs.jpg');background-size:cover;background-position:center;"></div>
-        <div class="icon">✨</div>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg></div>
         <h3 class="serif">Preparation <span class="it">&amp; integration</span></h3>
         <p style="font-family:'Fraunces',serif;font-style:italic;color:var(--clay);font-size:1.1rem;margin-bottom:14px;">Peace of mind, before and after.</p>
         <p><strong>Before you arrive:</strong> a one-hour preparation call walks you through what to expect, how to prepare, what to pack, and how to set your intentions.</p>
@@ -1050,9 +1069,9 @@
       </div>
       <div>
         <form id="waitlist-form">
-          <div class="field"><label for="firstName">Your name</label><input id="firstName" name="firstName" type="text" placeholder="First name" required /></div>
-          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required /></div>
-          <div class="field"><label for="phone">Phone <span class="opt">(optional)</span></label><input id="phone" name="phone" type="tel" placeholder="So we can reach you faster when dates open" /></div>
+          <div class="field"><label for="firstName">Your name</label><input id="firstName" name="firstName" type="text" placeholder="First name" autocomplete="given-name" required /></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" autocomplete="email" inputmode="email" required /></div>
+          <div class="field"><label for="phone">Phone <span class="opt">(optional)</span></label><input id="phone" name="phone" type="tel" placeholder="So we can reach you faster when dates open" autocomplete="tel" inputmode="tel" /></div>
           <div class="field"><label for="drawing">What draws you to the retreat? <span class="opt">(optional)</span></label><textarea id="drawing" name="drawing" placeholder="Share whatever feels true&hellip;"></textarea></div>
           <div class="field"><label for="questions">Do you have any questions? <span class="opt">(optional)</span></label><textarea id="questions" name="questions" placeholder="Ask us anything&hellip;"></textarea></div>
           <div class="field"><label for="roomInterest">Your preferred room choice <span class="opt">(optional)</span></label>
@@ -1066,7 +1085,7 @@
             </div>
           </div>
           <button class="submit" type="submit">Join the waitlist</button>
-          <p style="margin-top:14px;font-size:.78rem;color:#8a7d6e;line-height:1.5;">🔒 We'll only ever reach out about the retreat. We will never sell or share your information, and never spam you.</p>
+          <p class="privacy-note" style="margin-top:14px;font-size:.78rem;color:#8a7d6e;line-height:1.5;"><svg class="lock-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>We'll only ever reach out about the retreat. We will never sell or share your information, and never spam you.</span></p>
         </form>
         <div class="success" id="success">
           <div class="envelope" id="envelope">
@@ -1104,9 +1123,9 @@
         <p class="offer-line">Receive <strong>$300 off</strong> early-bird pricing and the full retreat brochure the moment we announce the dates.</p>
         <p class="sub">Waitlist women hear first, and choose their room first.</p>
         <form id="modal-waitlist-form">
-          <div class="field"><label for="mFirstName">Your name</label><input id="mFirstName" name="firstName" type="text" placeholder="First name" required /></div>
-          <div class="field"><label for="mEmail">Email</label><input id="mEmail" name="email" type="email" placeholder="you@email.com" required /></div>
-          <div class="field"><label for="mPhone">Phone <span class="opt">(optional)</span></label><input id="mPhone" name="phone" type="tel" placeholder="So we can reach you faster when dates open" /></div>
+          <div class="field"><label for="mFirstName">Your name</label><input id="mFirstName" name="firstName" type="text" placeholder="First name" autocomplete="given-name" required /></div>
+          <div class="field"><label for="mEmail">Email</label><input id="mEmail" name="email" type="email" placeholder="you@email.com" autocomplete="email" inputmode="email" required /></div>
+          <div class="field"><label for="mPhone">Phone <span class="opt">(optional)</span></label><input id="mPhone" name="phone" type="tel" placeholder="So we can reach you faster when dates open" autocomplete="tel" inputmode="tel" /></div>
           <div class="field"><label for="mDrawing">What draws you to the retreat? <span class="opt">(optional)</span></label><textarea id="mDrawing" name="drawing" placeholder="Share whatever feels true&hellip;"></textarea></div>
           <div class="field"><label for="mQuestions">Do you have any questions? <span class="opt">(optional)</span></label><textarea id="mQuestions" name="questions" placeholder="Ask us anything&hellip;"></textarea></div>
           <div class="field"><label for="mRoomInterest">Your preferred room choice <span class="opt">(optional)</span></label>
@@ -1120,7 +1139,7 @@
             </div>
           </div>
           <button class="submit" type="submit">Join the waitlist</button>
-          <p style="margin-top:14px;font-size:.78rem;color:#8a7d6e;line-height:1.5;">🔒 We'll only ever reach out about the retreat. We will never sell or share your information, and never spam you.</p>
+          <p class="privacy-note" style="margin-top:14px;font-size:.78rem;color:#8a7d6e;line-height:1.5;"><svg class="lock-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>We'll only ever reach out about the retreat. We will never sell or share your information, and never spam you.</span></p>
         </form>
       </div>
       <div class="success" id="modalSuccess">
@@ -1143,7 +1162,7 @@
   </div>
 </div>
 
-<a href="#" class="sticky-cta" id="stickyCta" data-open-form>Join the waitlist</a>
+<a href="#join" class="sticky-cta" id="stickyCta" data-open-form>Join the waitlist</a>
 
 <!-- ============ LIGHTBOX ============ -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -1163,6 +1182,7 @@
 
   // ---- MODAL ----
   const modal = document.getElementById('modalOverlay');
+  let lastTrigger = null;
   const ROOM_VALUES = {
     'The Serenity Suite': 'The Serenity Suite — Private',
     'The Hearts Haven': 'The Hearts Haven — Shared with 1 woman',
@@ -1178,14 +1198,17 @@
     modal.classList.add('show');
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
+    const firstField = document.getElementById('mFirstName');
+    if (firstField) setTimeout(() => firstField.focus(), 60);
   }
   function closeModal(){
     modal.classList.remove('show');
     modal.setAttribute('aria-hidden','true');
     document.body.style.overflow='';
+    if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
   }
   document.querySelectorAll('[data-open-form]').forEach(btn => {
-    btn.addEventListener('click', e => { e.preventDefault(); openModal(btn.getAttribute('data-room')); });
+    btn.addEventListener('click', e => { e.preventDefault(); lastTrigger = btn; openModal(btn.getAttribute('data-room')); });
   });
   document.getElementById('modalClose').addEventListener('click', closeModal);
   modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
@@ -1242,7 +1265,7 @@
         d.classList.toggle('active',n===idx);
         d.classList.toggle('seen',n<idx);
       });
-      if(label) label.textContent = (idx<total-1 ? 'Swipe or tap to read more' : 'You\u2019ve read them all');
+      if(label) label.textContent = (idx<total-1 ? 'Swipe or tap to read more' : 'You’ve read them all');
     }
     document.getElementById('tPrev').addEventListener('click',()=>go(idx-1));
     document.getElementById('tNext').addEventListener('click',()=>go(idx+1));
@@ -1291,7 +1314,7 @@
   // ---- CAROUSEL ----
   (function(){
     const track=document.getElementById('carouselTrack'); const slides=track.children; const dots=document.getElementById('carDots'); let idx=0;
-    for(let i=0;i<slides.length;i++){const b=document.createElement('button');b.addEventListener('click',()=>go(i));dots.appendChild(b);}
+    for(let i=0;i<slides.length;i++){const b=document.createElement('button');b.setAttribute('aria-label','Photo '+(i+1));b.addEventListener('click',()=>go(i));dots.appendChild(b);}
     function go(i){idx=(i+slides.length)%slides.length;track.style.transform='translateX(-'+(idx*100)+'%)';[...dots.children].forEach((d,n)=>d.classList.toggle('active',n===idx));}
     document.getElementById('carPrev').addEventListener('click',()=>go(idx-1));
     document.getElementById('carNext').addEventListener('click',()=>go(idx+1));
