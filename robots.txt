@@ -1,5 +1,3 @@
-$ cat "C:/Users/dhill/OneDrive/Desktop/Portals Website/robots.txt"
-
 # Portals — portals.theheartbased.co
 
 User-agent: *
