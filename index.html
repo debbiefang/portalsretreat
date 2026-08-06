@@ -194,7 +194,17 @@
   /* ========== HERO ========== */
   .hero-bg{position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;color:#fff;overflow:hidden;}
   .hero-bg::before{content:"";position:absolute;inset:0;background-image:url("https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_2000/v1784183863/Tulili_Dinning_Area_-_02_a26pvy.jpg");background-size:cover;background-position:center;background-color:#2b211a;z-index:0;}
-  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,11,.75) 0%,rgba(15,13,11,.55) 30%,rgba(15,13,11,.65) 70%,rgba(15,13,11,.9) 100%);z-index:1;}
+  /* Two-layer scrim: a vertical wash for the whole frame, plus a soft
+     left-weighted wash so the copy column always has contrast under it
+     without reading as a visible box. */
+  .hero-bg::after{content:"";position:absolute;inset:0;z-index:1;
+    background:
+      linear-gradient(103deg,rgba(15,13,11,.88) 0%,rgba(15,13,11,.74) 32%,rgba(15,13,11,.34) 62%,rgba(15,13,11,.22) 100%),
+      linear-gradient(180deg,rgba(15,13,11,.72) 0%,rgba(15,13,11,.42) 34%,rgba(15,13,11,.58) 72%,rgba(15,13,11,.92) 100%);}
+  @media(max-width:880px){
+    .hero-bg::after{background:
+      linear-gradient(180deg,rgba(15,13,11,.80) 0%,rgba(15,13,11,.62) 30%,rgba(15,13,11,.72) 70%,rgba(15,13,11,.94) 100%);}
+  }
   .hero-bg .wrap{position:relative;z-index:2;display:flex;flex-direction:column;flex:1;}
   .hero-bg nav{padding:34px 0 0;display:flex;justify-content:space-between;align-items:center;}
   .hero-bg .brand{color:#fff;font-family:'Fraunces',serif;font-weight:500;letter-spacing:.42em;text-transform:uppercase;font-size:.82rem;}
@@ -202,12 +212,17 @@
   .hero-inner{flex:1;display:flex;flex-direction:column;justify-content:center;padding:60px 0 50px;max-width:880px;}
   .eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:30px;opacity:0;animation:rise .9s .1s forwards;}
   .eyebrow::before{content:"";width:38px;height:1px;background:var(--gold-soft);}
-  .hero-bg h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.4rem,5.8vw,4.8rem);line-height:1.02;letter-spacing:-.01em;margin-bottom:28px;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.6),0 2px 12px rgba(0,0,0,.5);}
+  .hero-bg h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.4rem,5.8vw,4.8rem);line-height:1.02;letter-spacing:-.01em;margin-bottom:24px;color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.5),0 8px 34px rgba(0,0,0,.65);}
   .hero-bg h1 .it{font-style:italic;color:var(--gold-soft);}
   .hero-bg h1 span{display:block;opacity:0;animation:rise 1s forwards;}
   .hero-bg h1 span:nth-child(1){animation-delay:.2s} .hero-bg h1 span:nth-child(2){animation-delay:.32s} .hero-bg h1 span:nth-child(3){animation-delay:.44s}
-  .lede{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.2rem,2vw,1.55rem);max-width:30ch;color:rgba(255,255,255,.9);opacity:0;animation:rise 1s .58s forwards;text-shadow:0 2px 20px rgba(0,0,0,.6),0 1px 8px rgba(0,0,0,.5);margin-bottom:16px;line-height:1.45;}
+  .lede{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.2rem,2vw,1.55rem);max-width:32ch;color:#fff;opacity:0;animation:rise 1s .58s forwards;text-shadow:0 2px 4px rgba(0,0,0,.55),0 6px 26px rgba(0,0,0,.6);margin-bottom:16px;line-height:1.45;}
   .lede .type{font-style:normal;font-weight:400;color:var(--gold-soft);}
+  /* hairline rule that anchors the headline block */
+  .hero-rule{width:54px;height:1px;background:linear-gradient(90deg,var(--gold-soft),rgba(232,207,142,0));margin:0 0 22px;opacity:0;animation:rise .9s .5s forwards;}
+  .hero-scarcity{margin-top:16px;font-family:'Fraunces',serif;font-style:italic;font-size:1rem;color:var(--gold-soft);opacity:0;animation:rise 1s .85s forwards;text-shadow:0 2px 12px rgba(0,0,0,.55);display:inline-flex;align-items:center;gap:10px;}
+  .hero-scarcity::before{content:"*";font-style:normal;font-size:1.2em;line-height:1;color:var(--gold-soft);opacity:.9;flex:none;transform:translateY(.14em);}
+  .hero-micro{margin-top:18px;font-size:.86rem;letter-spacing:.02em;color:rgba(255,255,255,.8);max-width:44ch;opacity:0;animation:rise 1s .95s forwards;text-shadow:0 2px 14px rgba(0,0,0,.6);}
   .lede2{font-size:1.02rem;max-width:50ch;color:rgba(255,255,255,.82);opacity:0;animation:rise 1s .68s forwards;text-shadow:0 2px 20px rgba(0,0,0,.4);}
   .hero-meta{display:flex;gap:30px;flex-wrap:wrap;margin-top:36px;opacity:0;animation:rise 1s .8s forwards;}
   .hero-meta span{font-size:.95rem;color:rgba(255,255,255,.9);display:inline-flex;align-items:center;gap:8px;}
@@ -368,29 +383,37 @@
   .carousel-dots button::after{content:"";position:absolute;inset:-16px;}
   @media(max-width:600px){.carousel-slide{aspect-ratio:4/3;}.carousel-btn{width:44px;height:44px;font-size:1.1rem;}}
 
-  /* ========== Why Portals Retreat ========== */
-  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:54px;}
-  @media(max-width:880px){.why-grid{grid-template-columns:repeat(2,1fr);gap:18px;}}
-  @media(max-width:520px){.why-grid{grid-template-columns:1fr;}}
-  .why-box{position:relative;background:linear-gradient(165deg,rgba(255,255,255,.85),rgba(255,255,255,.45));border:1px solid rgba(43,33,26,.09);border-radius:20px;padding:38px 26px 32px;text-align:center;overflow:hidden;isolation:isolate;box-shadow:0 4px 18px rgba(43,33,26,.05);transition:transform .55s cubic-bezier(.2,.8,.3,1),box-shadow .55s cubic-bezier(.2,.8,.3,1),border-color .55s;}
-  /* warm wash that blooms up from the base on hover */
-  .why-box::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;background:radial-gradient(120% 80% at 50% 115%,rgba(201,161,74,.24),transparent 62%);transition:opacity .55s ease;}
-  /* hairline gold rule that draws across the top */
-  .why-box::after{content:"";position:absolute;top:0;left:50%;width:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transition:width .55s cubic-bezier(.2,.8,.3,1),left .55s cubic-bezier(.2,.8,.3,1);}
-  .why-box:hover,.why-box:focus-within{transform:translateY(-6px);box-shadow:0 20px 48px rgba(43,33,26,.14);border-color:rgba(201,161,74,.4);}
+  /* ========== Why Portals: bordered feature grid ========== */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:52px;border-top:1px solid rgba(43,33,26,.12);}
+  @media(max-width:900px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+  .why-box{position:relative;display:flex;flex-direction:column;padding:38px 30px;overflow:hidden;isolation:isolate;
+    border-right:1px solid rgba(43,33,26,.12);border-bottom:1px solid rgba(43,33,26,.12);}
+  /* remove the rails that would sit on the outer edge of each row */
+  @media(min-width:901px){.why-box:nth-child(3n){border-right:none;}}
+  @media(max-width:900px) and (min-width:561px){.why-box:nth-child(2n){border-right:none;}}
+  @media(max-width:560px){.why-box{border-right:none;}}
+  /* warm wash: rises on the top row, falls on the bottom row */
+  .why-box::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s ease;
+    background:linear-gradient(to top,rgba(201,161,74,.16),transparent);}
+  .why-box.row-b::before{background:linear-gradient(to bottom,rgba(201,161,74,.16),transparent);}
   .why-box:hover::before,.why-box:focus-within::before{opacity:1;}
-  .why-box:hover::after,.why-box:focus-within::after{width:100%;left:0;}
-  .why-ico{width:52px;height:52px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;color:var(--clay);background:radial-gradient(circle at 30% 25%,rgba(232,207,142,.55),rgba(201,161,74,.16));box-shadow:inset 0 0 0 1px rgba(201,161,74,.3);transition:transform .55s cubic-bezier(.2,.8,.3,1),color .55s;}
-  .why-ico svg{width:22px;height:22px;}
-  .why-box:hover .why-ico{transform:scale(1.09) rotate(-4deg);color:var(--gold);}
-  .why-num{position:absolute;top:14px;right:18px;font-family:'Fraunces',serif;font-size:.72rem;letter-spacing:.2em;color:rgba(43,33,26,.26);transition:color .55s;}
-  .why-box:hover .why-num{color:var(--clay);}
-  .why-lbl{font-family:'Fraunces',serif;font-weight:400;font-size:1.22rem;color:#2b211a;line-height:1.25;}
-  .why-sub{margin-top:11px;font-size:.86rem;letter-spacing:.02em;color:#6a5b4d;line-height:1.55;}
+  /* accent bar that grows and warms on hover */
+  .why-bar{position:absolute;left:0;top:38px;width:3px;height:24px;border-radius:0 99px 99px 0;
+    background:rgba(43,33,26,.18);transition:height .3s ease,background .3s ease;}
+  .why-box:hover .why-bar,.why-box:focus-within .why-bar{height:36px;background:var(--clay);}
+  .why-ico{color:var(--clay);margin-bottom:16px;transition:transform .3s ease;}
+  .why-ico svg{width:26px;height:26px;display:block;}
+  .why-box:hover .why-ico{transform:translateY(-2px);}
+  .why-lbl{font-family:'Fraunces',serif;font-weight:400;font-size:1.18rem;color:#2b211a;line-height:1.3;margin-bottom:9px;
+    transition:transform .3s ease;}
+  .why-box:hover .why-lbl,.why-box:focus-within .why-lbl{transform:translateX(7px);}
+  .why-sub{font-size:.92rem;color:#5a4c40;line-height:1.6;max-width:34ch;}
+  .why-intro{max-width:56ch;margin:22px auto 0;text-align:center;font-size:1.06rem;line-height:1.7;color:#4f4236;}
+  .why-intro strong{font-weight:500;color:var(--clay);}
   @media(prefers-reduced-motion:reduce){
-    .why-box,.why-box::before,.why-box::after,.why-ico{transition:none;}
-    .why-box:hover,.why-box:focus-within{transform:none;}
-    .why-box:hover .why-ico{transform:none;}
+    .why-box::before,.why-bar,.why-ico,.why-lbl{transition:none;}
+    .why-box:hover .why-lbl,.why-box:focus-within .why-lbl,.why-box:hover .why-ico{transform:none;}
   }
 
   /* ========== Two-up info (Food / Prep & Integration) ========== */
@@ -587,15 +610,18 @@
         <span>7 Day Women's</span>
         <span><em class="it">Ayahuasca</em> Retreat</span>
       </h1>
+      <div class="hero-rule" aria-hidden="true"></div>
       <p class="lede">Release the old and bring in the new. <span class="type">Activate your power within.</span></p>
       <div class="hero-meta">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Jan 15 &ndash; 21, 2027</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Tulum, Mexico</span>
       </div>
+      <p class="hero-scarcity">We will open booking soon.</p>
       <div class="hero-cta">
         <a class="btn-primary" href="#join" data-open-form>Join the waitlist <span>&rarr;</span></a>
         <a class="link-scroll" href="#story">Take a look inside <span>&darr;</span></a>
       </div>
+      <p class="hero-micro">Booking opens soon. Join the waitlist to receive early bird pricing and the retreat brochure.</p>
     </div>
   </div>
 </section>
@@ -720,8 +746,8 @@
       <p class="familiar-lead serif">This is for you if&hellip;</p>
       <ul>
         <li>You sense you've outgrown a chapter, and you're ready for what's next, even if you don't fully see it yet.</li>
-        <li>You feel a quiet stuckness, not unhappy, but not fully alive either. Like something is missing you can't quite name.</li>
-        <li>You miss the version of yourself who was full of passion, creativity, and play, and you want her back, in a more grown-up way.</li>
+        <li>You feel slightly stuck, not unhappy but not fully alive either. Like something is missing you can't quite name.</li>
+        <li>You miss the version of yourself who was full of passion, creativity, and play, and you want her back.</li>
         <li>You've read the books, done the meditations, kept the journals, and you're ready for something more immersive, more embodied.</li>
         <li>You want space to actually sit with yourself, away from the constant noise, notifications, and pull to be productive.</li>
         <li>You crave a circle of women who see you, and a space where you don't have to hold it all together for a change.</li>
@@ -761,7 +787,7 @@
         <div style="flex:1;min-width:260px;">
           <div style="font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:8px;">A gift from us</div>
           <div style="font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.3rem,2.2vw,1.65rem);color:#fff;line-height:1.3;">A personal photoshoot to mark your next chapter.</div>
-          <p style="color:rgba(239,231,218,.75);margin-top:8px;font-size:.98rem;">Because this journey deserves to be remembered.</p>
+          <p style="color:rgba(239,231,218,.78);margin-top:10px;font-size:.98rem;line-height:1.65;max-width:56ch;">Use these photos to remember the empowered version you are stepping into. Use them for your work, your business, to update your profile, or just to share your glow with your loved ones.</p>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
@@ -778,33 +804,52 @@
 <section class="sec">
   <div class="wrap">
     <div style="text-align:center;">
-      <span class="sec-eyebrow">What sets us apart</span>
+      <span class="sec-eyebrow">What's different</span>
       <h2 class="sec-h serif">Why <span class="it">Portals Retreat.</span></h2>
     </div>
+    <p class="why-intro">Portals is designed as a <strong>full journey</strong>, not just a ceremony: the program is designed to help you bring changes into your daily life even after the retreat.</p>
+
     <div class="why-grid">
       <div class="why-box" tabindex="0">
-        <span class="why-num">01</span>
+        <span class="why-bar" aria-hidden="true"></span>
         <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.4" stroke-dasharray="1.5 3.1"/><circle cx="12" cy="7.6" r="1.5"/><circle cx="15.8" cy="14.2" r="1.5"/><circle cx="8.2" cy="14.2" r="1.5"/></svg></div>
-        <div class="why-lbl">Intimate Group</div>
-        <div class="why-sub">Deep bonds &middot; personal care</div>
+        <div class="why-lbl">Women-only, intimate group</div>
+        <div class="why-sub">Max 12 women so you receive personalized care and bond deeper with others.</div>
       </div>
+
       <div class="why-box" tabindex="0">
-        <span class="why-num">02</span>
-        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M3 12a4.2 4.2 0 0 1 4.2-4.2A4.2 4.2 0 0 1 11.4 12a4.2 4.2 0 0 0 4.2 4.2A4.2 4.2 0 0 0 19.8 12"/><path d="M6.2 17.6a9 9 0 0 1 0-11.2" opacity=".55"/><path d="M17.8 6.4a9 9 0 0 1 0 11.2" opacity=".55"/></svg></div>
-        <div class="why-lbl">Different Healing Modalities</div>
-        <div class="why-sub">Sound &middot; Ceremony &middot; Movement</div>
-      </div>
-      <div class="why-box" tabindex="0">
-        <span class="why-num">03</span>
+        <span class="why-bar" aria-hidden="true"></span>
         <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5c0-3.6 2.6-6.2 6.2-6.2-.1 3.6-2.6 6.2-6.2 6.2Z"/><path d="M12 20.5c0-3.6-2.6-6.2-6.2-6.2.1 3.6 2.6 6.2 6.2 6.2Z"/><path d="M12 20.5V9.4"/><path d="M12 9.4a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Z"/></svg></div>
-        <div class="why-lbl">Experienced Guides</div>
-        <div class="why-sub">400+ ceremonies facilitated</div>
+        <div class="why-lbl">Experienced facilitators &amp; hosts</div>
+        <div class="why-sub">Our facilitator has held space for 400+ ceremonies with live medicine music.</div>
       </div>
+
       <div class="why-box" tabindex="0">
-        <span class="why-num">04</span>
-        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5h15"/><path d="M12 19.5c0-4 2.4-6.6 6-7.4-.4 4.2-2.7 6.6-6 7.4Z"/><path d="M12 19.5c0-4.6-2.8-7.7-7-8.6.5 4.9 3.1 7.7 7 8.6Z"/><path d="M12 19.5V8.2"/><path d="M12 8.2c1.9-1.1 2.6-3 2-5.2-2 .6-2.9 2.3-2 5.2Z"/></svg></div>
-        <div class="why-lbl">Integrity</div>
-        <div class="why-sub">Held with deep reverence and respect of the land</div>
+        <span class="why-bar" aria-hidden="true"></span>
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M3 12a4.2 4.2 0 0 1 4.2-4.2A4.2 4.2 0 0 1 11.4 12a4.2 4.2 0 0 0 4.2 4.2A4.2 4.2 0 0 0 19.8 12"/><path d="M6.2 17.6a9 9 0 0 1 0-11.2" opacity=".55"/><path d="M17.8 6.4a9 9 0 0 1 0 11.2" opacity=".55"/></svg></div>
+        <div class="why-lbl">Different healing modalities</div>
+        <div class="why-sub">Sound, somatic and movement work, art therapy, music and creativity, together with the wisdom of plant medicine.</div>
+      </div>
+
+      <div class="why-box row-b" tabindex="0">
+        <span class="why-bar" aria-hidden="true"></span>
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17.5c3.5 0 3.5-11 8-11s4.5 11 8 11"/><path d="M17.5 14.5 20 17l-2.5 2.5"/></svg></div>
+        <div class="why-lbl">Guided preparation and integration</div>
+        <div class="why-sub">A preparation call, a preparation checklist, and a post-retreat integration call for peace of mind before and after.</div>
+      </div>
+
+      <div class="why-box row-b" tabindex="0">
+        <span class="why-bar" aria-hidden="true"></span>
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20.5h18"/><path d="M5 20.5v-8l7-5 7 5v8"/><path d="M12 20.5v-4.6"/><path d="M9.6 12.2a2.4 2.4 0 0 1 4.8 0"/></svg></div>
+        <div class="why-lbl">Luxury retreat center</div>
+        <div class="why-sub">Nature immersion in the jungle without sacrificing comfort.</div>
+      </div>
+
+      <div class="why-box row-b" tabindex="0">
+        <span class="why-bar" aria-hidden="true"></span>
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12.5a7.6 7.6 0 0 1-8.2 7.6L7 21.5l1.3-4a7.6 7.6 0 1 1 12.2-5Z"/><path d="M9.4 12.4h.01M12.6 12.4h.01M15.8 12.4h.01"/></svg></div>
+        <div class="why-lbl">Responsive hosts</div>
+        <div class="why-sub">Shannon and Debbie are directly reachable with questions.</div>
       </div>
     </div>
   </div>
@@ -845,7 +890,7 @@
     <div style="text-align:center;">
       <span class="sec-eyebrow">Meet the hosts &amp; facilitators</span>
       <h2 class="sec-h serif">The women <span class="it">holding the space.</span></h2>
-      <p class="sec-sub" style="margin:0 auto;">You're in experienced hands. Every ceremony, every circle, every moment held with care and reverence.</p>
+      <p class="sec-sub" style="margin:0 auto;">You're in experienced hands.</p>
     </div>
     <div class="fac-grid">
       <!-- Shannon -->
@@ -921,14 +966,12 @@
     <div class="two-up">
       <div class="info-card">
         <div class="food-photo" style="aspect-ratio:4/3;border-radius:12px;overflow:hidden;margin-bottom:22px;background:linear-gradient(135deg,#e3d2bf,#c8835f);background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1000/v1784184217/IMG_4948_gxd4xu.jpg');background-size:cover;background-position:center;"></div>
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
         <h3 class="serif">Nourishing <span class="it">food</span></h3>
         <p>Healthy, nourishing meals are prepared intentionally throughout the entire retreat, so your body is well taken care of. Vegan, gluten-free &amp; dairy-free options available.</p>
         <p>A snack &amp; tea bar is open at all times.</p>
       </div>
       <div class="info-card">
         <div class="food-photo" style="aspect-ratio:4/3;border-radius:12px;overflow:hidden;margin-bottom:22px;background:linear-gradient(135deg,#e3d2bf,#c8835f);background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_1000/v1784194172/DSC02740_dwl0bs.jpg');background-size:cover;background-position:center;"></div>
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg></div>
         <h3 class="serif">Preparation <span class="it">&amp; integration</span></h3>
         <p style="font-family:'Fraunces',serif;font-style:italic;color:var(--clay);font-size:1.1rem;margin-bottom:14px;">Peace of mind, before and after.</p>
         <p><strong>Before you arrive:</strong> a one-hour preparation call walks you through what to expect, how to prepare, what to pack, and how to set your intentions.</p>
@@ -1148,8 +1191,8 @@
         <span class="sec-eyebrow">Your investment</span>
         <h2 class="sec-h serif">Pricing<span class="it">.</span></h2>
         <p class="price-amount serif">Starting from <span class="price-was">2,650 USD</span> <strong>2,350 USD</strong></p>
-        <p class="price-offer">Join the waitlist to receive your <strong>$300 OFF early-bird discount</strong> and the full brochure the moment we announce the dates.</p>
-        <button class="price-cta" data-open-form>Receive your $300 OFF Early-Bird Discount <span>&rarr;</span></button>
+        <p class="price-offer">Booking opens soon. Join the waitlist to lock in the <strong>best early-bird price</strong> and get the full retreat brochure.</p>
+        <button class="price-cta" data-open-form>Join the waitlist for the best price <span>&rarr;</span></button>
       </div>
       <div class="pricing-right">
         <p class="included-heading serif">What's Included</p>
@@ -1242,7 +1285,7 @@
     </div>
     <div class="faq-help">
       <h3 class="serif">Still have questions?</h3>
-      <p>We'd love to hear them. Join the waitlist and we'll send you a link to book a call with Shannon &amp; Debbie directly.</p>
+      <p>We'd love to hear them. Join the waitlist and we'll send you a link to book a call with Shannon &amp; Debbie directly, no pressure to commit to anything.</p>
     </div>
   </div>
 </section>
@@ -1279,8 +1322,8 @@
     <div class="panel-grid">
       <div>
         <h2 class="serif">Step through<br>the <span class="it">Portal.</span></h2>
-        <p class="offer-line">Receive <strong>$300 off</strong> early-bird pricing and the full retreat brochure the moment we announce the dates.</p>
-        <p class="sub">Waitlist women hear first, and choose their room first.</p>
+        <p class="offer-line">Booking opens soon. Join the waitlist for the <strong>best early-bird price</strong> and the full retreat brochure.</p>
+        <p class="sub">Waitlist women hear first, get the best price, and choose their room first. Takes 30 seconds, and holds no commitment.</p>
       </div>
       <div>
         <form id="waitlist-form">
@@ -1335,8 +1378,8 @@
     <div class="modal-inner">
       <div id="modalFormWrap">
         <h2 id="modalTitle" class="serif">Step through<br>the <span class="it">Portal.</span></h2>
-        <p class="offer-line">Receive <strong>$300 off</strong> early-bird pricing and the full retreat brochure the moment we announce the dates.</p>
-        <p class="sub">Waitlist women hear first, and choose their room first.</p>
+        <p class="offer-line">Booking opens soon. Join the waitlist for the <strong>best early-bird price</strong> and the full retreat brochure.</p>
+        <p class="sub">Waitlist women hear first, get the best price, and choose their room first. Takes 30 seconds, and holds no commitment.</p>
         <form id="modal-waitlist-form">
           <div class="field"><label for="mFirstName">Your name</label><input id="mFirstName" name="firstName" type="text" placeholder="First name" autocomplete="given-name" required /></div>
           <div class="field"><label for="mEmail">Email</label><input id="mEmail" name="email" type="email" placeholder="you@email.com" autocomplete="email" inputmode="email" required /></div>
