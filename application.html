@@ -113,6 +113,12 @@
 
   /* ===== Room cards ===== */
   .rooms{display:grid;gap:16px;margin-top:6px;}
+  /* The pair room is a different product for a different buyer, not a rung on
+     the privacy ladder, so it gets its own visually enclosed group. This also
+     keeps "No preference yet" clearly outside the come-with-a-friend section. */
+  .room-group{border:1px solid rgba(164,94,62,.28);border-radius:16px;background:rgba(164,94,62,.05);padding:14px;display:grid;gap:10px;}
+  .room-group-head{font-size:1.02rem;font-weight:600;color:var(--clay);}
+  .room-group-sub{font-size:.86rem;color:var(--ink-mute);margin-top:-6px;}
   .room-card{position:relative;display:grid;grid-template-columns:180px 1fr;background:#fff;border:1.5px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,background .2s;}
   .room-card:hover{border-color:#cbbda9;}
   .room-card input{position:absolute;opacity:0;pointer-events:none;}
@@ -135,6 +141,10 @@
   .room-was{font-size:.84rem;color:var(--ink-mute);text-decoration:line-through;text-decoration-color:var(--err);}
   .room-now-label{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--clay);font-weight:600;margin-top:3px;}
   .room-now{font-size:1.35rem;font-weight:600;color:var(--ink);}
+  /* Hearts Haven quotes a price for two people while every other card quotes
+     per person. Without this per-person line the $5,000 reads as the most
+     expensive room on the page instead of the second cheapest. */
+  .room-each{font-size:.79rem;color:var(--ink-mute);margin-top:3px;}
   .room-pick-choose,.room-pick-selected{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:99px;font-size:.84rem;font-weight:500;white-space:nowrap;}
   .room-pick-choose{background:var(--dark);color:#fff;transition:background .2s;}
   .room-card:hover .room-pick-choose{background:var(--clay);}
@@ -240,7 +250,7 @@
 
       <!-- 2: SOCIALS -->
       <section class="step" data-sec="2">
-        <h1 style="margin-bottom:24px;">Where can we find you?</h1>
+        <h1 style="margin-bottom:24px;">Where can we connect with you?</h1>
 
         <div class="f">
           <label for="instagram">Instagram <span class="opt">(Optional)</span></label>
@@ -331,47 +341,6 @@
         <div class="rooms" role="radiogroup" aria-label="Preferred room" data-radio-required="room" tabindex="-1">
 
           <label class="room-card">
-            <input type="radio" name="room" value="The Serenity Suite (Private Room, Own Bathroom) - 3250">
-            <span class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784183858/serenity_2_acymvk.jpg')"></span>
-            <span class="room-body">
-              <span class="room-top">
-                <span class="room-name">The Serenity Suite</span>
-                <span class="room-tag">Private Room &middot; Own Bathroom</span>
-                <span class="room-scarcity">2 spots left</span>
-              </span>
-              <span class="room-right">
-                <span class="room-price">
-                  <span class="room-was">$3,500</span>
-                  <span class="room-now-label">Early bird price</span>
-                  <span class="room-now">$3,250</span>
-                </span>
-                <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
-                <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
-              </span>
-            </span>
-          </label>
-
-          <label class="room-card">
-            <input type="radio" name="room" value="Hearts Haven (2 bed shared room) - 2750">
-            <span class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784183852/hearts_haven_1_yizusb.jpg')"></span>
-            <span class="room-body">
-              <span class="room-top">
-                <span class="room-name">Hearts Haven</span>
-                <span class="room-tag">2 Bed Shared Room</span>
-              </span>
-              <span class="room-right">
-                <span class="room-price">
-                  <span class="room-was">$3,000</span>
-                  <span class="room-now-label">Early bird price</span>
-                  <span class="room-now">$2,750</span>
-                </span>
-                <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
-                <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
-              </span>
-            </span>
-          </label>
-
-          <label class="room-card">
             <input type="radio" name="room" value="The Trinity (3 bed shared room) - 2350">
             <span class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1786204461/trinity_1_exyzzu.jpg')"></span>
             <span class="room-body">
@@ -390,6 +359,53 @@
               </span>
             </span>
           </label>
+
+          <label class="room-card">
+            <input type="radio" name="room" value="The Serenity Suite (Private Room, Own Bathroom) - 3250">
+            <span class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784183858/serenity_2_acymvk.jpg')"></span>
+            <span class="room-body">
+              <span class="room-top">
+                <span class="room-name">The Serenity Suite</span>
+                <span class="room-tag">Private Room &middot; Own Bathroom</span>
+                <span class="room-scarcity">Only 2 spots</span>
+              </span>
+              <span class="room-right">
+                <span class="room-price">
+                  <span class="room-was">$3,500</span>
+                  <span class="room-now-label">Early bird price</span>
+                  <span class="room-now">$3,250</span>
+                </span>
+                <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
+                <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
+              </span>
+            </span>
+          </label>
+
+          <div class="room-group">
+            <p class="room-group-head">Planning to come with a friend?</p>
+            <p class="room-group-sub">Room together and you both pay less than you would apart.</p>
+
+            <label class="room-card">
+              <input type="radio" name="room" value="Hearts Haven (2 bed shared room, price for two) - 5000">
+              <span class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784183852/hearts_haven_1_yizusb.jpg')"></span>
+              <span class="room-body">
+                <span class="room-top">
+                  <span class="room-name">Hearts Haven</span>
+                  <span class="room-tag">2 Bed Shared Room &middot; For two</span>
+                </span>
+                <span class="room-right">
+                  <span class="room-price">
+                    <span class="room-was">$6,000</span>
+                    <span class="room-now-label">Early bird &middot; for two</span>
+                    <span class="room-now">$5,000</span>
+                    <span class="room-each">$2,500 each</span>
+                  </span>
+                  <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
+                  <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
+                </span>
+              </span>
+            </label>
+          </div>
 
           <label class="room-card room-card--plain">
             <input type="radio" name="room" value="No preference yet">
