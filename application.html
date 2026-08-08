@@ -50,6 +50,18 @@
   @media(max-width:420px){.dot-col span{font-size:.7rem;}}
   @media(max-width:360px){.dot-col span{font-size:.62rem;}.dots{gap:4px;}}
 
+  /* On mobile the masthead + stepper were eating over a third of the
+     viewport before any actual form content appeared. Tighten just the
+     whitespace, not the content itself, so "Basic Info" lands much higher. */
+  @media(max-width:480px){
+    body{padding-top:20px;}
+    .brandhead{margin-bottom:14px;}
+    .brandhead h2{margin-bottom:5px;}
+    .dot-col{gap:6px;}
+    .track{margin-top:10px;}
+    .stepper{margin-bottom:14px;}
+  }
+
   .track{height:4px;border-radius:99px;background:var(--track);overflow:hidden;margin-top:16px;}
   .track i{display:block;height:100%;width:0;border-radius:99px;background:var(--dark);transition:width .45s cubic-bezier(.2,.8,.3,1);}
 
