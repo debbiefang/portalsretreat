@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Apply: Portals Women's Ayahuasca Retreat</title>
+<meta name="description" content="Apply for the Portals 7-day women's Ayahuasca retreat near Tulum, Mexico." />
+<meta name="robots" content="noindex, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Warm neutrals matched to the Portals site, kept soft */
+    --ink:#2b211a; --ink-soft:#4f4236; --ink-mute:#6d6153;
+    --page:#f4ece1; --card:#ffffff;
+    --line:rgba(43,33,26,.15); --line-soft:rgba(43,33,26,.08);
+    --dark:#2b211a; --clay:#a45e3e; --head:#ab836c;
+    --dot-off:#ddd2c2; --track:#e6dbc9; --tint:#faf6f0;
+    --err:#b0432f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--page);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100dvh;padding:48px 20px 80px;}
+
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+    outline:2px solid var(--dark); outline-offset:3px; border-radius:4px;
+  }
+
+  .shell{max-width:620px;margin:0 auto;}
+
+  /* ===== Stepper ===== */
+  .stepper{margin-bottom:26px;}
+  .dots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+  .dot-col{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;}
+  .dot{width:19px;height:19px;border-radius:50%;background:var(--dot-off);position:relative;transition:background .35s ease;}
+  .dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid transparent;transition:border-color .35s ease;}
+  .dot-col.done .dot{background:var(--dark);}
+  .dot-col.on .dot{background:var(--dark);}
+  .dot-col.on .dot::after{border-color:rgba(43,33,26,.20);}
+  .dot-col span{font-size:.82rem;color:var(--ink-mute);transition:color .35s ease;line-height:1.3;}
+  .dot-col.on span{color:var(--ink);font-weight:500;}
+  .dot-col.done span{color:var(--ink-soft);}
+  @media(max-width:420px){.dot-col span{font-size:.72rem;}}
+
+  .track{height:4px;border-radius:99px;background:var(--track);overflow:hidden;margin-top:16px;}
+  .track i{display:block;height:100%;width:0;border-radius:99px;background:var(--dark);transition:width .45s cubic-bezier(.2,.8,.3,1);}
+
+  /* ===== Card ===== */
+  .card{background:var(--card);border:1px solid var(--line-soft);border-radius:16px;box-shadow:0 4px 24px rgba(43,33,26,.07),0 1px 3px rgba(43,33,26,.05);padding:clamp(26px,4.5vw,40px);}
+
+  .step{display:none;animation:in .38s cubic-bezier(.2,.8,.3,1);}
+  .step.on{display:block;}
+  @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  h1{font-size:clamp(1.5rem,3.6vw,1.85rem);font-weight:600;line-height:1.2;letter-spacing:-.015em;margin-bottom:6px;color:var(--head);}
+  .sub{color:var(--ink-mute);font-size:1rem;margin-bottom:30px;}
+
+  /* ===== Fields ===== */
+  .f{margin-bottom:22px;}
+  .f:last-of-type{margin-bottom:0;}
+  .f label{display:block;font-size:.95rem;font-weight:500;color:var(--ink);margin-bottom:8px;}
+  .f label .opt{font-weight:400;color:var(--ink-mute);}
+  .f label .req{color:var(--clay);font-weight:400;margin-left:1px;}
+  .reqnote{font-size:.88rem;color:var(--ink-mute);margin:-22px 0 26px;}
+  .reqnote .req{color:var(--clay);}
+  .in{width:100%;min-height:50px;background:#fff;border:1px solid var(--line);border-radius:9px;color:var(--ink);font-family:'Jost',sans-serif;font-size:1rem;padding:13px 15px;outline:none;transition:border-color .2s,box-shadow .2s;}
+  .in::placeholder{color:#9c8d79;}
+  .in:hover{border-color:#cbbda9;}
+  .in:focus{border-color:var(--dark);box-shadow:0 0 0 3px rgba(43,33,26,.08);}
+  textarea.in{min-height:132px;resize:vertical;line-height:1.6;}
+  select.in{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a7d6e' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:42px;}
+  .in.bad{border-color:var(--err);}
+  .err{display:none;color:var(--err);font-size:.86rem;margin-top:6px;}
+  .err.on{display:block;}
+
+  /* ===== Choices ===== */
+  .choices{display:grid;gap:10px;}
+  .choices.two{grid-template-columns:repeat(2,1fr);}
+  @media(max-width:440px){.choices.two{grid-template-columns:1fr;}}
+  .ch{position:relative;display:flex;align-items:center;gap:12px;min-height:52px;padding:13px 16px;background:#fff;border:1px solid var(--line);border-radius:9px;cursor:pointer;transition:border-color .2s,background .2s;font-size:1rem;}
+  .ch:hover{border-color:#cbbda9;}
+  .ch input{position:absolute;opacity:0;pointer-events:none;}
+  .ch .dt{flex:none;width:20px;height:20px;border-radius:50%;border:1.5px solid #cbbda9;display:grid;place-items:center;transition:border-color .2s,background .2s;}
+  .ch .dt.sq{border-radius:5px;}
+  .ch .dt::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff;transform:scale(0);transition:transform .2s cubic-bezier(.3,1.4,.5,1);}
+  .ch .dt.sq::after{width:11px;height:11px;border-radius:0;background:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;}
+  .ch input:checked ~ .dt{background:var(--dark);border-color:var(--dark);}
+  .ch input:checked ~ .dt::after{transform:scale(1);}
+  .ch:has(input:checked){border-color:var(--dark);background:var(--tint);}
+  .ch input:focus-visible ~ .dt{outline:2px solid var(--dark);outline-offset:3px;}
+  .otherwrap{margin-top:10px;display:none;}
+  .otherwrap.on{display:block;}
+
+  /* ===== Card footer ===== */
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:34px;padding-top:26px;border-top:1px solid var(--line-soft);}
+  .btn{font-family:'Jost',sans-serif;font-size:.95rem;font-weight:500;border-radius:99px;cursor:pointer;min-height:48px;padding:12px 26px;display:inline-flex;align-items:center;gap:8px;transition:background .22s,border-color .22s,color .22s,opacity .22s,transform .22s;}
+  .btn svg{width:15px;height:15px;}
+  .btn-back{background:#fff;border:1px solid var(--line);color:var(--ink-soft);}
+  .btn-back:hover:not(:disabled){border-color:#cbbda9;color:var(--ink);}
+  .btn-back:disabled{opacity:.4;cursor:not-allowed;}
+  .btn-next{background:var(--dark);border:1px solid var(--dark);color:#fff;}
+  .btn-next:hover:not(:disabled){background:#1a130e;transform:translateY(-1px);}
+  .btn-next:disabled{opacity:.55;cursor:wait;transform:none;}
+
+  .timing{text-align:center;font-size:.92rem;color:var(--ink-mute);margin-top:22px;}
+
+  /* ===== Done ===== */
+  .done{display:none;text-align:center;padding:16px 0 8px;}
+  .done.on{display:block;animation:in .45s cubic-bezier(.2,.8,.3,1);}
+  .done .ring{width:66px;height:66px;margin:0 auto 20px;border-radius:50%;background:rgba(164,94,62,.1);display:grid;place-items:center;}
+  .done .ring svg{width:30px;height:30px;color:var(--clay);}
+  .done h2{font-size:1.55rem;font-weight:600;margin-bottom:10px;}
+  .done p{color:var(--ink-soft);max-width:38ch;margin:0 auto 24px;}
+  .done a{display:inline-flex;text-decoration:none;}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <div class="stepper">
+    <div class="dots">
+      <div class="dot-col on" id="c1"><span class="dot"></span><span>Basic Info</span></div>
+      <div class="dot-col" id="c2"><span class="dot"></span><span>Socials</span></div>
+      <div class="dot-col" id="c3"><span class="dot"></span><span>About You</span></div>
+    </div>
+    <div class="track" role="progressbar" aria-label="Application progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><i id="fill"></i></div>
+  </div>
+
+  <div class="card">
+    <form id="app-form" novalidate>
+
+      <!-- 1: BASIC INFO -->
+      <section class="step on" data-sec="1">
+        <h1>Basic Info</h1>
+        <p class="sub">First let's get the logistics outta the way!</p>
+        <p class="reqnote">All fields on this page are required <span class="req">*</span></p>
+
+        <div class="f">
+          <label for="fullName">Full Name <span class="req" aria-hidden="true">*</span></label>
+          <input class="in" id="fullName" name="fullName" type="text" placeholder="Maria Rodriguez" autocomplete="name" required aria-required="true">
+          <p class="err" id="e-fullName">Please tell us your full name.</p>
+        </div>
+        <div class="f">
+          <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+          <input class="in" id="email" name="email" type="email" placeholder="maria@example.com" autocomplete="email" inputmode="email" required aria-required="true">
+          <p class="err" id="e-email">Please enter a valid email address.</p>
+        </div>
+        <div class="f">
+          <label for="whatsapp">WhatsApp Number <span class="req" aria-hidden="true">*</span></label>
+          <input class="in" id="whatsapp" name="whatsapp" type="tel" placeholder="+1 415 555 0134" autocomplete="tel" inputmode="tel" required aria-required="true">
+          <p class="err" id="e-whatsapp">Please include your number with country code.</p>
+        </div>
+        <div class="f">
+          <label for="location">Where are you based in? <span class="req" aria-hidden="true">*</span></label>
+          <input class="in" id="location" name="location" type="text" placeholder="Toronto, Canada" autocomplete="address-level2" required aria-required="true">
+          <p class="err" id="e-location">Please tell us where you're based.</p>
+        </div>
+        <div class="f">
+          <label for="birthday">When is your birthday? <span class="req" aria-hidden="true">*</span></label>
+          <input class="in" id="birthday" name="birthday" type="date" required aria-required="true">
+          <p class="err" id="e-birthday">Please select your date of birth.</p>
+        </div>
+      </section>
+
+      <!-- 2: SOCIALS -->
+      <section class="step" data-sec="2">
+        <h1>Where can we find you?</h1>
+        <p class="sub">All optional</p>
+
+        <div class="f">
+          <label for="instagram">Instagram <span class="opt">(Optional)</span></label>
+          <input class="in" id="instagram" name="instagram" type="text" placeholder="@visionary_shannon">
+        </div>
+        <div class="f">
+          <label for="facebook">Facebook <span class="opt">(Optional)</span></label>
+          <input class="in" id="facebook" name="facebook" type="text" placeholder="Debbie Fang">
+        </div>
+        <div class="f">
+          <label for="website">Website URL <span class="opt">(Optional)</span></label>
+          <input class="in" id="website" name="website" type="url" placeholder="https://yourwebsite.com" inputmode="url">
+        </div>
+      </section>
+
+      <!-- 3: ABOUT YOU -->
+      <section class="step" data-sec="3">
+        <h1>Now we'd like to know more about you</h1>
+        <p class="sub">Takes around 4 minutes</p>
+      </section>
+
+      <section class="step" data-sec="3">
+        <h1>What draws you to the retreat?</h1>
+        <p class="sub">Share whatever feels true</p>
+        <textarea class="in" id="q_draws" name="q_draws" placeholder="I've been feeling like something needs to shift…"></textarea>
+      </section>
+
+      <section class="step" data-sec="3">
+        <h1>How would you describe who you are?</h1>
+        <p class="sub">However you'd introduce yourself</p>
+        <textarea class="in" id="q_who" name="q_who" placeholder="I'm a mother, a maker, someone who…"></textarea>
+      </section>
+
+      <section class="step" data-sec="3">
+        <h1>How do you think this retreat would support you in your journey?</h1>
+        <p class="sub">What you're hoping to move through, or move toward</p>
+        <textarea class="in" id="q_support" name="q_support" placeholder="I'm hoping to find clarity around…"></textarea>
+      </section>
+
+      <section class="step" data-sec="3">
+        <h1>What is your superpower you think you could add to the group &amp; other women?</h1>
+        <p class="sub">The thing you'd bring to the circle</p>
+        <textarea class="in" id="q_superpower" name="q_superpower" placeholder="I hold space well. People tend to tell me…"></textarea>
+      </section>
+
+      <section class="step" data-sec="3">
+        <h1>This is a retreat where we collectively hold space for each other. Are you okay with that?</h1>
+        <p class="sub">There's no pressure to share more than you want to</p>
+        <div class="choices two">
+          <label class="ch"><input type="radio" name="q_holdspace" value="Yes"><span class="dt"></span>Yes</label>
+          <label class="ch"><input type="radio" name="q_holdspace" value="I have questions"><span class="dt"></span>I have questions</label>
+        </div>
+      </section>
+
+      <section class="step" data-sec="3">
+        <h1>Are you pregnant or nursing?</h1>
+        <p class="sub">A safety question, so we can care for you properly</p>
+        <div class="choices two">
+          <label class="ch"><input type="radio" name="q_pregnant" value="Yes"><span class="dt"></span>Yes</label>
+          <label class="ch"><input type="radio" name="q_pregnant" value="No"><span class="dt"></span>No</label>
+        </div>
+      </section>
+
+      <section class="step" data-sec="3">
+        <h1>What are your dietary requirements?</h1>
+        <p class="sub">Select all that apply</p>
+        <div class="choices">
+          <label class="ch"><input type="checkbox" name="diet" value="I eat all!"><span class="dt sq"></span>I eat all!</label>
+          <label class="ch"><input type="checkbox" name="diet" value="Vegan"><span class="dt sq"></span>Vegan</label>
+          <label class="ch"><input type="checkbox" name="diet" value="Vegetarian"><span class="dt sq"></span>Vegetarian</label>
+          <label class="ch"><input type="checkbox" name="diet" value="Gluten-Free"><span class="dt sq"></span>Gluten-Free</label>
+          <label class="ch"><input type="checkbox" name="diet" value="Nut Allergies"><span class="dt sq"></span>Nut Allergies</label>
+          <label class="ch"><input type="checkbox" name="diet" value="Dairy-Free"><span class="dt sq"></span>Dairy-Free</label>
+          <label class="ch"><input type="checkbox" name="diet" value="Pescatarian"><span class="dt sq"></span>Pescatarian</label>
+          <label class="ch"><input type="checkbox" name="diet" value="Other" id="dietOther"><span class="dt sq"></span>Others</label>
+        </div>
+        <div class="otherwrap" id="dietOtherWrap">
+          <input class="in" id="dietOtherText" name="dietOtherText" type="text" placeholder="Tell us more">
+        </div>
+      </section>
+
+      <section class="step" data-sec="3">
+        <h1>What is your preferred room of choice?</h1>
+        <p class="sub">Nothing is locked in, you can change this later</p>
+        <div class="f">
+          <label for="room">Preferred Room</label>
+          <select class="in" id="room" name="room">
+            <option value="">Select a room</option>
+            <option value="Private Room - 3200">Private Room &middot; 3,200</option>
+            <option value="Hearts Haven (2 bed shared) - 2850">Hearts Haven, 2 bed shared &middot; 2,850</option>
+            <option value="Trinity (3 bed shared) - 2650">Trinity, 3 bed shared &middot; 2,650</option>
+          </select>
+        </div>
+      </section>
+
+      <div class="foot" id="foot">
+        <button type="button" class="btn btn-back" id="back" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          Back
+        </button>
+        <button type="button" class="btn btn-next" id="next">
+          Next
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+    </form>
+
+    <div class="done" id="done">
+      <div class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h2>Thank you</h2>
+      <p>Your application is with us. We'll be in touch soon.</p>
+      <a class="btn btn-next" href="/">Back to Portals</a>
+    </div>
+  </div>
+
+  <p class="timing" id="timing">Takes about 5 mins</p>
+</div>
+
+<script>
+  /* Google Apps Script Web App URL for APPLICATIONS.
+     Paste the /exec URL from the Applications deployment here.
+     It must end in /exec (not /dev). See apps-script-application.gs. */
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbzXq-xhROHe8Ti90Za-pAQMpCx9oR2uDBJXaklJ2fl7KEPIgpi8-vE3lPDfgrqkIdE/exec";
+
+  var steps   = Array.prototype.slice.call(document.querySelectorAll('.step'));
+  var total   = steps.length;
+  var i       = 0;
+  var nextBtn = document.getElementById('next');
+  var backBtn = document.getElementById('back');
+  var form    = document.getElementById('app-form');
+  var cols    = [document.getElementById('c1'), document.getElementById('c2'), document.getElementById('c3')];
+
+  var secCounts = [0,0,0];
+  steps.forEach(function(s){ secCounts[parseInt(s.dataset.sec,10)-1]++; });
+
+  function currentSec(){ return parseInt(steps[i].dataset.sec,10); }
+
+  function paint(){
+    steps.forEach(function(s,n){ s.classList.toggle('on', n===i); });
+
+    var sec = currentSec();
+    cols.forEach(function(c,n){
+      c.classList.toggle('on',   n === sec-1);
+      c.classList.toggle('done', n <  sec-1);
+    });
+
+    var pct = (i / (total-1)) * 100;
+    document.getElementById('fill').style.width = pct + '%';
+    document.getElementById('pbar').setAttribute('aria-valuenow', Math.round(pct));
+
+    backBtn.disabled = (i === 0);
+    nextBtn.childNodes[0].nodeValue = (i === total-1) ? 'Submit ' : 'Next ';
+
+    var f = steps[i].querySelector('input:not([type=radio]):not([type=checkbox]), textarea, select');
+    if (f) { try { f.focus({preventScroll:true}); } catch(e){ f.focus(); } }
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function showErr(id, on){
+    var input = document.getElementById(id);
+    var err   = document.getElementById('e-'+id);
+    if (!input || !err) return;
+    input.classList.toggle('bad', on);
+    err.classList.toggle('on', on);
+    input.setAttribute('aria-invalid', on ? 'true' : 'false');
+  }
+  function badField(id){
+    var el = document.getElementById(id);
+    if (!el) return false;
+    var v = el.value.trim();
+    if (!v) return true;
+    if (el.type === 'email') return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    if (id === 'whatsapp') return v.replace(/\D/g,'').length < 7;
+    return false;
+  }
+  var required = ['fullName','email','whatsapp','location','birthday'];
+
+  required.forEach(function(id){
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('blur', function(){ showErr(id, badField(id)); });
+    el.addEventListener('input', function(){ if (el.classList.contains('bad')) showErr(id, badField(id)); });
+  });
+
+  function validateStep(){
+    if (currentSec() !== 1) return true;
+    var firstBad = null;
+    required.forEach(function(id){
+      var bad = badField(id);
+      showErr(id, bad);
+      if (bad && !firstBad) firstBad = id;
+    });
+    if (firstBad) {
+      var el = document.getElementById(firstBad);
+      el.focus();
+      el.scrollIntoView({block:'center', behavior:'smooth'});
+      return false;
+    }
+    return true;
+  }
+
+  var dietOther = document.getElementById('dietOther');
+  if (dietOther) {
+    dietOther.addEventListener('change', function(){
+      var wrap = document.getElementById('dietOtherWrap');
+      wrap.classList.toggle('on', dietOther.checked);
+      if (dietOther.checked) document.getElementById('dietOtherText').focus();
+    });
+  }
+
+  function go(dir){
+    if (dir > 0 && !validateStep()) return;
+    if (dir > 0 && i === total-1) { submit(); return; }
+    i = Math.max(0, Math.min(total-1, i+dir));
+    paint();
+  }
+  nextBtn.addEventListener('click', function(){ go(1); });
+  backBtn.addEventListener('click', function(){ go(-1); });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter') return;
+    if (e.target && e.target.tagName === 'TEXTAREA') return;
+    if (document.getElementById('done').classList.contains('on')) return;
+    e.preventDefault();
+    go(1);
+  });
+
+  function collect(){
+    var fd = new FormData(form);
+    var data = {};
+    fd.forEach(function(v,k){
+      if (k === 'diet') { data.diet = data.diet ? data.diet + ', ' + v : v; }
+      else { data[k] = v; }
+    });
+    data.diet = data.diet || '';
+    return data;
+  }
+
+  function showDone(){
+    form.style.display = 'none';
+    document.querySelector('.stepper').style.display = 'none';
+    document.getElementById('timing').style.display = 'none';
+    document.getElementById('done').classList.add('on');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function submit(){
+    if (!/^https:\/\/script\.google\.com\/.+\/exec$/.test(ENDPOINT)) {
+      alert('This form is not connected to a form endpoint yet.');
+      return;
+    }
+    nextBtn.disabled = true;
+    nextBtn.childNodes[0].nodeValue = 'Sending… ';
+
+    var data = collect();
+    data.formType    = 'application';
+    data.submittedAt = new Date().toISOString();
+    data.pageUrl     = window.location.href;
+
+    /* Apps Script needs no-cors, which yields an opaque response we cannot
+       read. Completion without a network error is treated as delivered. */
+    fetch(ENDPOINT, {
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body: JSON.stringify(data)
+    }).then(function(){
+      try { localStorage.removeItem(DRAFT); } catch(e){}
+      showDone();
+    }).catch(function(){
+      nextBtn.disabled = false;
+      nextBtn.childNodes[0].nodeValue = 'Submit ';
+      alert('We could not send your application. Please check your connection and try again.');
+    });
+  }
+
+  /* ---- draft autosave, so a refresh never loses answers ---- */
+  var DRAFT = 'portals_application_draft';
+  function saveDraft(){
+    try { localStorage.setItem(DRAFT, JSON.stringify({ step:i, data:collect() })); } catch(e){}
+  }
+  function restoreDraft(){
+    var raw;
+    try { raw = localStorage.getItem(DRAFT); } catch(e){ return; }
+    if (!raw) return;
+    var saved;
+    try { saved = JSON.parse(raw); } catch(e){ return; }
+    if (!saved || !saved.data) return;
+
+    Object.keys(saved.data).forEach(function(k){
+      if (k === 'diet') {
+        var picked = String(saved.data.diet).split(', ');
+        form.querySelectorAll('input[name="diet"]').forEach(function(cb){
+          if (picked.indexOf(cb.value) !== -1) cb.checked = true;
+        });
+        if (document.getElementById('dietOther').checked) {
+          document.getElementById('dietOtherWrap').classList.add('on');
+        }
+        return;
+      }
+      var els = form.querySelectorAll('[name="'+k+'"]');
+      if (!els.length) return;
+      if (els[0].type === 'radio') {
+        els.forEach(function(r){ if (r.value === saved.data[k]) r.checked = true; });
+      } else {
+        els[0].value = saved.data[k];
+      }
+    });
+    if (typeof saved.step === 'number' && saved.step > 0 && saved.step < total) i = saved.step;
+  }
+
+  form.addEventListener('input',  saveDraft);
+  form.addEventListener('change', saveDraft);
+
+  restoreDraft();
+  paint();
+</script>
+
+</body>
+</html>
