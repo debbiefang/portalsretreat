@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Apply: Portals Women's Ayahuasca Retreat</title>
+<title>Portals Retreat Application</title>
 <meta name="description" content="Apply for the Portals 7-day women's Ayahuasca retreat near Tulum, Mexico." />
 <meta name="robots" content="noindex, follow" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,25 +23,32 @@
   html{-webkit-text-size-adjust:100%}
   body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--page);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100dvh;padding:48px 20px 80px;}
 
-  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,[tabindex]:focus-visible{
     outline:2px solid var(--dark); outline-offset:3px; border-radius:4px;
   }
 
-  .shell{max-width:620px;margin:0 auto;}
+  .shell{max-width:640px;margin:0 auto;}
+
+  /* ===== Masthead (always visible, every screen) ===== */
+  .brandhead{text-align:center;margin-bottom:32px;}
+  .brandhead h2{font-family:'Jost',sans-serif;font-weight:600;font-size:1.12rem;letter-spacing:.02em;color:var(--ink);margin-bottom:8px;}
+  .brandhead p{font-size:.95rem;color:var(--ink-mute);font-style:italic;}
 
   /* ===== Stepper ===== */
   .stepper{margin-bottom:26px;}
   .dots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
-  .dot-col{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;}
-  .dot{width:19px;height:19px;border-radius:50%;background:var(--dot-off);position:relative;transition:background .35s ease;}
+  .dot-col{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;opacity:1;}
+  .dot{width:19px;height:19px;border-radius:50%;background:var(--dot-off);position:relative;transition:background .35s ease;flex:none;}
   .dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid transparent;transition:border-color .35s ease;}
   .dot-col.done .dot{background:var(--dark);}
   .dot-col.on .dot{background:var(--dark);}
   .dot-col.on .dot::after{border-color:rgba(43,33,26,.20);}
-  .dot-col span{font-size:.82rem;color:var(--ink-mute);transition:color .35s ease;line-height:1.3;}
-  .dot-col.on span{color:var(--ink);font-weight:500;}
-  .dot-col.done span{color:var(--ink-soft);}
-  @media(max-width:420px){.dot-col span{font-size:.72rem;}}
+  /* All three labels stay equally legible at all times — only the dot fill
+     and the active label's weight communicate progress, nothing dims out. */
+  .dot-col span{font-size:.82rem;color:var(--ink-soft);transition:color .35s ease;line-height:1.3;}
+  .dot-col.on span{color:var(--ink);font-weight:600;}
+  @media(max-width:420px){.dot-col span{font-size:.7rem;}}
+  @media(max-width:360px){.dot-col span{font-size:.62rem;}.dots{gap:4px;}}
 
   .track{height:4px;border-radius:99px;background:var(--track);overflow:hidden;margin-top:16px;}
   .track i{display:block;height:100%;width:0;border-radius:99px;background:var(--dark);transition:width .45s cubic-bezier(.2,.8,.3,1);}
@@ -53,7 +60,8 @@
   .step.on{display:block;}
   @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-  h1{font-size:clamp(1.5rem,3.6vw,1.85rem);font-weight:600;line-height:1.2;letter-spacing:-.015em;margin-bottom:6px;color:var(--head);}
+  h1{font-size:clamp(1.5rem,3.6vw,1.85rem);font-weight:600;line-height:1.25;letter-spacing:-.015em;margin-bottom:6px;color:var(--head);}
+  h1 .req{font-size:.8em;vertical-align:middle;}
   .sub{color:var(--ink-mute);font-size:1rem;margin-bottom:30px;}
 
   /* ===== Fields ===== */
@@ -61,9 +69,7 @@
   .f:last-of-type{margin-bottom:0;}
   .f label{display:block;font-size:.95rem;font-weight:500;color:var(--ink);margin-bottom:8px;}
   .f label .opt{font-weight:400;color:var(--ink-mute);}
-  .f label .req{color:var(--clay);font-weight:400;margin-left:1px;}
-  .reqnote{font-size:.88rem;color:var(--ink-mute);margin:-22px 0 26px;}
-  .reqnote .req{color:var(--clay);}
+  .req{color:var(--clay);font-weight:400;margin-left:1px;}
   .in{width:100%;min-height:50px;background:#fff;border:1px solid var(--line);border-radius:9px;color:var(--ink);font-family:'Jost',sans-serif;font-size:1rem;padding:13px 15px;outline:none;transition:border-color .2s,box-shadow .2s;}
   .in::placeholder{color:#9c8d79;}
   .in:hover{border-color:#cbbda9;}
@@ -71,7 +77,7 @@
   textarea.in{min-height:132px;resize:vertical;line-height:1.6;}
   select.in{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a7d6e' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:42px;}
   .in.bad{border-color:var(--err);}
-  .err{display:none;color:var(--err);font-size:.86rem;margin-top:6px;}
+  .err{display:none;color:var(--err);font-size:.86rem;margin-top:10px;}
   .err.on{display:block;}
 
   /* ===== Choices ===== */
@@ -93,6 +99,41 @@
   .otherwrap{margin-top:10px;display:none;}
   .otherwrap.on{display:block;}
 
+  /* ===== Room cards ===== */
+  .rooms{display:grid;gap:16px;margin-top:6px;}
+  .room-card{position:relative;display:grid;grid-template-columns:180px 1fr;background:#fff;border:1.5px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,background .2s;}
+  .room-card:hover{border-color:#cbbda9;}
+  .room-card input{position:absolute;opacity:0;pointer-events:none;}
+  .room-photo{background-size:cover;background-position:center;min-height:100%;}
+  .room-body{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;flex-wrap:wrap;}
+  .room-top{display:flex;flex-direction:column;gap:6px;min-width:150px;}
+  .room-name{font-size:1.12rem;font-weight:600;color:var(--ink);}
+  .room-tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);}
+  .room-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px;margin-left:auto;}
+  .room-price{display:flex;flex-direction:column;align-items:flex-end;gap:1px;}
+  .room-was{font-size:.84rem;color:var(--ink-mute);text-decoration:line-through;text-decoration-color:var(--err);}
+  .room-now{font-size:1.35rem;font-weight:600;color:var(--ink);}
+  .room-pick-choose,.room-pick-selected{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:99px;font-size:.84rem;font-weight:500;white-space:nowrap;}
+  .room-pick-choose{background:var(--dark);color:#fff;transition:background .2s;}
+  .room-card:hover .room-pick-choose{background:var(--clay);}
+  .room-pick-selected{display:none;background:rgba(164,94,62,.13);color:var(--clay);border:1px solid rgba(164,94,62,.45);}
+  .room-pick-selected svg{width:14px;height:14px;}
+  .room-card input:checked ~ .room-body .room-pick-choose{display:none;}
+  .room-card input:checked ~ .room-body .room-pick-selected{display:inline-flex;}
+  /* :has() as a progressive-enhancement fallback; the guaranteed mechanism
+     is the .is-selected class toggled in JS on the radio's change event. */
+  .room-card:has(input:checked),
+  .room-card.is-selected{border-color:var(--clay);box-shadow:0 0 0 1px var(--clay);background:var(--tint);}
+  .room-card:has(input:focus-visible){outline:2px solid var(--dark);outline-offset:2px;}
+  @media(max-width:600px){
+    .room-card{grid-template-columns:1fr;}
+    .room-photo{min-height:150px;}
+    .room-body{flex-direction:column;align-items:flex-start;}
+    .room-right{align-items:flex-start;width:100%;}
+    .room-price{align-items:flex-start;}
+    .room-pick-choose,.room-pick-selected{width:100%;justify-content:center;}
+  }
+
   /* ===== Card footer ===== */
   .foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:34px;padding-top:26px;border-top:1px solid var(--line-soft);}
   .btn{font-family:'Jost',sans-serif;font-size:.95rem;font-weight:500;border-radius:99px;cursor:pointer;min-height:48px;padding:12px 26px;display:inline-flex;align-items:center;gap:8px;transition:background .22s,border-color .22s,color .22s,opacity .22s,transform .22s;}
@@ -104,16 +145,17 @@
   .btn-next:hover:not(:disabled){background:#1a130e;transform:translateY(-1px);}
   .btn-next:disabled{opacity:.55;cursor:wait;transform:none;}
 
-  .timing{text-align:center;font-size:.92rem;color:var(--ink-mute);margin-top:22px;}
-
   /* ===== Done ===== */
   .done{display:none;text-align:center;padding:16px 0 8px;}
   .done.on{display:block;animation:in .45s cubic-bezier(.2,.8,.3,1);}
   .done .ring{width:66px;height:66px;margin:0 auto 20px;border-radius:50%;background:rgba(164,94,62,.1);display:grid;place-items:center;}
   .done .ring svg{width:30px;height:30px;color:var(--clay);}
-  .done h2{font-size:1.55rem;font-weight:600;margin-bottom:10px;}
-  .done p{color:var(--ink-soft);max-width:38ch;margin:0 auto 24px;}
-  .done a{display:inline-flex;text-decoration:none;}
+  .done h2{font-size:1.55rem;font-weight:600;margin-bottom:14px;}
+  .done p{color:var(--ink-soft);max-width:42ch;margin:0 auto 16px;}
+  .done .done-note{font-style:italic;color:var(--ink-mute);margin-bottom:22px;}
+  .done .btn-next{margin:0 auto;}
+  .done-home{display:block;margin-top:18px;font-size:.88rem;color:var(--ink-mute);text-decoration:underline;text-underline-offset:3px;}
+  .done-home:hover{color:var(--ink);}
 
   @media(prefers-reduced-motion:reduce){
     *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
@@ -123,6 +165,11 @@
 <body>
 
 <div class="shell">
+
+  <div class="brandhead">
+    <h2>Portals Retreat Application</h2>
+    <p>This takes about 5 mins, we're excited to connect with you!</p>
+  </div>
 
   <div class="stepper">
     <div class="dots">
@@ -140,7 +187,6 @@
       <section class="step on" data-sec="1">
         <h1>Basic Info</h1>
         <p class="sub">First let's get the logistics outta the way!</p>
-        <p class="reqnote">All fields on this page are required <span class="req">*</span></p>
 
         <div class="f">
           <label for="fullName">Full Name <span class="req" aria-hidden="true">*</span></label>
@@ -171,8 +217,7 @@
 
       <!-- 2: SOCIALS -->
       <section class="step" data-sec="2">
-        <h1>Where can we find you?</h1>
-        <p class="sub">All optional</p>
+        <h1 style="margin-bottom:24px;">Where can we find you?</h1>
 
         <div class="f">
           <label for="instagram">Instagram <span class="opt">(Optional)</span></label>
@@ -190,56 +235,57 @@
 
       <!-- 3: ABOUT YOU -->
       <section class="step" data-sec="3">
-        <h1>Now we'd like to know more about you</h1>
-        <p class="sub">Takes around 4 minutes</p>
+        <h1 style="margin-bottom:24px;">Now we'd like to know more about you</h1>
       </section>
 
       <section class="step" data-sec="3">
-        <h1>What draws you to the retreat?</h1>
+        <h1>What draws you to the retreat? <span class="req" aria-hidden="true">*</span></h1>
         <p class="sub">Share whatever feels true</p>
-        <textarea class="in" id="q_draws" name="q_draws" placeholder="I've been feeling like something needs to shift…"></textarea>
+        <textarea class="in" id="q_draws" name="q_draws" required aria-required="true"></textarea>
+        <p class="err" id="e-q_draws">Please share a few words with us.</p>
       </section>
 
       <section class="step" data-sec="3">
-        <h1>How would you describe who you are?</h1>
-        <p class="sub">However you'd introduce yourself</p>
-        <textarea class="in" id="q_who" name="q_who" placeholder="I'm a mother, a maker, someone who…"></textarea>
+        <h1 style="margin-bottom:24px;">How would you describe who you are? <span class="req" aria-hidden="true">*</span></h1>
+        <textarea class="in" id="q_who" name="q_who" required aria-required="true"></textarea>
+        <p class="err" id="e-q_who">Please share a few words with us.</p>
       </section>
 
       <section class="step" data-sec="3">
-        <h1>How do you think this retreat would support you in your journey?</h1>
-        <p class="sub">What you're hoping to move through, or move toward</p>
-        <textarea class="in" id="q_support" name="q_support" placeholder="I'm hoping to find clarity around…"></textarea>
+        <h1>How do you think this retreat would support you in your journey? <span class="req" aria-hidden="true">*</span></h1>
+        <p class="sub">What are you experiencing in your current chapter, what are you hoping to move through, or move towards</p>
+        <textarea class="in" id="q_support" name="q_support" placeholder="I'm hoping to find clarity around…" required aria-required="true"></textarea>
+        <p class="err" id="e-q_support">Please share a few words with us.</p>
       </section>
 
       <section class="step" data-sec="3">
-        <h1>What is your superpower you think you could add to the group &amp; other women?</h1>
-        <p class="sub">The thing you'd bring to the circle</p>
-        <textarea class="in" id="q_superpower" name="q_superpower" placeholder="I hold space well. People tend to tell me…"></textarea>
+        <h1 style="margin-bottom:24px;">What is your superpower you think you could add to the group &amp; other women? <span class="req" aria-hidden="true">*</span></h1>
+        <textarea class="in" id="q_superpower" name="q_superpower" required aria-required="true"></textarea>
+        <p class="err" id="e-q_superpower">Please share a few words with us.</p>
       </section>
 
       <section class="step" data-sec="3">
-        <h1>This is a retreat where we collectively hold space for each other. Are you okay with that?</h1>
-        <p class="sub">There's no pressure to share more than you want to</p>
-        <div class="choices two">
+        <h1 style="margin-bottom:24px;">This is a retreat where we collectively hold space for each other. Are you okay with that? <span class="req" aria-hidden="true">*</span></h1>
+        <div class="choices two" data-radio-required="q_holdspace" tabindex="-1">
           <label class="ch"><input type="radio" name="q_holdspace" value="Yes"><span class="dt"></span>Yes</label>
-          <label class="ch"><input type="radio" name="q_holdspace" value="I have questions"><span class="dt"></span>I have questions</label>
+          <label class="ch"><input type="radio" name="q_holdspace" value="No"><span class="dt"></span>No</label>
         </div>
+        <p class="err" id="e-q_holdspace">Please choose an option.</p>
       </section>
 
       <section class="step" data-sec="3">
-        <h1>Are you pregnant or nursing?</h1>
-        <p class="sub">A safety question, so we can care for you properly</p>
-        <div class="choices two">
+        <h1 style="margin-bottom:24px;">Are you pregnant or nursing? <span class="req" aria-hidden="true">*</span></h1>
+        <div class="choices two" data-radio-required="q_pregnant" tabindex="-1">
           <label class="ch"><input type="radio" name="q_pregnant" value="Yes"><span class="dt"></span>Yes</label>
           <label class="ch"><input type="radio" name="q_pregnant" value="No"><span class="dt"></span>No</label>
         </div>
+        <p class="err" id="e-q_pregnant">Please choose an option.</p>
       </section>
 
       <section class="step" data-sec="3">
-        <h1>What are your dietary requirements?</h1>
+        <h1>What are your dietary requirements? <span class="req" aria-hidden="true">*</span></h1>
         <p class="sub">Select all that apply</p>
-        <div class="choices">
+        <div class="choices" data-checkbox-required="diet" tabindex="-1">
           <label class="ch"><input type="checkbox" name="diet" value="I eat all!"><span class="dt sq"></span>I eat all!</label>
           <label class="ch"><input type="checkbox" name="diet" value="Vegan"><span class="dt sq"></span>Vegan</label>
           <label class="ch"><input type="checkbox" name="diet" value="Vegetarian"><span class="dt sq"></span>Vegetarian</label>
@@ -249,23 +295,77 @@
           <label class="ch"><input type="checkbox" name="diet" value="Pescatarian"><span class="dt sq"></span>Pescatarian</label>
           <label class="ch"><input type="checkbox" name="diet" value="Other" id="dietOther"><span class="dt sq"></span>Others</label>
         </div>
+        <p class="err" id="e-diet">Please select at least one.</p>
         <div class="otherwrap" id="dietOtherWrap">
           <input class="in" id="dietOtherText" name="dietOtherText" type="text" placeholder="Tell us more">
         </div>
       </section>
 
       <section class="step" data-sec="3">
-        <h1>What is your preferred room of choice?</h1>
-        <p class="sub">Nothing is locked in, you can change this later</p>
-        <div class="f">
-          <label for="room">Preferred Room</label>
-          <select class="in" id="room" name="room">
-            <option value="">Select a room</option>
-            <option value="Private Room - 3200">Private Room &middot; 3,200</option>
-            <option value="Hearts Haven (2 bed shared) - 2850">Hearts Haven, 2 bed shared &middot; 2,850</option>
-            <option value="Trinity (3 bed shared) - 2650">Trinity, 3 bed shared &middot; 2,650</option>
-          </select>
+        <h1>What is your preferred room of choice? <span class="req" aria-hidden="true">*</span></h1>
+        <p class="sub">Nothing is locked in yet, you can change this later on</p>
+
+        <div class="rooms" role="radiogroup" aria-label="Preferred room" data-radio-required="room" tabindex="-1">
+
+          <label class="room-card">
+            <input type="radio" name="room" value="The Serenity Suite (Private Room, Own Bathroom) - 3250">
+            <span class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784183858/serenity_2_acymvk.jpg')"></span>
+            <span class="room-body">
+              <span class="room-top">
+                <span class="room-name">The Serenity Suite</span>
+                <span class="room-tag">Private Room &middot; Own Bathroom</span>
+              </span>
+              <span class="room-right">
+                <span class="room-price">
+                  <span class="room-was">$3,500</span>
+                  <span class="room-now">$3,250</span>
+                </span>
+                <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
+                <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
+              </span>
+            </span>
+          </label>
+
+          <label class="room-card">
+            <input type="radio" name="room" value="Hearts Haven (2 bed shared room) - 2750">
+            <span class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784183852/hearts_haven_1_yizusb.jpg')"></span>
+            <span class="room-body">
+              <span class="room-top">
+                <span class="room-name">Hearts Haven</span>
+                <span class="room-tag">2 Bed Shared Room</span>
+              </span>
+              <span class="room-right">
+                <span class="room-price">
+                  <span class="room-was">$3,000</span>
+                  <span class="room-now">$2,750</span>
+                </span>
+                <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
+                <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
+              </span>
+            </span>
+          </label>
+
+          <label class="room-card">
+            <input type="radio" name="room" value="The Trinity (3 bed shared room) - 2350">
+            <span class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1786204461/trinity_1_exyzzu.jpg')"></span>
+            <span class="room-body">
+              <span class="room-top">
+                <span class="room-name">The Trinity</span>
+                <span class="room-tag">3 Bed Shared Room</span>
+              </span>
+              <span class="room-right">
+                <span class="room-price">
+                  <span class="room-was">$2,600</span>
+                  <span class="room-now">$2,350</span>
+                </span>
+                <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
+                <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
+              </span>
+            </span>
+          </label>
+
         </div>
+        <p class="err" id="e-room">Please choose a room.</p>
       </section>
 
       <div class="foot" id="foot">
@@ -282,20 +382,37 @@
 
     <div class="done" id="done">
       <div class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
-      <h2>Thank you</h2>
-      <p>Your application is with us. We'll be in touch soon.</p>
-      <a class="btn btn-next" href="/">Back to Portals</a>
+      <h2>Thank you!</h2>
+      <p>We have received your application. We'll be in touch within 24 hours to confirm if the retreat may be a fit for you. Please keep an eye out on your inbox.</p>
+      <p class="done-note">In the meantime, take a look at the retreat brochure from last year!</p>
+      <!-- TODO: replace # with the real brochure URL (PDF link) before launch -->
+      <a class="btn btn-next" href="#" target="_blank" rel="noopener">Download Portals Retreat 2026 Brochure</a>
+      <a class="done-home" href="/">Back to Portals</a>
     </div>
   </div>
 
-  <p class="timing" id="timing">Takes about 5 mins</p>
 </div>
 
 <script>
   /* Google Apps Script Web App URL for APPLICATIONS.
-     Paste the /exec URL from the Applications deployment here.
-     It must end in /exec (not /dev). See apps-script-application.gs. */
+     Must end in /exec (not /dev). See apps-script-application.gs. */
   var ENDPOINT = "https://script.google.com/macros/s/AKfycbzXq-xhROHe8Ti90Za-pAQMpCx9oR2uDBJXaklJ2fl7KEPIgpi8-vE3lPDfgrqkIdE/exec";
+
+  /* ---- best-effort IP geolocation, same service the waitlist form uses.
+     Never blocks the applicant — if it fails, the fields just stay blank. ---- */
+  var submissionCity = "";
+  var submissionTimezone = "";
+  (function(){
+    fetch("https://ipapi.co/json/")
+      .then(function(res){ return res.ok ? res.json() : null; })
+      .then(function(j){
+        if (!j) return;
+        var parts = [j.city, j.region, j.country_name].filter(Boolean);
+        submissionCity = parts.join(", ");
+        submissionTimezone = j.timezone || "";
+      })
+      .catch(function(){ /* location is optional, ignore failures */ });
+  })();
 
   var steps   = Array.prototype.slice.call(document.querySelectorAll('.step'));
   var total   = steps.length;
@@ -348,27 +465,46 @@
     if (id === 'whatsapp') return v.replace(/\D/g,'').length < 7;
     return false;
   }
-  var required = ['fullName','email','whatsapp','location','birthday'];
+  var liveValidated = ['fullName','email','whatsapp','location','birthday'];
 
-  required.forEach(function(id){
+  liveValidated.forEach(function(id){
     var el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('blur', function(){ showErr(id, badField(id)); });
     el.addEventListener('input', function(){ if (el.classList.contains('bad')) showErr(id, badField(id)); });
   });
 
+  /* Generic per-step validation: checks whatever required inputs, radio
+     groups, or checkbox groups exist on the CURRENT step only. */
   function validateStep(){
-    if (currentSec() !== 1) return true;
+    var step = steps[i];
     var firstBad = null;
-    required.forEach(function(id){
-      var bad = badField(id);
-      showErr(id, bad);
-      if (bad && !firstBad) firstBad = id;
+
+    step.querySelectorAll('input[required], textarea[required]').forEach(function(el){
+      var bad = badField(el.id);
+      showErr(el.id, bad);
+      if (bad && !firstBad) firstBad = el;
     });
+
+    step.querySelectorAll('[data-radio-required]').forEach(function(group){
+      var name = group.getAttribute('data-radio-required');
+      var checked = step.querySelector('input[name="'+name+'"]:checked');
+      var err = document.getElementById('e-'+name);
+      if (err) err.classList.toggle('on', !checked);
+      if (!checked && !firstBad) firstBad = group;
+    });
+
+    step.querySelectorAll('[data-checkbox-required]').forEach(function(group){
+      var name = group.getAttribute('data-checkbox-required');
+      var any = step.querySelector('input[name="'+name+'"]:checked');
+      var err = document.getElementById('e-'+name);
+      if (err) err.classList.toggle('on', !any);
+      if (!any && !firstBad) firstBad = group;
+    });
+
     if (firstBad) {
-      var el = document.getElementById(firstBad);
-      el.focus();
-      el.scrollIntoView({block:'center', behavior:'smooth'});
+      if (typeof firstBad.focus === 'function') { try { firstBad.focus({preventScroll:true}); } catch(e){} }
+      firstBad.scrollIntoView({block:'center', behavior:'smooth'});
       return false;
     }
     return true;
@@ -381,6 +517,17 @@
       wrap.classList.toggle('on', dietOther.checked);
       if (dietOther.checked) document.getElementById('dietOtherText').focus();
     });
+  }
+
+  /* Guaranteed selection ring for room cards — not left to :has() alone. */
+  var roomsGroup = document.querySelector('.rooms');
+  function syncRoomSelection(){
+    document.querySelectorAll('.room-card').forEach(function(card){
+      card.classList.toggle('is-selected', card.querySelector('input').checked);
+    });
+  }
+  if (roomsGroup) {
+    roomsGroup.addEventListener('change', syncRoomSelection);
   }
 
   function go(dir){
@@ -414,9 +561,9 @@
   function showDone(){
     form.style.display = 'none';
     document.querySelector('.stepper').style.display = 'none';
-    document.getElementById('timing').style.display = 'none';
     document.getElementById('done').classList.add('on');
     window.scrollTo({top:0,behavior:'smooth'});
+    fireConfetti();
   }
 
   function submit(){
@@ -431,6 +578,8 @@
     data.formType    = 'application';
     data.submittedAt = new Date().toISOString();
     data.pageUrl     = window.location.href;
+    data.submissionCity     = submissionCity;
+    data.submissionTimezone = submissionTimezone;
 
     /* Apps Script needs no-cors, which yields an opaque response we cannot
        read. Completion without a network error is treated as delivered. */
@@ -487,7 +636,74 @@
   form.addEventListener('input',  saveDraft);
   form.addEventListener('change', saveDraft);
 
+  /* ---- confetti: brand-colored burst, fires once on submit ---- */
+  function fireConfetti(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var canvas = document.createElement('canvas');
+    canvas.setAttribute('aria-hidden', 'true');
+    canvas.style.cssText = 'position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:999;';
+    document.body.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+    var dpr = window.devicePixelRatio || 1;
+
+    function resize(){
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var colors = ['#c9a14a', '#a45e3e', '#e8cf8e', '#2b211a', '#ffffff'];
+    var pieces = [];
+    var count = 130;
+    for (var n = 0; n < count; n++) {
+      pieces.push({
+        x: Math.random() * window.innerWidth,
+        y: -20 - Math.random() * window.innerHeight * 0.4,
+        w: 6 + Math.random() * 6,
+        h: 9 + Math.random() * 7,
+        color: colors[n % colors.length],
+        rot: Math.random() * Math.PI * 2,
+        vRot: (Math.random() - 0.5) * 0.28,
+        vY: 2 + Math.random() * 2.6,
+        vX: (Math.random() - 0.5) * 1.8,
+        opacity: 1
+      });
+    }
+
+    var start = null;
+    var duration = 3000;
+    function frame(ts){
+      if (!start) start = ts;
+      var elapsed = ts - start;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      pieces.forEach(function(p){
+        p.x += p.vX; p.y += p.vY; p.rot += p.vRot;
+        if (elapsed > duration * 0.6) {
+          p.opacity = Math.max(0, 1 - (elapsed - duration * 0.6) / (duration * 0.4));
+        }
+        ctx.save();
+        ctx.globalAlpha = p.opacity;
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      });
+      if (elapsed < duration) {
+        requestAnimationFrame(frame);
+      } else {
+        window.removeEventListener('resize', resize);
+        canvas.remove();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
   restoreDraft();
+  syncRoomSelection();
   paint();
 </script>
 
