@@ -40,7 +40,7 @@
   .dot-col{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;opacity:1;}
   .dot{width:19px;height:19px;border-radius:50%;background:var(--dot-off);position:relative;transition:background .35s ease;flex:none;}
   .dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid transparent;transition:border-color .35s ease;}
-  .dot-col.done .dot{background:var(--dark);}
+  .dot-col.step-done .dot{background:var(--dark);}
   .dot-col.on .dot{background:var(--dark);}
   .dot-col.on .dot::after{border-color:rgba(43,33,26,.20);}
   /* All three labels stay equally legible at all times — only the dot fill
@@ -112,12 +112,14 @@
   .room-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px;margin-left:auto;}
   .room-price{display:flex;flex-direction:column;align-items:flex-end;gap:1px;}
   .room-was{font-size:.84rem;color:var(--ink-mute);text-decoration:line-through;text-decoration-color:var(--err);}
+  .room-now-label{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--clay);font-weight:600;margin-top:3px;}
   .room-now{font-size:1.35rem;font-weight:600;color:var(--ink);}
   .room-pick-choose,.room-pick-selected{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:99px;font-size:.84rem;font-weight:500;white-space:nowrap;}
   .room-pick-choose{background:var(--dark);color:#fff;transition:background .2s;}
   .room-card:hover .room-pick-choose{background:var(--clay);}
+  .room-pick-choose svg{width:14px;height:14px;flex:none;}
   .room-pick-selected{display:none;background:rgba(164,94,62,.13);color:var(--clay);border:1px solid rgba(164,94,62,.45);}
-  .room-pick-selected svg{width:14px;height:14px;}
+  .room-pick-selected svg{width:14px;height:14px;flex:none;}
   .room-card input:checked ~ .room-body .room-pick-choose{display:none;}
   .room-card input:checked ~ .room-body .room-pick-selected{display:inline-flex;}
   /* :has() as a progressive-enhancement fallback; the guaranteed mechanism
@@ -235,7 +237,7 @@
 
       <!-- 3: ABOUT YOU -->
       <section class="step" data-sec="3">
-        <h1 style="margin-bottom:24px;">Now we'd like to know more about you</h1>
+        <h1 style="margin-bottom:24px;">Now tell us a little more about you!</h1>
       </section>
 
       <section class="step" data-sec="3">
@@ -254,7 +256,7 @@
       <section class="step" data-sec="3">
         <h1>How do you think this retreat would support you in your journey? <span class="req" aria-hidden="true">*</span></h1>
         <p class="sub">What are you experiencing in your current chapter, what are you hoping to move through, or move towards</p>
-        <textarea class="in" id="q_support" name="q_support" placeholder="I'm hoping to find clarity around…" required aria-required="true"></textarea>
+        <textarea class="in" id="q_support" name="q_support" required aria-required="true"></textarea>
         <p class="err" id="e-q_support">Please share a few words with us.</p>
       </section>
 
@@ -318,6 +320,7 @@
               <span class="room-right">
                 <span class="room-price">
                   <span class="room-was">$3,500</span>
+                  <span class="room-now-label">Early bird price</span>
                   <span class="room-now">$3,250</span>
                 </span>
                 <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
@@ -337,6 +340,7 @@
               <span class="room-right">
                 <span class="room-price">
                   <span class="room-was">$3,000</span>
+                  <span class="room-now-label">Early bird price</span>
                   <span class="room-now">$2,750</span>
                 </span>
                 <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
@@ -356,6 +360,7 @@
               <span class="room-right">
                 <span class="room-price">
                   <span class="room-was">$2,600</span>
+                  <span class="room-now-label">Early bird price</span>
                   <span class="room-now">$2,350</span>
                 </span>
                 <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
@@ -383,10 +388,9 @@
     <div class="done" id="done">
       <div class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
       <h2>Thank you!</h2>
-      <p>We have received your application. We'll be in touch within 24 hours to confirm if the retreat may be a fit for you. Please keep an eye out on your inbox.</p>
+      <p>We have received your application. We'll be in touch within 24 hours to confirm your spot. Please keep an eye out on your inbox.</p>
       <p class="done-note">In the meantime, take a look at the retreat brochure from last year!</p>
-      <!-- TODO: replace # with the real brochure URL (PDF link) before launch -->
-      <a class="btn btn-next" href="#" target="_blank" rel="noopener">Download Portals Retreat 2026 Brochure</a>
+      <a class="btn btn-next" href="https://drive.google.com/file/d/1wx0HtCNYOCtQUNdhI08Vsx13qTrCUoJ5/view?usp=sharing" target="_blank" rel="noopener">Download Portals Retreat 2026 Brochure</a>
       <a class="done-home" href="/">Back to Portals</a>
     </div>
   </div>
@@ -433,12 +437,14 @@
     var sec = currentSec();
     cols.forEach(function(c,n){
       c.classList.toggle('on',   n === sec-1);
-      c.classList.toggle('done', n <  sec-1);
+      c.classList.toggle('step-done', n <  sec-1);
     });
 
     var pct = (i / (total-1)) * 100;
     document.getElementById('fill').style.width = pct + '%';
     document.getElementById('pbar').setAttribute('aria-valuenow', Math.round(pct));
+
+    document.querySelector('.brandhead').style.display = (i === 0) ? '' : 'none';
 
     backBtn.disabled = (i === 0);
     nextBtn.childNodes[0].nodeValue = (i === total-1) ? 'Submit ' : 'Next ';
