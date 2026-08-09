@@ -8,6 +8,8 @@
 <link rel="canonical" href="https://portals.theheartbased.co/" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <meta name="theme-color" content="#f4ece1" />
+<link rel="icon" type="image/png" href="/Favicon.png" />
+<link rel="apple-touch-icon" href="/Favicon.png" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
@@ -216,13 +218,18 @@
   .hero-bg h1 .it{font-style:italic;color:var(--gold-soft);}
   .hero-bg h1 span{display:block;opacity:0;animation:rise 1s forwards;}
   .hero-bg h1 span:nth-child(1){animation-delay:.2s} .hero-bg h1 span:nth-child(2){animation-delay:.32s} .hero-bg h1 span:nth-child(3){animation-delay:.44s}
-  .lede{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.2rem,2vw,1.55rem);max-width:32ch;color:#fff;opacity:0;animation:rise 1s .58s forwards;text-shadow:0 2px 4px rgba(0,0,0,.55),0 6px 26px rgba(0,0,0,.6);margin-bottom:16px;line-height:1.45;}
-  .lede .type{font-style:normal;font-weight:400;color:var(--gold-soft);}
+  .lede{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.2rem,2vw,1.55rem);max-width:42ch;color:#fff;opacity:0;animation:rise 1s .58s forwards;text-shadow:0 2px 4px rgba(0,0,0,.55),0 6px 26px rgba(0,0,0,.6);margin-bottom:16px;line-height:1.45;}
+  /* Its own line, not a mid-sentence wrap: the two lines are two separate
+     thoughts, so letting "Activate" trail the first one read as a mistake. */
+  .lede .type{display:block;font-style:normal;font-weight:400;color:var(--gold-soft);}
   /* hairline rule that anchors the headline block */
   .hero-rule{width:54px;height:1px;background:linear-gradient(90deg,var(--gold-soft),rgba(232,207,142,0));margin:0 0 22px;opacity:0;animation:rise .9s .5s forwards;}
   .hero-scarcity{margin-top:16px;font-family:'Fraunces',serif;font-style:italic;font-size:1rem;color:var(--gold-soft);opacity:0;animation:rise 1s .85s forwards;text-shadow:0 2px 12px rgba(0,0,0,.55);display:inline-flex;align-items:center;gap:10px;}
   .hero-scarcity::before{content:"*";font-style:normal;font-size:1.2em;line-height:1;color:var(--gold-soft);opacity:.9;flex:none;transform:translateY(.14em);}
-  .hero-micro{margin-top:18px;font-size:.86rem;letter-spacing:.02em;color:rgba(255,255,255,.8);max-width:44ch;opacity:0;animation:rise 1s .95s forwards;text-shadow:0 2px 14px rgba(0,0,0,.6);}
+  /* Wide enough to hold the whole sentence on one line at desktop widths;
+     the 44ch cap was breaking "brochure." onto a line of its own. Narrow
+     viewports still wrap naturally against the container. */
+  .hero-micro{margin-top:18px;font-size:.86rem;letter-spacing:.02em;color:rgba(255,255,255,.8);max-width:78ch;opacity:0;animation:rise 1s .95s forwards;text-shadow:0 2px 14px rgba(0,0,0,.6);}
   .lede2{font-size:1.02rem;max-width:50ch;color:rgba(255,255,255,.82);opacity:0;animation:rise 1s .68s forwards;text-shadow:0 2px 20px rgba(0,0,0,.4);}
   .hero-meta{display:flex;gap:30px;flex-wrap:wrap;margin-top:36px;opacity:0;animation:rise 1s .8s forwards;}
   .hero-meta span{font-size:.95rem;color:rgba(255,255,255,.9);display:inline-flex;align-items:center;gap:8px;}
