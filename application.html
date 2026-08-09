@@ -326,14 +326,6 @@
         </div>
       </section>
 
-      <!-- PAUSED: room selection is hidden until room pricing is finalised.
-           To bring it back, delete this comment opener and the closer that sits
-           just after the matching </section>. Nothing else needs changing: step
-           navigation and validation are both derived from whichever .step
-           sections are present in the DOM, so the form renumbers itself. The
-           room CSS above and the backend's "Preferred Room" column are both
-           left in place on purpose, so restoring is a one step edit.
-
       <section class="step" data-sec="3">
         <h1>What is your preferred room of choice? <span class="req" aria-hidden="true">*</span></h1>
         <p class="sub">Nothing is locked in yet, you can change this later on</p>
@@ -350,7 +342,7 @@
               </span>
               <span class="room-right">
                 <span class="room-price">
-                  <span class="room-was">$2,600</span>
+                  <span class="room-was">$2,650</span>
                   <span class="room-now-label">Early bird price</span>
                   <span class="room-now">$2,350</span>
                 </span>
@@ -409,7 +401,6 @@
         </div>
         <p class="err" id="e-room">Please choose a room.</p>
       </section>
-      -->
 
       <div class="foot" id="foot">
         <button type="button" class="btn btn-back" id="back" disabled>
@@ -579,6 +570,9 @@
     if (dir > 0 && i === total-1) { submit(); return; }
     i = Math.max(0, Math.min(total-1, i+dir));
     paint();
+    /* Mirror progress after the move, so the stored step is the one they
+       actually landed on and the reminder link resumes in the right place. */
+    if (dir > 0) syncPartial();
   }
   nextBtn.addEventListener('click', function(){ go(1); });
   backBtn.addEventListener('click', function(){ go(-1); });
@@ -620,6 +614,7 @@
 
     var data = collect();
     data.formType    = 'application';
+    data.token       = getToken();
     data.submittedAt = new Date().toISOString();
     data.pageUrl     = window.location.href;
     data.submissionCity     = submissionCity;
@@ -633,7 +628,12 @@
       headers:{'Content-Type':'text/plain;charset=utf-8'},
       body: JSON.stringify(data)
     }).then(function(){
-      try { localStorage.removeItem(DRAFT); } catch(e){}
+      try {
+        localStorage.removeItem(DRAFT);
+        /* Clear the token too, so a fresh application on this browser starts
+           a new one rather than reopening the completed partial. */
+        localStorage.removeItem(TOKEN_KEY);
+      } catch(e){}
       showDone();
     }).catch(function(){
       nextBtn.disabled = false;
@@ -647,17 +647,14 @@
   function saveDraft(){
     try { localStorage.setItem(DRAFT, JSON.stringify({ step:i, data:collect() })); } catch(e){}
   }
-  function restoreDraft(){
-    var raw;
-    try { raw = localStorage.getItem(DRAFT); } catch(e){ return; }
-    if (!raw) return;
-    var saved;
-    try { saved = JSON.parse(raw); } catch(e){ return; }
-    if (!saved || !saved.data) return;
 
-    Object.keys(saved.data).forEach(function(k){
+  /* Shared by the local draft and the server-side resume, so both paths fill
+     the form identically and only differ in where the data came from. */
+  function applyData(data, step){
+    if (!data) return;
+    Object.keys(data).forEach(function(k){
       if (k === 'diet') {
-        var picked = String(saved.data.diet).split(', ');
+        var picked = String(data.diet).split(', ');
         form.querySelectorAll('input[name="diet"]').forEach(function(cb){
           if (picked.indexOf(cb.value) !== -1) cb.checked = true;
         });
@@ -669,16 +666,102 @@
       var els = form.querySelectorAll('[name="'+k+'"]');
       if (!els.length) return;
       if (els[0].type === 'radio') {
-        els.forEach(function(r){ if (r.value === saved.data[k]) r.checked = true; });
+        els.forEach(function(r){ if (r.value === data[k]) r.checked = true; });
       } else {
-        els[0].value = saved.data[k];
+        els[0].value = data[k];
       }
     });
-    if (typeof saved.step === 'number' && saved.step > 0 && saved.step < total) i = saved.step;
+    if (typeof step === 'number' && step > 0 && step < total) i = step;
+    if (typeof syncRoomSelection === 'function') syncRoomSelection();
+  }
+
+  function restoreDraft(){
+    var raw;
+    try { raw = localStorage.getItem(DRAFT); } catch(e){ return; }
+    if (!raw) return;
+    var saved;
+    try { saved = JSON.parse(raw); } catch(e){ return; }
+    if (!saved || !saved.data) return;
+    applyData(saved.data, saved.step);
   }
 
   form.addEventListener('input',  saveDraft);
   form.addEventListener('change', saveDraft);
+
+  /* ---- abandoned-application recovery ----
+     A token is minted on first load and kept in localStorage. Once the
+     applicant clears step 1 we have a usable email, so every forward step
+     mirrors their progress to the Sheet against that token. If the final
+     submit never arrives, a reminder goes out 45 minutes later linking back
+     to ?r=<token>, which rehydrates the form on any device. The same token
+     rides along with the final submit, and that is what closes the loop. */
+  var TOKEN_KEY = 'portals_application_token';
+
+  function makeToken(){
+    try {
+      if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+      if (window.crypto && crypto.getRandomValues) {
+        var a = new Uint8Array(16);
+        crypto.getRandomValues(a);
+        return Array.prototype.map.call(a, function(b){ return ('0'+b.toString(16)).slice(-2); }).join('');
+      }
+    } catch(e){}
+    return 'tk' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+  }
+
+  function getToken(){
+    var t = null;
+    try { t = localStorage.getItem(TOKEN_KEY); } catch(e){}
+    if (!t) {
+      t = makeToken();
+      try { localStorage.setItem(TOKEN_KEY, t); } catch(e){}
+    }
+    return t;
+  }
+
+  function isEmailish(s){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(s||'').trim()); }
+
+  /* Fire-and-forget: a failed progress sync must never interrupt the form. */
+  function syncPartial(){
+    var payload = collect();
+    if (!isEmailish(payload.email)) return;
+    payload.formType = 'partial';
+    payload.token    = getToken();
+    payload.step     = i;
+    payload.updatedAt = new Date().toISOString();
+    payload.submissionCity     = submissionCity;
+    payload.submissionTimezone = submissionTimezone;
+    try {
+      fetch(ENDPOINT, {
+        method:'POST',
+        mode:'no-cors',
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify(payload)
+      }).catch(function(){});
+    } catch(e){}
+  }
+
+  /* Unlike the POSTs this is a plain GET, so it is a CORS-simple request and
+     we can actually read the reply. Any failure falls back to the local
+     draft, which restoreDraft() has already applied by this point. */
+  function resumeFromToken(){
+    var m = /[?&]r=([A-Za-z0-9_\-]+)/.exec(window.location.search);
+    if (!m) return;
+    var tok = m[1];
+    try { localStorage.setItem(TOKEN_KEY, tok); } catch(e){}
+    /* Drop the token from the address bar so it is not bookmarked or shared. */
+    try { history.replaceState({}, '', window.location.pathname); } catch(e){}
+
+    fetch(ENDPOINT + '?action=resume&token=' + encodeURIComponent(tok))
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(j){
+        if (!j || !j.ok || !j.data) return;
+        applyData(j.data, j.step);
+        saveDraft();
+        paint();
+      })
+      .catch(function(){});
+  }
 
   /* ---- confetti: brand-colored burst, fires once on submit ---- */
   function fireConfetti(){
@@ -746,9 +829,12 @@
     requestAnimationFrame(frame);
   }
 
+  /* Local draft first so there is never a blank flash, then the server copy
+     asynchronously overrides it when arriving from a reminder link. */
   restoreDraft();
   syncRoomSelection();
   paint();
+  resumeFromToken();
 </script>
 
 </body>
