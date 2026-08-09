@@ -30,9 +30,12 @@
   .shell{max-width:640px;margin:0 auto;}
 
   /* ===== Masthead (always visible, every screen) ===== */
+  /* text-wrap:balance evens the line lengths instead of filling greedily,
+     which is what left a single orphan word on its own line at phone widths.
+     The max-width caps how wide the intro runs before it wraps at all. */
   .brandhead{text-align:center;margin-bottom:32px;}
-  .brandhead h2{font-family:'Jost',sans-serif;font-weight:600;font-size:1.12rem;letter-spacing:.02em;color:var(--ink);margin-bottom:8px;}
-  .brandhead p{font-size:.95rem;color:var(--ink-mute);font-style:italic;}
+  .brandhead h2{font-family:'Jost',sans-serif;font-weight:600;font-size:1.12rem;letter-spacing:.02em;color:var(--ink);margin-bottom:8px;text-wrap:balance;}
+  .brandhead p{font-size:.95rem;color:var(--ink-mute);font-style:italic;text-wrap:balance;max-width:34ch;margin-inline:auto;}
 
   /* ===== Stepper ===== */
   .stepper{margin-bottom:26px;}
@@ -72,9 +75,14 @@
   .step.on{display:block;}
   @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-  h1{font-size:clamp(1.5rem,3.6vw,1.85rem);font-weight:600;line-height:1.25;letter-spacing:-.015em;margin-bottom:6px;color:var(--head);}
+  h1{font-size:clamp(1.5rem,3.6vw,1.85rem);font-weight:600;line-height:1.25;letter-spacing:-.015em;margin-bottom:6px;color:var(--head);text-wrap:balance;}
   h1 .req{font-size:.8em;vertical-align:middle;}
-  .sub{color:var(--ink-mute);font-size:1rem;margin-bottom:30px;}
+  /* pretty rather than balance here: these run longer, and the job is only to
+     stop a lone word dangling on the final line. */
+  .sub{color:var(--ink-mute);font-size:1rem;margin-bottom:30px;text-wrap:pretty;}
+
+  /* Progress reassurance on the final step. */
+  .laststep{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--clay);background:rgba(164,94,62,.11);border-radius:99px;padding:5px 12px;margin-bottom:12px;}
 
   /* ===== Fields ===== */
   .f{margin-bottom:22px;}
@@ -113,10 +121,6 @@
 
   /* ===== Room cards ===== */
   .rooms{display:grid;gap:16px;margin-top:6px;}
-  /* The pair room is a different product for a different buyer, not a rung on
-     the privacy ladder, so it gets its own visually enclosed group. */
-  .room-group{border:1px solid rgba(164,94,62,.28);border-radius:16px;background:rgba(164,94,62,.05);padding:14px;display:grid;gap:10px;}
-  .room-group-head{font-size:1.02rem;font-weight:600;color:var(--clay);}
   .room-card{position:relative;display:grid;grid-template-columns:180px 1fr;background:#fff;border:1.5px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,background .2s;}
   .room-card:hover{border-color:#cbbda9;}
   .room-card input{position:absolute;opacity:0;pointer-events:none;}
@@ -133,10 +137,6 @@
   .room-was{font-size:.84rem;color:var(--ink-mute);text-decoration:line-through;text-decoration-color:var(--err);}
   .room-now-label{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--clay);font-weight:600;margin-top:3px;}
   .room-now{font-size:1.35rem;font-weight:600;color:var(--ink);}
-  /* Hearts Haven quotes a price for two people while every other card quotes
-     per person. Without this per-person line the $5,000 reads as the most
-     expensive room on the page instead of the second cheapest. */
-  .room-each{font-size:.79rem;color:var(--ink-mute);margin-top:3px;}
   .room-pick-choose,.room-pick-selected{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:99px;font-size:.84rem;font-weight:500;white-space:nowrap;}
   .room-pick-choose{background:var(--dark);color:#fff;transition:background .2s;}
   .room-card:hover .room-pick-choose{background:var(--clay);}
@@ -311,13 +311,13 @@
         <h1>What are your dietary requirements? <span class="req" aria-hidden="true">*</span></h1>
         <p class="sub">Select all that apply</p>
         <div class="choices" data-checkbox-required="diet" tabindex="-1">
-          <label class="ch"><input type="checkbox" name="diet" value="I eat all!"><span class="dt sq"></span>I eat all!</label>
           <label class="ch"><input type="checkbox" name="diet" value="Vegan"><span class="dt sq"></span>Vegan</label>
           <label class="ch"><input type="checkbox" name="diet" value="Vegetarian"><span class="dt sq"></span>Vegetarian</label>
           <label class="ch"><input type="checkbox" name="diet" value="Gluten-Free"><span class="dt sq"></span>Gluten-Free</label>
           <label class="ch"><input type="checkbox" name="diet" value="Nut Allergies"><span class="dt sq"></span>Nut Allergies</label>
           <label class="ch"><input type="checkbox" name="diet" value="Dairy-Free"><span class="dt sq"></span>Dairy-Free</label>
           <label class="ch"><input type="checkbox" name="diet" value="Pescatarian"><span class="dt sq"></span>Pescatarian</label>
+          <label class="ch"><input type="checkbox" name="diet" value="I eat all!"><span class="dt sq"></span>I eat all!</label>
           <label class="ch"><input type="checkbox" name="diet" value="Other" id="dietOther"><span class="dt sq"></span>Others</label>
         </div>
         <p class="err" id="e-diet">Please select at least one.</p>
@@ -327,6 +327,7 @@
       </section>
 
       <section class="step" data-sec="3">
+        <p class="laststep">Last one!</p>
         <h1>What is your preferred room of choice? <span class="req" aria-hidden="true">*</span></h1>
         <p class="sub">Nothing is locked in yet, you can change this later on</p>
 
@@ -353,7 +354,27 @@
           </label>
 
           <label class="room-card">
-            <input type="radio" name="room" value="The Serenity Suite (Private Room, Own Bathroom) - 3250">
+            <input type="radio" name="room" value="Hearts Haven (2 bed shared room) - 2500">
+            <span class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784183852/hearts_haven_1_yizusb.jpg')"></span>
+            <span class="room-body">
+              <span class="room-top">
+                <span class="room-name">Hearts Haven</span>
+                <span class="room-tag">2 Bed Shared Room</span>
+              </span>
+              <span class="room-right">
+                <span class="room-price">
+                  <span class="room-was">$2,800</span>
+                  <span class="room-now-label">Early bird price</span>
+                  <span class="room-now">$2,500</span>
+                </span>
+                <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
+                <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
+              </span>
+            </span>
+          </label>
+
+          <label class="room-card">
+            <input type="radio" name="room" value="The Serenity Suite (Private Room, Own Bathroom) - 3200">
             <span class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784183858/serenity_2_acymvk.jpg')"></span>
             <span class="room-body">
               <span class="room-top">
@@ -363,40 +384,15 @@
               </span>
               <span class="room-right">
                 <span class="room-price">
-                  <span class="room-was">$3,500</span>
+                  <span class="room-was">$3,600</span>
                   <span class="room-now-label">Early bird price</span>
-                  <span class="room-now">$3,250</span>
+                  <span class="room-now">$3,200</span>
                 </span>
                 <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
                 <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
               </span>
             </span>
           </label>
-
-          <div class="room-group">
-            <p class="room-group-head">Planning to come with a friend?</p>
-
-            <label class="room-card">
-              <input type="radio" name="room" value="Hearts Haven (2 bed shared room, price for two) - 5000">
-              <span class="room-photo" style="background-image:url('https://res.cloudinary.com/qzyavrel/image/upload/f_auto,q_auto,w_600/v1784183852/hearts_haven_1_yizusb.jpg')"></span>
-              <span class="room-body">
-                <span class="room-top">
-                  <span class="room-name">Hearts Haven</span>
-                  <span class="room-tag">2 Bed Shared Room &middot; For two</span>
-                </span>
-                <span class="room-right">
-                  <span class="room-price">
-                    <span class="room-was">$6,000</span>
-                    <span class="room-now-label">Early bird &middot; for two</span>
-                    <span class="room-now">$5,000</span>
-                    <span class="room-each">$2,500 each</span>
-                  </span>
-                  <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
-                  <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
-                </span>
-              </span>
-            </label>
-          </div>
 
         </div>
         <p class="err" id="e-room">Please choose a room.</p>
