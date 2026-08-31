@@ -514,9 +514,13 @@
   .room-body{padding:26px 24px 24px;display:flex;flex-direction:column;flex:1;}
   .room-eyebrow{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--clay);margin-bottom:6px;}
   .room-card h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.5rem;line-height:1.15;margin-bottom:14px;color:#2b211a;}
-  .room-price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  /* Anchor first, price second: the struck normal rate sits immediately
+     beside the early bird figure so the saving is read, not calculated.
+     Mirrors the room cards on the application page. */
+  .room-price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:2px;}
   .room-price .was{font-family:'Fraunces',serif;font-size:1.1rem;color:#6a5b4d;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--clay);}
   .room-price strong{font-family:'Fraunces',serif;font-weight:400;font-size:1.6rem;color:var(--clay);line-height:1;}
+  .room-price-label{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--clay);font-weight:600;margin-bottom:2px;}
   .room-list{list-style:none;padding:14px 0 20px;display:grid;gap:9px;margin:0;}
   .room-list li{color:#4f4236;font-size:.95rem;padding-left:20px;position:relative;}
   .room-list li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:rgba(201,161,74,.35);}
@@ -1206,7 +1210,7 @@
         <span class="sec-eyebrow">Your investment</span>
         <h2 class="sec-h serif">Pricing<span class="it">.</span></h2>
         <p class="price-amount serif">Starting from <span class="price-was">2,650 USD</span> <strong>2,350 USD</strong></p>
-        <p class="price-offer">Booking opens soon. Join the waitlist to lock in the <strong>best early-bird price</strong> and get the full retreat brochure.</p>
+        <p class="price-offer">Booking opens soon. Join the waitlist to lock in the <strong>early bird price</strong> and get the full retreat brochure.</p>
         <button class="price-cta" data-open-form>Join the waitlist to receive your $300 off early bird deal<span>&rarr;</span></button>
       </div>
       <div class="pricing-right">
@@ -1232,6 +1236,8 @@
         <div class="room-body">
           <div class="room-eyebrow">Private</div>
           <h3 class="serif">The Serenity Suite</h3>
+          <div class="room-price"><span class="was">$3,600</span> <strong>$3,200</strong></div>
+          <div class="room-price-label">Early bird price</div>
           <ul class="room-list">
             <li>Your own private room</li>
             <li>Your own private bathroom</li>
@@ -1247,6 +1253,8 @@
         <div class="room-body">
           <div class="room-eyebrow">Shared &middot; 2 women</div>
           <h3 class="serif">The Hearts Haven</h3>
+          <div class="room-price"><span class="was">$2,800</span> <strong>$2,500</strong></div>
+          <div class="room-price-label">Early bird price</div>
           <ul class="room-list">
             <li>Shared with 1 other woman</li>
             <li>Your own bed</li>
@@ -1262,6 +1270,8 @@
         <div class="room-body">
           <div class="room-eyebrow">Shared &middot; 3 women</div>
           <h3 class="serif">The Trinity</h3>
+          <div class="room-price"><span class="was">$2,650</span> <strong>$2,350</strong></div>
+          <div class="room-price-label">Early bird price</div>
           <ul class="room-list">
             <li>Shared with 2 other women</li>
             <li>Your own bed</li>
@@ -1337,7 +1347,7 @@
     <div class="panel-grid">
       <div>
         <h2 class="serif">Step through<br>the <span class="it">Portal.</span></h2>
-        <p class="offer-line">Booking opens soon. Join the waitlist for the <strong>best early-bird price</strong> and the full retreat brochure.</p>
+        <p class="offer-line">Booking opens soon. Join the waitlist for the <strong>early bird price</strong> and the full retreat brochure.</p>
       </div>
       <div>
         <form id="waitlist-form">
@@ -1371,9 +1381,9 @@
               <path class="seal-mark" d="M110 92 v16 M102 100 h16"/>
             </svg>
           </div>
-          <div class="mark serif">Welcome</div>
-          <p>You're on the list. Thank you for trusting the timing, we'll be in touch when the portal opens.</p>
-          <a class="call-link" href="https://calendar.app.google/GvrmdmjLFfdiv9Ai6" target="_blank" rel="noopener">Questions already coming up? Talk with Shannon &amp; Debbie &rarr;</a>
+          <div class="mark serif">You&rsquo;re in!</div>
+          <p>Thank you for joining the waitlist. You&rsquo;ve received an email with more info about Portals Retreat and an invitation to share a little more about you. Take a look at your inbox!</p>
+          <a class="call-link" href="https://calendar.app.google/GvrmdmjLFfdiv9Ai6" target="_blank" rel="noopener">Do you have questions? Speak with Shannon &amp; Debbie here &rarr;</a>
         </div>
       </div>
     </div>
@@ -1392,7 +1402,7 @@
     <div class="modal-inner">
       <div id="modalFormWrap">
         <h2 id="modalTitle" class="serif">Step through<br>the <span class="it">Portal.</span></h2>
-        <p class="offer-line">Booking opens soon. Join the waitlist for the <strong>best early-bird price</strong> and the full retreat brochure.</p>
+        <p class="offer-line">Booking opens soon. Join the waitlist for the <strong>early bird price</strong> and the full retreat brochure.</p>
         <form id="modal-waitlist-form">
           <div class="field"><label for="mFirstName">Your name</label><input id="mFirstName" name="firstName" type="text" placeholder="First name" autocomplete="given-name" required /></div>
           <div class="field"><label for="mEmail">Email</label><input id="mEmail" name="email" type="email" placeholder="you@email.com" autocomplete="email" inputmode="email" required /></div>
@@ -1426,8 +1436,8 @@
           </svg>
         </div>
         <div class="mark serif">Welcome</div>
-        <p>You're on the list. Thank you for trusting the timing, we'll be in touch when the portal opens.</p>
-        <a class="call-link" href="https://calendar.app.google/GvrmdmjLFfdiv9Ai6" target="_blank" rel="noopener">Questions already coming up? Talk with Shannon &amp; Debbie &rarr;</a>
+        <p>Thank you for joining the waitlist. You&rsquo;ve received an email with more info about Portals Retreat and an invitation to share a little more about you. Take a look at your inbox!</p>
+        <a class="call-link" href="https://calendar.app.google/GvrmdmjLFfdiv9Ai6" target="_blank" rel="noopener">Do you have questions? Speak with Shannon &amp; Debbie here &rarr;</a>
       </div>
     </div>
   </div>
@@ -1639,7 +1649,76 @@
     try {
       await fetch(ENDPOINT, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body:JSON.stringify(data) });
       wrap.style.display='none'; successEl.classList.add('show');
+      fireConfetti();
     } catch (err) { btn.disabled=false; btn.textContent='Join the waitlist'; alert('Something went wrong — please try again.'); }
+  }
+
+  /* ---- confetti: brand-colored burst, fires once on submit ----
+     Same implementation as application.html's fireConfetti(), copied
+     verbatim for a consistent celebration moment across both forms. */
+  function fireConfetti(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const canvas = document.createElement('canvas');
+    canvas.setAttribute('aria-hidden', 'true');
+    canvas.style.cssText = 'position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:999;';
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+
+    function resize(){
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const colors = ['#c9a14a', '#a45e3e', '#e8cf8e', '#2b211a', '#ffffff'];
+    const pieces = [];
+    const count = 130;
+    for (let n = 0; n < count; n++) {
+      pieces.push({
+        x: Math.random() * window.innerWidth,
+        y: -20 - Math.random() * window.innerHeight * 0.4,
+        w: 6 + Math.random() * 6,
+        h: 9 + Math.random() * 7,
+        color: colors[n % colors.length],
+        rot: Math.random() * Math.PI * 2,
+        vRot: (Math.random() - 0.5) * 0.28,
+        vY: 2 + Math.random() * 2.6,
+        vX: (Math.random() - 0.5) * 1.8,
+        opacity: 1
+      });
+    }
+
+    let start = null;
+    const duration = 3000;
+    function frame(ts){
+      if (!start) start = ts;
+      const elapsed = ts - start;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      pieces.forEach(p => {
+        p.x += p.vX; p.y += p.vY; p.rot += p.vRot;
+        if (elapsed > duration * 0.6) {
+          p.opacity = Math.max(0, 1 - (elapsed - duration * 0.6) / (duration * 0.4));
+        }
+        ctx.save();
+        ctx.globalAlpha = p.opacity;
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      });
+      if (elapsed < duration) {
+        requestAnimationFrame(frame);
+      } else {
+        window.removeEventListener('resize', resize);
+        canvas.remove();
+      }
+    }
+    requestAnimationFrame(frame);
   }
   // in-page panel form
   const mainForm = document.getElementById('waitlist-form');
