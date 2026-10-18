@@ -1,1 +1,13 @@
-/application    /application.html   200
+# This domain now only hosts the application form. The retreat itself lives
+# at portalsretreat.com. First matching rule wins, so the form stays on top.
+
+# Application form (portalsretreat.com's Apply buttons and resume links use it)
+/application        /application.html   200
+/application.html   /application.html   200
+/Favicon.png        /Favicon.png        200
+/robots.txt         /robots.txt         200
+
+# Everything that was the old retreat page moves to the new site, permanently
+/sitemap.xml        https://portalsretreat.com/sitemap-index.xml   301!
+/llms.txt           https://portalsretreat.com/llms.txt            301!
+/*                  https://portalsretreat.com/                    301!
