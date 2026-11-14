@@ -139,6 +139,8 @@
   .room-was{font-size:.84rem;color:var(--ink-mute);text-decoration:line-through;text-decoration-color:var(--err);}
   .room-now-label{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--clay);font-weight:600;margin-top:3px;}
   .room-now{font-size:1.35rem;font-weight:600;color:var(--ink);}
+  /* "USD" after the price, as on portalsretreat.com: same colour, smaller. */
+  .room-cur{font-size:.6em;letter-spacing:.04em;}
   .room-pick-choose,.room-pick-selected{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:99px;font-size:.84rem;font-weight:500;white-space:nowrap;}
   .room-pick-choose{background:var(--dark);color:#fff;transition:background .2s;}
   .room-card:hover .room-pick-choose{background:var(--clay);}
@@ -347,7 +349,7 @@
                 <span class="room-price">
                   <span class="room-was">$2,650</span>
                   <span class="room-now-label">Early bird price</span>
-                  <span class="room-now">$2,350</span>
+                  <span class="room-now">$2,350 <span class="room-cur">USD</span></span>
                 </span>
                 <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
                 <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
@@ -367,7 +369,7 @@
                 <span class="room-price">
                   <span class="room-was">$2,800</span>
                   <span class="room-now-label">Early bird price</span>
-                  <span class="room-now">$2,500</span>
+                  <span class="room-now">$2,500 <span class="room-cur">USD</span></span>
                 </span>
                 <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
                 <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
@@ -388,7 +390,7 @@
                 <span class="room-price">
                   <span class="room-was">$3,600</span>
                   <span class="room-now-label">Early bird price</span>
-                  <span class="room-now">$3,200</span>
+                  <span class="room-now">$3,200 <span class="room-cur">USD</span></span>
                 </span>
                 <span class="room-pick-choose">Choose this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
                 <span class="room-pick-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
