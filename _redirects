@@ -1,12 +1,12 @@
 # Everything on this domain now lives at portalsretreat.com. First matching
 # rule wins.
 
-# The application form moved to portalsretreat.com/apply/ (Debbie, Nov 15
+# The application form moved to portalsretreat.com/apply (Debbie, Nov 15
 # 2026). Netlify keeps the query string, so a reminder email's resume link
 # (/application?r=...) still opens her saved answers on the new page.
-/application        https://portalsretreat.com/apply/   301!
-/application/       https://portalsretreat.com/apply/   301!
-/application.html   https://portalsretreat.com/apply/   301!
+/application        https://portalsretreat.com/apply    301!
+/application/       https://portalsretreat.com/apply    301!
+/application.html   https://portalsretreat.com/apply    301!
 /robots.txt         /robots.txt         200
 
 # Everything that was the old retreat page moves to the new site, permanently
