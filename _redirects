@@ -1,10 +1,12 @@
-# This domain now only hosts the application form. The retreat itself lives
-# at portalsretreat.com. First matching rule wins, so the form stays on top.
+# Everything on this domain now lives at portalsretreat.com. First matching
+# rule wins.
 
-# Application form (portalsretreat.com's Apply buttons and resume links use it)
-/application        /application.html   200
-/application.html   /application.html   200
-/Favicon.png        /Favicon.png        200
+# The application form moved to portalsretreat.com/apply/ (Debbie, Nov 15
+# 2026). Netlify keeps the query string, so a reminder email's resume link
+# (/application?r=...) still opens her saved answers on the new page.
+/application        https://portalsretreat.com/apply/   301!
+/application/       https://portalsretreat.com/apply/   301!
+/application.html   https://portalsretreat.com/apply/   301!
 /robots.txt         /robots.txt         200
 
 # Everything that was the old retreat page moves to the new site, permanently
